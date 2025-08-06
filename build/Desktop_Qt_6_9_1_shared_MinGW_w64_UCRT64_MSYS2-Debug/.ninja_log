@@ -1,0 +1,27 @@
+# ninja log v7
+6	391	7761791549078625	Spice_autogen/timestamp	5647a026c93418da
+6	391	7761791549078625	Spice_autogen/mocs_compilation.cpp	5647a026c93418da
+6	391	7761791549078625	C:/Users/Arman/Documents/Qt/Spice/build/Desktop_Qt_6_9_1_shared_MinGW_w64_UCRT64_MSYS2-Debug/Spice_autogen/timestamp	5647a026c93418da
+6	391	7761791549078625	C:/Users/Arman/Documents/Qt/Spice/build/Desktop_Qt_6_9_1_shared_MinGW_w64_UCRT64_MSYS2-Debug/Spice_autogen/mocs_compilation.cpp	5647a026c93418da
+394	1402	7761791549468766	CMakeFiles/Spice.dir/Spice_autogen/mocs_compilation.cpp.obj	e975a2641939024d
+400	1512	7761791549528617	CMakeFiles/Spice.dir/main.cpp.obj	9baa4642cd9b13f4
+406	1697	7761791549588693	CMakeFiles/Spice.dir/mainwindow.cpp.obj	947e2e718b6073d4
+1697	1832	7761791562500008	Spice.exe	8c4d25b098dd516c
+9	142	7761796356711526	Spice_autogen/timestamp	5647a026c93418da
+9	142	7761796356711526	Spice_autogen/mocs_compilation.cpp	5647a026c93418da
+9	142	7761796356711526	C:/Users/Arman/Documents/Qt/Spice/build/Desktop_Qt_6_9_1_shared_MinGW_w64_UCRT64_MSYS2-Debug/Spice_autogen/timestamp	5647a026c93418da
+9	142	7761796356711526	C:/Users/Arman/Documents/Qt/Spice/build/Desktop_Qt_6_9_1_shared_MinGW_w64_UCRT64_MSYS2-Debug/Spice_autogen/mocs_compilation.cpp	5647a026c93418da
+143	1253	7761796358050930	CMakeFiles/Spice.dir/mainwindow.cpp.obj	947e2e718b6073d4
+1253	1384	7761796369145860	Spice.exe	8c4d25b098dd516c
+9	151	7761797209918848	Spice_autogen/timestamp	5647a026c93418da
+9	151	7761797209918848	Spice_autogen/mocs_compilation.cpp	5647a026c93418da
+9	151	7761797209918848	C:/Users/Arman/Documents/Qt/Spice/build/Desktop_Qt_6_9_1_shared_MinGW_w64_UCRT64_MSYS2-Debug/Spice_autogen/timestamp	5647a026c93418da
+9	151	7761797209918848	C:/Users/Arman/Documents/Qt/Spice/build/Desktop_Qt_6_9_1_shared_MinGW_w64_UCRT64_MSYS2-Debug/Spice_autogen/mocs_compilation.cpp	5647a026c93418da
+151	1215	7761797211339012	CMakeFiles/Spice.dir/mainwindow.cpp.obj	947e2e718b6073d4
+1215	1340	7761797221950835	Spice.exe	8c4d25b098dd516c
+8	142	7761797665217056	Spice_autogen/timestamp	5647a026c93418da
+8	142	7761797665217056	Spice_autogen/mocs_compilation.cpp	5647a026c93418da
+8	142	7761797665217056	C:/Users/Arman/Documents/Qt/Spice/build/Desktop_Qt_6_9_1_shared_MinGW_w64_UCRT64_MSYS2-Debug/Spice_autogen/timestamp	5647a026c93418da
+8	142	7761797665217056	C:/Users/Arman/Documents/Qt/Spice/build/Desktop_Qt_6_9_1_shared_MinGW_w64_UCRT64_MSYS2-Debug/Spice_autogen/mocs_compilation.cpp	5647a026c93418da
+142	1205	7761797666547057	CMakeFiles/Spice.dir/mainwindow.cpp.obj	947e2e718b6073d4
+1205	1338	7761797677186039	Spice.exe	8c4d25b098dd516c
