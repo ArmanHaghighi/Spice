@@ -79,7 +79,8 @@ void MainWindow::on_actionResistor_toggled(bool checked)
             // disconnect(ui->schematicView, &QGraphicsView::mousePressEvent,
             //                   this, &MainWindow::placeElementOnClick);
         }
-    }    void MainWindow::on_actionCapacitor_toggled(bool checked)
+    }
+void MainWindow::on_actionCapacitor_toggled(bool checked)
     {
         std::cout<<"Cap"<<std::endl;
         if(checked) {
@@ -97,7 +98,8 @@ void MainWindow::on_actionResistor_toggled(bool checked)
             // disconnect(ui->schematicView, &QGraphicsView::mousePressEvent,
             //                   this, &MainWindow::placeElementOnClick);
         }
-    }    void MainWindow::on_actionInductor_toggled(bool checked)
+    }
+    void MainWindow::on_actionInductor_toggled(bool checked)
     {
         std::cout<<"Ind"<<std::endl;
         if(checked) {
@@ -143,9 +145,7 @@ void MainWindow::on_actionResistor_toggled(bool checked)
     // {
     //     std::cout<<"AddE"<<std::endl;
     //     // disableing other actions
-    //     for(QAction *a:ui->toolBar->actions()){
-    //         if (a!=ui->actionAdd_Element)
-    //             a->setChecked(false);
+    //
     //     }
     // }
 
@@ -235,15 +235,21 @@ void MainWindow::tileSubWindowsVertically() const {
 // }
 
 
-void MainWindow::placeElementOnClick(QMouseEvent *event)
+void MainWindow::
+placeElementOnClick(QMouseEvent *event)
 {
     if (event->button() != Qt::LeftButton || currentTool == ToolType::None)
         return;
 
     QPointF screenPos = ui->schematicView->mapToScene(event->pos());
-    qreal x = qRound(screenPos.x()/50)*50;
-    qreal y = qRound(screenPos.y()/50)*50;
-
+    qreal x,y;
+    if (ToolType::Gnd==currentTool) {
+         x = qRound(screenPos.x()/50)*50+25;
+         y = qRound(screenPos.y()/50)*50;
+    }else {
+         x = qRound(screenPos.x()/50)*50;
+         y = qRound(screenPos.y()/50)*50;
+    }
     Element* newElement = nullptr;
 
     switch(currentTool) {
@@ -255,6 +261,9 @@ void MainWindow::placeElementOnClick(QMouseEvent *event)
             break;
         case ToolType::Inductor:
             newElement = new Inductor();
+            break;
+        case ToolType::Gnd:
+            newElement = new Gnd();
             break;
         case ToolType::Wire:
             // newElement = new Wire();
@@ -286,5 +295,44 @@ void MainWindow::on_actionDelete_toggled(bool arg1)
 void MainWindow::on_actionWire_toggled(bool arg1)
 {
 
+}
+
+
+void MainWindow::on_actionAdd_Element_toggled(bool arg1)
+{
+    for(QAction *a:ui->toolBar->actions()){
+                if (a!=ui->actionAdd_Element)
+            a->setChecked(false);
+    }
+    AddElementDialog* addElementdDialog = new AddElementDialog;
+    if (addElementdDialog->exec() == QDialog::Accepted) {
+        cout<<"Add Element"<<endl;
+    }
+    else {
+        ui->actionAdd_Element->setChecked(false);
+    }
+
+    delete addElementdDialog;
+}
+
+
+void MainWindow::on_actionGnd_toggled(bool checked)
+{
+    std::cout<<"Gnd"<<std::endl;
+    if(checked) {
+        currentTool=ToolType::Gnd;
+        // disableing other actions
+        for(QAction *a:ui->toolBar->actions()){
+            if (a!=ui->actionGnd)
+                a->setChecked(false);
+        }
+        ui->schematicView->setCursor(Qt::CrossCursor);
+    }
+    else if(currentTool==ToolType::Gnd) {
+        ui->schematicView->setCursor(Qt::ArrowCursor);
+        currentTool=ToolType::None;
+        // disconnect(ui->schematicView, &QGraphicsView::mousePressEvent,
+        //                   this, &MainWindow::placeElementOnClick);
+    }
 }
 

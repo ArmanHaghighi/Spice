@@ -82,6 +82,8 @@
     <addaction name="actionResistor"/>
     <addaction name="actionCapacitor"/>
     <addaction name="actionInductor"/>
+    <addaction name="actionWire"/>
+    <addaction name="actionGnd"/>
     <addaction name="separator"/>
     <addaction name="actionDuplicate"/>
     <addaction name="actionDelete"/>
@@ -114,6 +116,7 @@
    <addaction name="actionResistor"/>
    <addaction name="actionCapacitor"/>
    <addaction name="actionInductor"/>
+   <addaction name="actionGnd"/>
    <addaction name="actionWire"/>
    <addaction name="separator"/>
    <addaction name="actionDuplicate"/>
@@ -268,7 +271,25 @@
     <string>Resistor</string>
    </property>
    <property name="shortcut">
-    <string>R</string>
+    <string>W</string>
+   </property>
+  </action>
+  <action name="actionGnd">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/assets/computer.png</normaloff>:/icons/assets/computer.png</iconset>
+   </property>
+   <property name="text">
+    <string>GND</string>
+   </property>
+   <property name="toolTip">
+    <string>Ground</string>
+   </property>
+   <property name="shortcut">
+    <string>G</string>
    </property>
   </action>
  </widget>

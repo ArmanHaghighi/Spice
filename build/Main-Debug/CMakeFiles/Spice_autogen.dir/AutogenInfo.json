@@ -78,6 +78,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/Arman/Documents/Qt/Spice/addelementdialog.h",
+			"MU",
+			"EWIEGA46WW/moc_addelementdialog.cpp",
+			null
+		],
+		[
 			"C:/Users/Arman/Documents/Qt/Spice/elements.h",
 			"MU",
 			"EWIEGA46WW/moc_elements.cpp",
@@ -142,6 +148,7 @@
 	"SETTINGS_FILE" : "C:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/CMakeFiles/Spice_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "C:/Users/Arman/Documents/Qt/Spice/addelementdialog.cpp", "MU", null ],
 		[ "C:/Users/Arman/Documents/Qt/Spice/elements.cpp", "MU", null ],
 		[ "C:/Users/Arman/Documents/Qt/Spice/main.cpp", "MU", null ],
 		[ "C:/Users/Arman/Documents/Qt/Spice/mainwindow.cpp", "MU", null ]

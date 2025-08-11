@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[1];
-    char stringdata0[11];
+    QByteArrayData data[17];
+    char stringdata0[376];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,10 +32,37 @@ struct qt_meta_stringdata_MainWindow_t {
     )
 static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
     {
-QT_MOC_LITERAL(0, 0, 10) // "MainWindow"
+QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
+QT_MOC_LITERAL(1, 11, 22), // "on_actionNew_triggered"
+QT_MOC_LITERAL(2, 34, 0), // ""
+QT_MOC_LITERAL(3, 35, 23), // "on_actionOpen_triggered"
+QT_MOC_LITERAL(4, 59, 23), // "on_actionSave_triggered"
+QT_MOC_LITERAL(5, 83, 28), // "on_actionTransient_triggered"
+QT_MOC_LITERAL(6, 112, 27), // "on_actionAc_Sweep_triggered"
+QT_MOC_LITERAL(7, 140, 27), // "on_actionDc_Sweep_triggered"
+QT_MOC_LITERAL(8, 168, 24), // "on_actionPhase_triggered"
+QT_MOC_LITERAL(9, 193, 25), // "on_actionEscape_triggered"
+QT_MOC_LITERAL(10, 219, 25), // "on_actionResistor_toggled"
+QT_MOC_LITERAL(11, 245, 4), // "arg1"
+QT_MOC_LITERAL(12, 250, 25), // "on_actionInductor_toggled"
+QT_MOC_LITERAL(13, 276, 26), // "on_actionDuplicate_toggled"
+QT_MOC_LITERAL(14, 303, 23), // "on_actionDelete_toggled"
+QT_MOC_LITERAL(15, 327, 21), // "on_actionWire_toggled"
+QT_MOC_LITERAL(16, 349, 26) // "on_actionCapacitor_toggled"
 
     },
-    "MainWindow"
+    "MainWindow\0on_actionNew_triggered\0\0"
+    "on_actionOpen_triggered\0on_actionSave_triggered\0"
+    "on_actionTransient_triggered\0"
+    "on_actionAc_Sweep_triggered\0"
+    "on_actionDc_Sweep_triggered\0"
+    "on_actionPhase_triggered\0"
+    "on_actionEscape_triggered\0"
+    "on_actionResistor_toggled\0arg1\0"
+    "on_actionInductor_toggled\0"
+    "on_actionDuplicate_toggled\0"
+    "on_actionDelete_toggled\0on_actionWire_toggled\0"
+    "on_actionCapacitor_toggled"
 };
 #undef QT_MOC_LITERAL
 
@@ -45,22 +72,71 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
+ // slots: name, argc, parameters, tag, flags
+       1,    0,   84,    2, 0x08 /* Private */,
+       3,    0,   85,    2, 0x08 /* Private */,
+       4,    0,   86,    2, 0x08 /* Private */,
+       5,    0,   87,    2, 0x08 /* Private */,
+       6,    0,   88,    2, 0x08 /* Private */,
+       7,    0,   89,    2, 0x08 /* Private */,
+       8,    0,   90,    2, 0x08 /* Private */,
+       9,    0,   91,    2, 0x08 /* Private */,
+      10,    1,   92,    2, 0x08 /* Private */,
+      12,    1,   95,    2, 0x08 /* Private */,
+      13,    1,   98,    2, 0x08 /* Private */,
+      14,    1,  101,    2, 0x08 /* Private */,
+      15,    1,  104,    2, 0x08 /* Private */,
+      16,    1,  107,    2, 0x08 /* Private */,
+
+ // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,   11,
+    QMetaType::Void, QMetaType::Bool,   11,
+    QMetaType::Void, QMetaType::Bool,   11,
+    QMetaType::Void, QMetaType::Bool,   11,
+    QMetaType::Void, QMetaType::Bool,   11,
+    QMetaType::Void, QMetaType::Bool,   11,
+
        0        // eod
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    (void)_o;
-    (void)_id;
-    (void)_c;
-    (void)_a;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<MainWindow *>(_o);
+        (void)_t;
+        switch (_id) {
+        case 0: _t->on_actionNew_triggered(); break;
+        case 1: _t->on_actionOpen_triggered(); break;
+        case 2: _t->on_actionSave_triggered(); break;
+        case 3: _t->on_actionTransient_triggered(); break;
+        case 4: _t->on_actionAc_Sweep_triggered(); break;
+        case 5: _t->on_actionDc_Sweep_triggered(); break;
+        case 6: _t->on_actionPhase_triggered(); break;
+        case 7: _t->on_actionEscape_triggered(); break;
+        case 8: _t->on_actionResistor_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 9: _t->on_actionInductor_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 10: _t->on_actionDuplicate_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 11: _t->on_actionDelete_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 12: _t->on_actionWire_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 13: _t->on_actionCapacitor_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        default: ;
+        }
+    }
 }
 
 QT_INIT_METAOBJECT const QMetaObject MainWindow::staticMetaObject = { {
@@ -89,7 +165,130 @@ void *MainWindow::qt_metacast(const char *_clname)
 int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 14)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 14;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 14)
+            *reinterpret_cast<int*>(_a[0]) = -1;
+        _id -= 14;
+    }
     return _id;
+}
+struct qt_meta_stringdata_SchematicView_t {
+    QByteArrayData data[5];
+    char stringdata0[47];
+};
+#define QT_MOC_LITERAL(idx, ofs, len) \
+    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
+    qptrdiff(offsetof(qt_meta_stringdata_SchematicView_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
+    )
+static const qt_meta_stringdata_SchematicView_t qt_meta_stringdata_SchematicView = {
+    {
+QT_MOC_LITERAL(0, 0, 13), // "SchematicView"
+QT_MOC_LITERAL(1, 14, 12), // "mousePressed"
+QT_MOC_LITERAL(2, 27, 0), // ""
+QT_MOC_LITERAL(3, 28, 12), // "QMouseEvent*"
+QT_MOC_LITERAL(4, 41, 5) // "event"
+
+    },
+    "SchematicView\0mousePressed\0\0QMouseEvent*\0"
+    "event"
+};
+#undef QT_MOC_LITERAL
+
+static const uint qt_meta_data_SchematicView[] = {
+
+ // content:
+       8,       // revision
+       0,       // classname
+       0,    0, // classinfo
+       1,   14, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       1,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags
+       1,    1,   19,    2, 0x06 /* Public */,
+
+ // signals: parameters
+    QMetaType::Void, 0x80000000 | 3,    4,
+
+       0        // eod
+};
+
+void SchematicView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<SchematicView *>(_o);
+        (void)_t;
+        switch (_id) {
+        case 0: _t->mousePressed((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
+        default: ;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _t = void (SchematicView::*)(QMouseEvent * );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&SchematicView::mousePressed)) {
+                *result = 0;
+                return;
+            }
+        }
+    }
+}
+
+QT_INIT_METAOBJECT const QMetaObject SchematicView::staticMetaObject = { {
+    QMetaObject::SuperData::link<QGraphicsView::staticMetaObject>(),
+    qt_meta_stringdata_SchematicView.data,
+    qt_meta_data_SchematicView,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
+
+
+const QMetaObject *SchematicView::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *SchematicView::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_SchematicView.stringdata0))
+        return static_cast<void*>(this);
+    return QGraphicsView::qt_metacast(_clname);
+}
+
+int SchematicView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QGraphicsView::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<int*>(_a[0]) = -1;
+        _id -= 1;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void SchematicView::mousePressed(QMouseEvent * _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

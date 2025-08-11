@@ -42,6 +42,7 @@ public:
     QAction *actionDuplicate;
     QAction *actionDelete;
     QAction *actionWire;
+    QAction *actionGnd;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QMdiArea *mdiArea;
@@ -128,6 +129,12 @@ public:
         QIcon icon9;
         icon9.addFile(QString::fromUtf8(":/icons/assets/wire.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionWire->setIcon(icon9);
+        actionGnd = new QAction(MainWindow);
+        actionGnd->setObjectName(QString::fromUtf8("actionGnd"));
+        actionGnd->setCheckable(true);
+        QIcon icon10;
+        icon10.addFile(QString::fromUtf8(":/icons/assets/computer.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionGnd->setIcon(icon10);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -191,6 +198,8 @@ public:
         menuSchematic->addAction(actionResistor);
         menuSchematic->addAction(actionCapacitor);
         menuSchematic->addAction(actionInductor);
+        menuSchematic->addAction(actionWire);
+        menuSchematic->addAction(actionGnd);
         menuSchematic->addSeparator();
         menuSchematic->addAction(actionDuplicate);
         menuSchematic->addAction(actionDelete);
@@ -207,6 +216,7 @@ public:
         toolBar->addAction(actionResistor);
         toolBar->addAction(actionCapacitor);
         toolBar->addAction(actionInductor);
+        toolBar->addAction(actionGnd);
         toolBar->addAction(actionWire);
         toolBar->addSeparator();
         toolBar->addAction(actionDuplicate);
@@ -253,7 +263,14 @@ public:
 #endif // QT_CONFIG(shortcut)
         actionWire->setText(QCoreApplication::translate("MainWindow", "Resistor", nullptr));
 #if QT_CONFIG(shortcut)
-        actionWire->setShortcut(QCoreApplication::translate("MainWindow", "R", nullptr));
+        actionWire->setShortcut(QCoreApplication::translate("MainWindow", "W", nullptr));
+#endif // QT_CONFIG(shortcut)
+        actionGnd->setText(QCoreApplication::translate("MainWindow", "GND", nullptr));
+#if QT_CONFIG(tooltip)
+        actionGnd->setToolTip(QCoreApplication::translate("MainWindow", "Ground", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(shortcut)
+        actionGnd->setShortcut(QCoreApplication::translate("MainWindow", "G", nullptr));
 #endif // QT_CONFIG(shortcut)
         Schematic->setWindowTitle(QCoreApplication::translate("MainWindow", "Schematic", nullptr));
         Simulation->setWindowTitle(QCoreApplication::translate("MainWindow", "Simulation", nullptr));

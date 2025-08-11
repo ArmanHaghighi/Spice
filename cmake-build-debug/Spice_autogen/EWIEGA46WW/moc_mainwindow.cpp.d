@@ -1,5 +1,6 @@
 C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/Arman/Documents/Qt/Spice/mainwindow.h \
   C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen/moc_predefs.h \
+  C:/Users/Arman/Documents/Qt/Spice/addelementdialog.h \
   C:/Users/Arman/Documents/Qt/Spice/elements.h \
   C:/msys64/ucrt64/include/QtCore/qalgorithms.h \
   C:/msys64/ucrt64/include/QtCore/qarraydata.h \
@@ -95,12 +96,14 @@ C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen/EWIEGA46WW/moc
   C:/msys64/ucrt64/include/QtGui/qvector2d.h \
   C:/msys64/ucrt64/include/QtGui/qwindowdefs.h \
   C:/msys64/ucrt64/include/QtGui/qwindowdefs_win.h \
+  C:/msys64/ucrt64/include/QtWidgets/QDialog \
   C:/msys64/ucrt64/include/QtWidgets/QGraphicsItem \
   C:/msys64/ucrt64/include/QtWidgets/QGraphicsView \
   C:/msys64/ucrt64/include/QtWidgets/QMainWindow \
   C:/msys64/ucrt64/include/QtWidgets/QMdiArea \
   C:/msys64/ucrt64/include/QtWidgets/QMdiSubWindow \
   C:/msys64/ucrt64/include/QtWidgets/qabstractscrollarea.h \
+  C:/msys64/ucrt64/include/QtWidgets/qdialog.h \
   C:/msys64/ucrt64/include/QtWidgets/qframe.h \
   C:/msys64/ucrt64/include/QtWidgets/qgraphicsitem.h \
   C:/msys64/ucrt64/include/QtWidgets/qgraphicsscene.h \

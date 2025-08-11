@@ -21,5 +21,9 @@
         <file>assets/duplicate.png</file>
         <file>assets/wire.png</file>
         <file>assets/Inductor_symbol.svg</file>
+        <file>assets/computer.png</file>
+        <file>assets/diagram (1).png</file>
+        <file>assets/diagram (2).png</file>
+        <file>assets/diagram.png</file>
     </qresource>
 </RCC>

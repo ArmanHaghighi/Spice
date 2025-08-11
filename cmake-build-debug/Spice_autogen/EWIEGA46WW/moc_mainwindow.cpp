@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[17];
-    char stringdata0[376];
+    QByteArrayData data[19];
+    char stringdata0[426];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -48,7 +48,9 @@ QT_MOC_LITERAL(12, 250, 25), // "on_actionInductor_toggled"
 QT_MOC_LITERAL(13, 276, 26), // "on_actionDuplicate_toggled"
 QT_MOC_LITERAL(14, 303, 23), // "on_actionDelete_toggled"
 QT_MOC_LITERAL(15, 327, 21), // "on_actionWire_toggled"
-QT_MOC_LITERAL(16, 349, 26) // "on_actionCapacitor_toggled"
+QT_MOC_LITERAL(16, 349, 26), // "on_actionCapacitor_toggled"
+QT_MOC_LITERAL(17, 376, 28), // "on_actionAdd_Element_toggled"
+QT_MOC_LITERAL(18, 405, 20) // "on_actionGnd_toggled"
 
     },
     "MainWindow\0on_actionNew_triggered\0\0"
@@ -62,7 +64,9 @@ QT_MOC_LITERAL(16, 349, 26) // "on_actionCapacitor_toggled"
     "on_actionInductor_toggled\0"
     "on_actionDuplicate_toggled\0"
     "on_actionDelete_toggled\0on_actionWire_toggled\0"
-    "on_actionCapacitor_toggled"
+    "on_actionCapacitor_toggled\0"
+    "on_actionAdd_Element_toggled\0"
+    "on_actionGnd_toggled"
 };
 #undef QT_MOC_LITERAL
 
@@ -72,7 +76,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -80,20 +84,22 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   84,    2, 0x08 /* Private */,
-       3,    0,   85,    2, 0x08 /* Private */,
-       4,    0,   86,    2, 0x08 /* Private */,
-       5,    0,   87,    2, 0x08 /* Private */,
-       6,    0,   88,    2, 0x08 /* Private */,
-       7,    0,   89,    2, 0x08 /* Private */,
-       8,    0,   90,    2, 0x08 /* Private */,
-       9,    0,   91,    2, 0x08 /* Private */,
-      10,    1,   92,    2, 0x08 /* Private */,
-      12,    1,   95,    2, 0x08 /* Private */,
-      13,    1,   98,    2, 0x08 /* Private */,
-      14,    1,  101,    2, 0x08 /* Private */,
-      15,    1,  104,    2, 0x08 /* Private */,
-      16,    1,  107,    2, 0x08 /* Private */,
+       1,    0,   94,    2, 0x08 /* Private */,
+       3,    0,   95,    2, 0x08 /* Private */,
+       4,    0,   96,    2, 0x08 /* Private */,
+       5,    0,   97,    2, 0x08 /* Private */,
+       6,    0,   98,    2, 0x08 /* Private */,
+       7,    0,   99,    2, 0x08 /* Private */,
+       8,    0,  100,    2, 0x08 /* Private */,
+       9,    0,  101,    2, 0x08 /* Private */,
+      10,    1,  102,    2, 0x08 /* Private */,
+      12,    1,  105,    2, 0x08 /* Private */,
+      13,    1,  108,    2, 0x08 /* Private */,
+      14,    1,  111,    2, 0x08 /* Private */,
+      15,    1,  114,    2, 0x08 /* Private */,
+      16,    1,  117,    2, 0x08 /* Private */,
+      17,    1,  120,    2, 0x08 /* Private */,
+      18,    1,  123,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -104,6 +110,8 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,   11,
+    QMetaType::Void, QMetaType::Bool,   11,
     QMetaType::Void, QMetaType::Bool,   11,
     QMetaType::Void, QMetaType::Bool,   11,
     QMetaType::Void, QMetaType::Bool,   11,
@@ -134,6 +142,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 11: _t->on_actionDelete_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 12: _t->on_actionWire_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 13: _t->on_actionCapacitor_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 14: _t->on_actionAdd_Element_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 15: _t->on_actionGnd_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -168,13 +178,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 16;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 16)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 14;
+        _id -= 16;
     }
     return _id;
 }

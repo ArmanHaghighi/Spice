@@ -1,5 +1,7 @@
 Spice_autogen/timestamp: \
 	C:/Users/Arman/Documents/Qt/Spice/CMakeLists.txt \
+	C:/Users/Arman/Documents/Qt/Spice/addelementdialog.cpp \
+	C:/Users/Arman/Documents/Qt/Spice/addelementdialog.h \
 	C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeCXXCompiler.cmake \
 	C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeRCCompiler.cmake \
 	C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeSystem.cmake \
@@ -104,12 +106,14 @@ Spice_autogen/timestamp: \
 	C:/msys64/ucrt64/include/QtGui/qvector2d.h \
 	C:/msys64/ucrt64/include/QtGui/qwindowdefs.h \
 	C:/msys64/ucrt64/include/QtGui/qwindowdefs_win.h \
+	C:/msys64/ucrt64/include/QtWidgets/QDialog \
 	C:/msys64/ucrt64/include/QtWidgets/QGraphicsItem \
 	C:/msys64/ucrt64/include/QtWidgets/QGraphicsView \
 	C:/msys64/ucrt64/include/QtWidgets/QMainWindow \
 	C:/msys64/ucrt64/include/QtWidgets/QMdiArea \
 	C:/msys64/ucrt64/include/QtWidgets/QMdiSubWindow \
 	C:/msys64/ucrt64/include/QtWidgets/qabstractscrollarea.h \
+	C:/msys64/ucrt64/include/QtWidgets/qdialog.h \
 	C:/msys64/ucrt64/include/QtWidgets/qframe.h \
 	C:/msys64/ucrt64/include/QtWidgets/qgraphicsitem.h \
 	C:/msys64/ucrt64/include/QtWidgets/qgraphicsscene.h \
@@ -507,5 +511,6 @@ Spice_autogen/timestamp: \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-windres.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/WindowsPaths.cmake \
+	C:/Users/Arman/Documents/Qt/Spice/addelementdialog.ui \
 	C:/Users/Arman/Documents/Qt/Spice/mainwindow.ui \
 	C:/msys64/ucrt64/bin/cmake.exe

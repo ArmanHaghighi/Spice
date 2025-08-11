@@ -1,10 +1,13 @@
 #include "elements.h"
 
+#include <QGraphicsScene>
+#include <QGraphicsSceneDragDropEvent>
 #include <qpainter.h>
 #include <QPixmap>
 Element::Element() {
     setFlag(QGraphicsItem::ItemIsSelectable);
     setFlag(QGraphicsItem::ItemIsMovable);
+    setFlag(QGraphicsItem::ItemSendsGeometryChanges);
     firstLead={Element::boundingRect().right(),0};
     secondLead={Element::boundingRect().left(),0};
 }
@@ -13,6 +16,29 @@ QRectF Element::boundingRect() const {
     return {-25,-10,50,20};
 
 }
+
+QVariant Element::itemChange(GraphicsItemChange change, const QVariant &value) {
+    if (change == QGraphicsItem::ItemPositionChange&&scene()) {
+        QPointF newPos = value.toPointF();
+        if (dynamic_cast<Gnd*>(this)) {
+            newPos.setX(qRound(newPos.x()/50)*50+25);
+            newPos.setY(qRound(newPos.y()/50)*50);
+        }else {
+            newPos.setX(qRound(newPos.x()/50)*50);
+            newPos.setY(qRound(newPos.y()/50)*50);
+        }
+        return newPos;
+    }
+    return QGraphicsItem::itemChange(change, value);
+}
+
+
+// void Element::mouseMoveEvent(QGraphicsSceneMouseEvent *event) {
+//     QPointF screenPos = mapToScene(event->pos());
+//     qreal x = qRound(screenPos.x()/50)*50;
+//     qreal y = qRound(screenPos.y()/50)*50;
+//
+//     this->setPos(x,y);}
 
 Resistor::Resistor() :Element(){
 }
@@ -31,6 +57,11 @@ void Resistor::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
     };
     painter->setPen(Qt::black);
     painter->drawPolyline(points,9);
+    // Optional: Draw component selection highlight
+    if (isSelected()) {
+        painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
+        painter->drawRect(boundingRect());
+    }
 }
 
 Capacitor::Capacitor() :Element(){
@@ -75,5 +106,32 @@ void Inductor::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
         painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
         painter->drawRect(boundingRect());
     }
+}
+
+Gnd::Gnd() :Element(){
+    setTransformOriginPoint(0, -20);
+}
+
+QRectF Gnd::boundingRect() const {
+    return {-12.5, -50, 25, 25};
+}
+
+void Gnd::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    static const QPointF pointsPairs[] = {
+        {0, -30}, {0, -50},
+        {-12.5,-30},{12.5,-30},
+        {-7, -25}, {7, -25},
+        {-3, -20}, {3, -20}
+    };
+
+    painter->setPen(Qt::black);
+    painter->drawLines(pointsPairs, 4);
+
+    // Optional selection highlight
+    if (isSelected()) {
+        painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
+        painter->drawRect(boundingRect());
+    }
+
 }
 

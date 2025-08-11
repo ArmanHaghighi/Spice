@@ -2,7 +2,8 @@
 #define ELEMENTS_H
 
 #include <QGraphicsItem>
-
+#include <bits/stdc++.h>
+using namespace std;
 class Element : public QGraphicsItem
 {
 public:
@@ -10,6 +11,13 @@ public:
     QRectF boundingRect() const override;
     QPointF firstLead;
     QPointF secondLead;
+
+    // void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+    QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
+    string name;
+    string value;
+
+
 };
 
 class Resistor : public Element {
@@ -23,8 +31,14 @@ class Capacitor : public Element {
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 };
 class Inductor : public Element {
-    public:
+public:
     Inductor();
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+};
+class Gnd : public Element {
+public:
+    Gnd();
+    QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 };
 #endif // ELEMENTS_H

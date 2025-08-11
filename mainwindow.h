@@ -8,6 +8,7 @@
 #include <QMouseEvent>
 #include <bits/stdc++.h>
 #include "elements.h"
+#include "addelementdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -41,8 +42,8 @@ private slots:
 
     void on_actionPhase_triggered();
 
-
     void on_actionEscape_triggered();
+
 
     void on_actionResistor_toggled(bool arg1);
 
@@ -56,12 +57,16 @@ private slots:
 
     void on_actionCapacitor_toggled(bool arg1);
 
+    void on_actionAdd_Element_toggled(bool arg1);
+
+    void on_actionGnd_toggled(bool arg1);
+
 private:
     SchematicView* schematic=nullptr;
 
     std::vector<Element*> elements;
 
-    enum class ToolType { None, Resistor, Capacitor, Inductor, Wire };
+    enum class ToolType { None, Resistor, Capacitor, Inductor, Wire, Gnd };
     ToolType currentTool = ToolType::None;
 
     void placeElementOnClick(QMouseEvent *event);
