@@ -26,7 +26,7 @@
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="0">
-         <widget class="QGraphicsView" name="schematicView">
+         <widget class="SchematicView" name="schematicView">
           <property name="transformationAnchor">
            <enum>QGraphicsView::ViewportAnchor::AnchorViewCenter</enum>
           </property>
@@ -54,7 +54,7 @@
      <x>0</x>
      <y>0</y>
      <width>1022</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -114,6 +114,7 @@
    <addaction name="actionResistor"/>
    <addaction name="actionCapacitor"/>
    <addaction name="actionInductor"/>
+   <addaction name="actionWire"/>
    <addaction name="separator"/>
    <addaction name="actionDuplicate"/>
    <addaction name="actionDelete"/>
@@ -169,6 +170,9 @@
    </property>
   </action>
   <action name="actionAdd_Element">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="resources.qrc">
      <normaloff>:/icons/assets/electrical-component.png</normaloff>:/icons/assets/electrical-component.png</iconset>
@@ -178,6 +182,9 @@
    </property>
   </action>
   <action name="actionResistor">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="resources.qrc">
      <normaloff>:/icons/assets/resistor.png</normaloff>:/icons/assets/resistor.png</iconset>
@@ -190,6 +197,9 @@
    </property>
   </action>
   <action name="actionCapacitor">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="resources.qrc">
      <normaloff>:/icons/assets/capacitor.png</normaloff>:/icons/assets/capacitor.png</iconset>
@@ -202,6 +212,9 @@
    </property>
   </action>
   <action name="actionInductor">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="resources.qrc">
      <normaloff>:/icons/assets/electrical (3).png</normaloff>:/icons/assets/electrical (3).png</iconset>
@@ -214,6 +227,9 @@
    </property>
   </action>
   <action name="actionDuplicate">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="resources.qrc">
      <normaloff>:/icons/assets/duplicate.png</normaloff>:/icons/assets/duplicate.png</iconset>
@@ -226,6 +242,9 @@
    </property>
   </action>
   <action name="actionDelete">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="resources.qrc">
      <normaloff>:/icons/assets/delete.png</normaloff>:/icons/assets/delete.png</iconset>
@@ -237,7 +256,32 @@
     <string>Del</string>
    </property>
   </action>
+  <action name="actionWire">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/assets/wire.png</normaloff>:/icons/assets/wire.png</iconset>
+   </property>
+   <property name="text">
+    <string>Resistor</string>
+   </property>
+   <property name="shortcut">
+    <string>R</string>
+   </property>
+  </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SchematicView</class>
+   <extends>QGraphicsView</extends>
+   <header location="global">mainwindow.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>schematicView</tabstop>
+ </tabstops>
  <resources>
   <include location="resources.qrc"/>
  </resources>

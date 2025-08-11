@@ -19,5 +19,7 @@
         <file>assets/electrical (3).png</file>
         <file>assets/delete.png</file>
         <file>assets/duplicate.png</file>
+        <file>assets/wire.png</file>
+        <file>assets/Inductor_symbol.svg</file>
     </qresource>
 </RCC>

@@ -54,7 +54,7 @@ build CMakeFiles/Spice.dir/Spice_autogen/mocs_compilation.cpp.obj: CXX_COMPILER_
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles\Spice.dir\Spice_autogen\mocs_compilation.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fansi-escape-codes -fcolor-diagnostics
-  INCLUDES = -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/Spice_autogen/include -isystem C:/msys64/ucrt64/include -isystem C:/msys64/ucrt64/include/QtWidgets -isystem C:/msys64/ucrt64/include/QtGui -isystem C:/msys64/ucrt64/include/QtCore -isystem C:/msys64/ucrt64/share/qt5/mkspecs/win32-g++
+  INCLUDES = -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug -IC:/Users/Arman/Documents/Qt/Spice -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/Spice_autogen/include -isystem C:/msys64/ucrt64/include -isystem C:/msys64/ucrt64/include/QtWidgets -isystem C:/msys64/ucrt64/include/QtGui -isystem C:/msys64/ucrt64/include/QtCore -isystem C:/msys64/ucrt64/share/qt5/mkspecs/win32-g++
   OBJECT_DIR = CMakeFiles\Spice.dir
   OBJECT_FILE_DIR = CMakeFiles\Spice.dir\Spice_autogen
 
@@ -63,7 +63,7 @@ build CMakeFiles/Spice.dir/main.cpp.obj: CXX_COMPILER__Spice_unscanned_Debug C$:
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles\Spice.dir\main.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fansi-escape-codes -fcolor-diagnostics
-  INCLUDES = -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/Spice_autogen/include -isystem C:/msys64/ucrt64/include -isystem C:/msys64/ucrt64/include/QtWidgets -isystem C:/msys64/ucrt64/include/QtGui -isystem C:/msys64/ucrt64/include/QtCore -isystem C:/msys64/ucrt64/share/qt5/mkspecs/win32-g++
+  INCLUDES = -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug -IC:/Users/Arman/Documents/Qt/Spice -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/Spice_autogen/include -isystem C:/msys64/ucrt64/include -isystem C:/msys64/ucrt64/include/QtWidgets -isystem C:/msys64/ucrt64/include/QtGui -isystem C:/msys64/ucrt64/include/QtCore -isystem C:/msys64/ucrt64/share/qt5/mkspecs/win32-g++
   OBJECT_DIR = CMakeFiles\Spice.dir
   OBJECT_FILE_DIR = CMakeFiles\Spice.dir
 
@@ -72,7 +72,16 @@ build CMakeFiles/Spice.dir/mainwindow.cpp.obj: CXX_COMPILER__Spice_unscanned_Deb
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles\Spice.dir\mainwindow.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fansi-escape-codes -fcolor-diagnostics
-  INCLUDES = -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/Spice_autogen/include -isystem C:/msys64/ucrt64/include -isystem C:/msys64/ucrt64/include/QtWidgets -isystem C:/msys64/ucrt64/include/QtGui -isystem C:/msys64/ucrt64/include/QtCore -isystem C:/msys64/ucrt64/share/qt5/mkspecs/win32-g++
+  INCLUDES = -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug -IC:/Users/Arman/Documents/Qt/Spice -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/Spice_autogen/include -isystem C:/msys64/ucrt64/include -isystem C:/msys64/ucrt64/include/QtWidgets -isystem C:/msys64/ucrt64/include/QtGui -isystem C:/msys64/ucrt64/include/QtCore -isystem C:/msys64/ucrt64/share/qt5/mkspecs/win32-g++
+  OBJECT_DIR = CMakeFiles\Spice.dir
+  OBJECT_FILE_DIR = CMakeFiles\Spice.dir
+
+build CMakeFiles/Spice.dir/elements.cpp.obj: CXX_COMPILER__Spice_unscanned_Debug C$:/Users/Arman/Documents/Qt/Spice/elements.cpp || cmake_object_order_depends_target_Spice
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles\Spice.dir\elements.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fansi-escape-codes -fcolor-diagnostics
+  INCLUDES = -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug -IC:/Users/Arman/Documents/Qt/Spice -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/Spice_autogen/include -isystem C:/msys64/ucrt64/include -isystem C:/msys64/ucrt64/include/QtWidgets -isystem C:/msys64/ucrt64/include/QtGui -isystem C:/msys64/ucrt64/include/QtCore -isystem C:/msys64/ucrt64/share/qt5/mkspecs/win32-g++
   OBJECT_DIR = CMakeFiles\Spice.dir
   OBJECT_FILE_DIR = CMakeFiles\Spice.dir
 
@@ -81,7 +90,7 @@ build CMakeFiles/Spice.dir/Spice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CXX_C
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles\Spice.dir\Spice_autogen\EWIEGA46WW\qrc_resources.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fansi-escape-codes -fcolor-diagnostics
-  INCLUDES = -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/Spice_autogen/include -isystem C:/msys64/ucrt64/include -isystem C:/msys64/ucrt64/include/QtWidgets -isystem C:/msys64/ucrt64/include/QtGui -isystem C:/msys64/ucrt64/include/QtCore -isystem C:/msys64/ucrt64/share/qt5/mkspecs/win32-g++
+  INCLUDES = -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug -IC:/Users/Arman/Documents/Qt/Spice -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/Spice_autogen/include -isystem C:/msys64/ucrt64/include -isystem C:/msys64/ucrt64/include/QtWidgets -isystem C:/msys64/ucrt64/include/QtGui -isystem C:/msys64/ucrt64/include/QtCore -isystem C:/msys64/ucrt64/share/qt5/mkspecs/win32-g++
   OBJECT_DIR = CMakeFiles\Spice.dir
   OBJECT_FILE_DIR = CMakeFiles\Spice.dir\Spice_autogen\EWIEGA46WW
 
@@ -93,7 +102,7 @@ build CMakeFiles/Spice.dir/Spice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CXX_C
 #############################################
 # Link the executable Spice.exe
 
-build Spice.exe: CXX_EXECUTABLE_LINKER__Spice_Debug CMakeFiles/Spice.dir/Spice_autogen/mocs_compilation.cpp.obj CMakeFiles/Spice.dir/main.cpp.obj CMakeFiles/Spice.dir/mainwindow.cpp.obj CMakeFiles/Spice.dir/Spice_autogen/EWIEGA46WW/qrc_resources.cpp.obj | C$:/msys64/ucrt64/lib/libQt5Widgets.dll.a C$:/msys64/ucrt64/lib/libQt5Gui.dll.a C$:/msys64/ucrt64/lib/libQt5Core.dll.a C$:/msys64/ucrt64/lib/libqtmain.a || Spice_autogen Spice_autogen_timestamp_deps
+build Spice.exe: CXX_EXECUTABLE_LINKER__Spice_Debug CMakeFiles/Spice.dir/Spice_autogen/mocs_compilation.cpp.obj CMakeFiles/Spice.dir/main.cpp.obj CMakeFiles/Spice.dir/mainwindow.cpp.obj CMakeFiles/Spice.dir/elements.cpp.obj CMakeFiles/Spice.dir/Spice_autogen/EWIEGA46WW/qrc_resources.cpp.obj | C$:/msys64/ucrt64/lib/libQt5Widgets.dll.a C$:/msys64/ucrt64/lib/libQt5Gui.dll.a C$:/msys64/ucrt64/lib/libQt5Core.dll.a C$:/msys64/ucrt64/lib/libqtmain.a || Spice_autogen Spice_autogen_timestamp_deps
   CONFIG = Debug
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
@@ -197,7 +206,7 @@ build Spice_autogen/timestamp Spice_autogen/mocs_compilation.cpp | ${cmake_ninja
 #############################################
 # Custom command for Spice_autogen\EWIEGA46WW\qrc_resources.cpp
 
-build Spice_autogen/EWIEGA46WW/qrc_resources.cpp | ${cmake_ninja_workdir}Spice_autogen/EWIEGA46WW/qrc_resources.cpp: CUSTOM_COMMAND C$:/Users/Arman/Documents/Qt/Spice/resources.qrc CMakeFiles/Spice_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json C$:/Users/Arman/Documents/Qt/Spice/assets/resistor.png C$:/Users/Arman/Documents/Qt/Spice/assets/open-folder.png C$:/Users/Arman/Documents/Qt/Spice/assets/electrical.png C$:/Users/Arman/Documents/Qt/Spice/assets/delete.png C$:/Users/Arman/Documents/Qt/Spice/assets/electrical$ (3).png C$:/Users/Arman/Documents/Qt/Spice/assets/resistor$ (1).png C$:/Users/Arman/Documents/Qt/Spice/assets/ac.png C$:/Users/Arman/Documents/Qt/Spice/assets/inductor.png C$:/Users/Arman/Documents/Qt/Spice/assets/potential-energy.png C$:/Users/Arman/Documents/Qt/Spice/assets/electrical$ (2).png C$:/Users/Arman/Documents/Qt/Spice/assets/symbol.png C$:/Users/Arman/Documents/Qt/Spice/assets/disk.png C$:/Users/Arman/Documents/Qt/Spice/assets/electrical-component.png C$:/Users/Arman/Documents/Qt/Spice/assets/integrated.png C$:/Users/Arman/Documents/Qt/Spice/assets/duplicate.png C$:/Users/Arman/Documents/Qt/Spice/assets/capacitor.png C$:/Users/Arman/Documents/Qt/Spice/assets/dc.png C$:/Users/Arman/Documents/Qt/Spice/assets/semiconductor.png C$:/Users/Arman/Documents/Qt/Spice/assets/new.png C$:/msys64/ucrt64/bin/rcc.exe C$:/msys64/ucrt64/bin/rcc.exe || Spice_autogen Spice_autogen_timestamp_deps
+build Spice_autogen/EWIEGA46WW/qrc_resources.cpp | ${cmake_ninja_workdir}Spice_autogen/EWIEGA46WW/qrc_resources.cpp: CUSTOM_COMMAND C$:/Users/Arman/Documents/Qt/Spice/resources.qrc CMakeFiles/Spice_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json C$:/Users/Arman/Documents/Qt/Spice/assets/resistor.png C$:/Users/Arman/Documents/Qt/Spice/assets/open-folder.png C$:/Users/Arman/Documents/Qt/Spice/assets/electrical.png C$:/Users/Arman/Documents/Qt/Spice/assets/delete.png C$:/Users/Arman/Documents/Qt/Spice/assets/electrical$ (3).png C$:/Users/Arman/Documents/Qt/Spice/assets/resistor$ (1).png C$:/Users/Arman/Documents/Qt/Spice/assets/ac.png C$:/Users/Arman/Documents/Qt/Spice/assets/inductor.png C$:/Users/Arman/Documents/Qt/Spice/assets/potential-energy.png C$:/Users/Arman/Documents/Qt/Spice/assets/electrical$ (2).png C$:/Users/Arman/Documents/Qt/Spice/assets/symbol.png C$:/Users/Arman/Documents/Qt/Spice/assets/Inductor_symbol.svg C$:/Users/Arman/Documents/Qt/Spice/assets/disk.png C$:/Users/Arman/Documents/Qt/Spice/assets/electrical-component.png C$:/Users/Arman/Documents/Qt/Spice/assets/integrated.png C$:/Users/Arman/Documents/Qt/Spice/assets/duplicate.png C$:/Users/Arman/Documents/Qt/Spice/assets/wire.png C$:/Users/Arman/Documents/Qt/Spice/assets/capacitor.png C$:/Users/Arman/Documents/Qt/Spice/assets/dc.png C$:/Users/Arman/Documents/Qt/Spice/assets/semiconductor.png C$:/Users/Arman/Documents/Qt/Spice/assets/new.png C$:/msys64/ucrt64/bin/rcc.exe C$:/msys64/ucrt64/bin/rcc.exe || Spice_autogen Spice_autogen_timestamp_deps
   COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Arman\Documents\Qt\Spice\build\Main-Debug && C:\msys64\ucrt64\bin\cmake.exe -E cmake_autorcc C:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/CMakeFiles/Spice_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json Debug"
   DESC = Automatic RCC for resources.qrc
   restat = 1

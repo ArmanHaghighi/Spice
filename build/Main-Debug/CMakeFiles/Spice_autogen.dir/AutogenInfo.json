@@ -78,6 +78,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/Arman/Documents/Qt/Spice/elements.h",
+			"MU",
+			"EWIEGA46WW/moc_elements.cpp",
+			null
+		],
+		[
 			"C:/Users/Arman/Documents/Qt/Spice/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -97,6 +103,8 @@
 	],
 	"MOC_INCLUDES" : 
 	[
+		"C:/Users/Arman/Documents/Qt/Spice/build/Main-Debug",
+		"C:/Users/Arman/Documents/Qt/Spice",
 		"C:/msys64/ucrt64/include",
 		"C:/msys64/ucrt64/include/QtWidgets",
 		"C:/msys64/ucrt64/include/QtGui",
@@ -134,6 +142,7 @@
 	"SETTINGS_FILE" : "C:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/CMakeFiles/Spice_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "C:/Users/Arman/Documents/Qt/Spice/elements.cpp", "MU", null ],
 		[ "C:/Users/Arman/Documents/Qt/Spice/main.cpp", "MU", null ],
 		[ "C:/Users/Arman/Documents/Qt/Spice/mainwindow.cpp", "MU", null ]
 	],

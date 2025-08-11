@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMdiArea>
@@ -22,6 +21,7 @@
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include <mainwindow.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -41,12 +41,13 @@ public:
     QAction *actionInductor;
     QAction *actionDuplicate;
     QAction *actionDelete;
+    QAction *actionWire;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QMdiArea *mdiArea;
     QWidget *Schematic;
     QGridLayout *gridLayout_2;
-    QGraphicsView *schematicView;
+    SchematicView *schematicView;
     QWidget *Simulation;
     QVBoxLayout *verticalLayout;
     QWidget *widget;
@@ -87,34 +88,46 @@ public:
         actionPhase->setObjectName(QString::fromUtf8("actionPhase"));
         actionAdd_Element = new QAction(MainWindow);
         actionAdd_Element->setObjectName(QString::fromUtf8("actionAdd_Element"));
+        actionAdd_Element->setCheckable(true);
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/icons/assets/electrical-component.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionAdd_Element->setIcon(icon3);
         actionResistor = new QAction(MainWindow);
         actionResistor->setObjectName(QString::fromUtf8("actionResistor"));
+        actionResistor->setCheckable(true);
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/icons/assets/resistor.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionResistor->setIcon(icon4);
         actionCapacitor = new QAction(MainWindow);
         actionCapacitor->setObjectName(QString::fromUtf8("actionCapacitor"));
+        actionCapacitor->setCheckable(true);
         QIcon icon5;
         icon5.addFile(QString::fromUtf8(":/icons/assets/capacitor.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionCapacitor->setIcon(icon5);
         actionInductor = new QAction(MainWindow);
         actionInductor->setObjectName(QString::fromUtf8("actionInductor"));
+        actionInductor->setCheckable(true);
         QIcon icon6;
         icon6.addFile(QString::fromUtf8(":/icons/assets/electrical (3).png"), QSize(), QIcon::Normal, QIcon::Off);
         actionInductor->setIcon(icon6);
         actionDuplicate = new QAction(MainWindow);
         actionDuplicate->setObjectName(QString::fromUtf8("actionDuplicate"));
+        actionDuplicate->setCheckable(true);
         QIcon icon7;
         icon7.addFile(QString::fromUtf8(":/icons/assets/duplicate.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionDuplicate->setIcon(icon7);
         actionDelete = new QAction(MainWindow);
         actionDelete->setObjectName(QString::fromUtf8("actionDelete"));
+        actionDelete->setCheckable(true);
         QIcon icon8;
         icon8.addFile(QString::fromUtf8(":/icons/assets/delete.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionDelete->setIcon(icon8);
+        actionWire = new QAction(MainWindow);
+        actionWire->setObjectName(QString::fromUtf8("actionWire"));
+        actionWire->setCheckable(true);
+        QIcon icon9;
+        icon9.addFile(QString::fromUtf8(":/icons/assets/wire.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionWire->setIcon(icon9);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -126,7 +139,7 @@ public:
         Schematic->setObjectName(QString::fromUtf8("Schematic"));
         gridLayout_2 = new QGridLayout(Schematic);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        schematicView = new QGraphicsView(Schematic);
+        schematicView = new SchematicView(Schematic);
         schematicView->setObjectName(QString::fromUtf8("schematicView"));
         schematicView->setTransformationAnchor(QGraphicsView::ViewportAnchor::AnchorViewCenter);
 
@@ -149,7 +162,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1022, 22));
+        menubar->setGeometry(QRect(0, 0, 1022, 25));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuSimulation = new QMenu(menubar);
@@ -194,6 +207,7 @@ public:
         toolBar->addAction(actionResistor);
         toolBar->addAction(actionCapacitor);
         toolBar->addAction(actionInductor);
+        toolBar->addAction(actionWire);
         toolBar->addSeparator();
         toolBar->addAction(actionDuplicate);
         toolBar->addAction(actionDelete);
@@ -236,6 +250,10 @@ public:
         actionDelete->setText(QCoreApplication::translate("MainWindow", "Delete", nullptr));
 #if QT_CONFIG(shortcut)
         actionDelete->setShortcut(QCoreApplication::translate("MainWindow", "Del", nullptr));
+#endif // QT_CONFIG(shortcut)
+        actionWire->setText(QCoreApplication::translate("MainWindow", "Resistor", nullptr));
+#if QT_CONFIG(shortcut)
+        actionWire->setShortcut(QCoreApplication::translate("MainWindow", "R", nullptr));
 #endif // QT_CONFIG(shortcut)
         Schematic->setWindowTitle(QCoreApplication::translate("MainWindow", "Schematic", nullptr));
         Simulation->setWindowTitle(QCoreApplication::translate("MainWindow", "Simulation", nullptr));
