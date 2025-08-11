@@ -109,19 +109,18 @@ void Inductor::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
 }
 
 Gnd::Gnd() :Element(){
-    setTransformOriginPoint(0, -20);
 }
 
 QRectF Gnd::boundingRect() const {
-    return {-12.5, -50, 25, 25};
+    return {-12.5, 0, 25, 30};
 }
 
 void Gnd::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     static const QPointF pointsPairs[] = {
-        {0, -30}, {0, -50},
-        {-12.5,-30},{12.5,-30},
-        {-7, -25}, {7, -25},
-        {-3, -20}, {3, -20}
+        {0, 0}, {0,20 },
+        {-12.5,20},{12.5,20},
+        {-7, 25}, {7, 25},
+        {-3, 30}, {3, 30}
     };
 
     painter->setPen(Qt::black);
