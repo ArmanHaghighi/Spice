@@ -14,7 +14,7 @@ class AddElementDialog : public QDialog
 public:
     explicit AddElementDialog(QWidget *parent = nullptr);
     ~AddElementDialog();
-
+    Ui::AddElementDialog* getUi() const { return ui; }
 private:
     Ui::AddElementDialog *ui;
 };

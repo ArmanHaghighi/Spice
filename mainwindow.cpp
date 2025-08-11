@@ -1,7 +1,12 @@
 #include "mainwindow.h"
+
+#include <qlistwidget.h>
+
 #include "./ui_mainwindow.h"
 #include "elements.h"
 #include <QShortcut>
+#include <QMessageBox>
+#include <ui_addelementdialog.h>
 #include "ui_mainwindow.h"
 using namespace std;
 
@@ -13,8 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     for (QAction *action : ui->menuFile->actions()) {
         action->setIconVisibleInMenu(false);  // Hides icons in menus
     }
-    // In MainWindow constructor
-    QShortcut *escapeShortcut = new QShortcut(QKeySequence(Qt::Key_Escape), this);
+    escapeShortcut = new QShortcut(QKeySequence(Qt::Key_Escape), this);
     connect(escapeShortcut, &QShortcut::activated, this, &MainWindow::on_actionEscape_triggered);
 
     connect(ui->schematicView,  &SchematicView::mousePressed,
@@ -24,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
 }
 
 MainWindow::~MainWindow()
-{
+{   delete escapeShortcut;
     delete ui;
 
 }
@@ -59,6 +63,10 @@ void SchematicView::mousePressEvent(QMouseEvent *event) {
     QGraphicsView::mousePressEvent(event);
 }
 
+void SchematicView::mouseReleaseEvent(QMouseEvent *event) {
+    emit mouseReleased(event);
+    QGraphicsView::mouseReleaseEvent(event);
+}
 
 
 void MainWindow::on_actionResistor_toggled(bool checked)
@@ -215,7 +223,6 @@ void MainWindow::on_actionCapacitor_toggled(bool checked)
     }
 
 
-
 void MainWindow::tileSubWindowsVertically() const {
     ui->mdiArea->tileSubWindows();
 }
@@ -268,6 +275,18 @@ placeElementOnClick(QMouseEvent *event)
         case ToolType::Wire:
             // newElement = new Wire();
             break;
+        // case ToolType::IdealDiode:
+        //     // newElement = new IdealDiode();
+        //     break;
+        // case ToolType::SiliconDiode:
+        //     // newElement = new SiliconDiode();
+        //     break;
+        // case ToolType::DCVoltageSource:
+        //     // newElement = new DCVoltageSource();
+        //     break;
+        // case ToolType::ACVoltageSource:
+        //     // newElement = new ACVoltageSource();
+        //     break;
         default:
             return;
     }
@@ -286,9 +305,65 @@ void MainWindow::on_actionDuplicate_toggled(bool arg1)
 }
 
 
-void MainWindow::on_actionDelete_toggled(bool arg1)
+void MainWindow::on_actionDelete_toggled(bool checked)
 {
+    if (checked) {
+        currentTool = ToolType::None; // Not really a tool, but we need to handle selection
 
+        // Disable other actions
+        for (QAction *a : ui->toolBar->actions()) {
+            if (a != ui->actionDelete) {
+                a->setChecked(false);
+            }
+        }
+
+        ui->schematicView->setCursor(Qt::ForbiddenCursor);
+
+        // Connect selection changed signal
+        connect(ui->schematicView, &SchematicView::mouseReleased,
+                this, &MainWindow::deleteSelectedItems);
+    } else {
+        // Disconnect the signal when delete mode is turned off
+        disconnect(ui->schematicView, &SchematicView::mouseReleased,
+                   this, &MainWindow::deleteSelectedItems);
+    }
+}
+
+void MainWindow::deleteSelectedItems() {
+    if (!ui->actionDelete->isChecked())
+        return;
+
+    auto selection =schematic->schematicScene->selectedItems();
+    if (selection.empty())
+        return;
+    bool del=false;
+    if (selection.size() >1) {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this, "Delete Elements",
+                                     "Are you sure you want to delete the selected elements?",
+                                     QMessageBox::Yes | QMessageBox::No);
+        if (reply == QMessageBox::Yes)
+            del=true;
+    }
+    if (selection.size()<=1) del=true;
+    if (del) {
+        // Delete all selected items
+        for (QGraphicsItem* item : selection) {
+            Element* element = dynamic_cast<Element*>(item);
+            if (element) {
+                // Remove from our elements vector
+                elements.erase(std::remove(elements.begin(), elements.end(), element),
+                             elements.end());
+
+                // Remove from scene
+                schematic->schematicScene->removeItem(element);
+
+                // Delete the object
+                delete element;
+            }
+        }
+    }
+    schematic->schematicScene->clearSelection();
 }
 
 
@@ -298,22 +373,61 @@ void MainWindow::on_actionWire_toggled(bool arg1)
 }
 
 
-void MainWindow::on_actionAdd_Element_toggled(bool arg1)
-{
-    for(QAction *a:ui->toolBar->actions()){
-                if (a!=ui->actionAdd_Element)
-            a->setChecked(false);
-    }
-    AddElementDialog* addElementdDialog = new AddElementDialog;
-    if (addElementdDialog->exec() == QDialog::Accepted) {
-        cout<<"Add Element"<<endl;
-    }
-    else {
-        ui->actionAdd_Element->setChecked(false);
+    void MainWindow::on_actionAdd_Element_toggled(bool arg1)
+    {
+        if (!arg1) {
+            ui->actionAdd_Element->setChecked(false);
+            return;
+        }
+
+        // Disable other actions
+        for(QAction *a : ui->toolBar->actions()) {
+            if (a != ui->actionAdd_Element) {
+                a->setChecked(false);
+            }
+        }
+
+        AddElementDialog* addElementDialog = new AddElementDialog(this);
+        if (addElementDialog->exec() == QDialog::Accepted) {
+            QListWidgetItem* selectedItem = addElementDialog->getUi()->listWidget->currentItem();
+            if (selectedItem) {
+                QString elementName = selectedItem->text();
+
+                if (elementName == "Resistor") {
+                    currentTool = ToolType::Resistor;
+                }
+                else if (elementName == "Capacitor") {
+                    currentTool = ToolType::Capacitor;
+                }
+                else if (elementName == "Inductor") {
+                    currentTool = ToolType::Inductor;
+                }
+                else if (elementName == "Ground") {
+                    currentTool = ToolType::Gnd;
+                }
+                else if (elementName.contains("Ideal_Diode")) {
+                    currentTool = ToolType::IdealDiode;
+                }
+                else if (elementName.contains("Silicon_Diode")) {
+                    currentTool = ToolType::SiliconDiode;
+                }
+                else if (elementName == "DC_Voltage_Source") {
+                    currentTool = ToolType::DCVoltageSource;
+                }
+                else if (elementName == "AC_Voltage_Source") {
+                    currentTool = ToolType::ACVoltageSource;
+                }
+
+                ui->schematicView->setCursor(Qt::CrossCursor);
+            }
+        } else {
+            ui->actionAdd_Element->setChecked(false);
+            currentTool = ToolType::None;
+        }
+
+        delete addElementDialog;
     }
 
-    delete addElementdDialog;
-}
 
 
 void MainWindow::on_actionGnd_toggled(bool checked)
@@ -334,5 +448,8 @@ void MainWindow::on_actionGnd_toggled(bool checked)
         // disconnect(ui->schematicView, &QGraphicsView::mousePressEvent,
         //                   this, &MainWindow::placeElementOnClick);
     }
+}
+
+void MainWindow::handleMouseRelease(QMouseEvent *event) {
 }
 
