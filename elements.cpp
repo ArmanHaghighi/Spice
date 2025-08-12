@@ -39,8 +39,15 @@ QVariant Element::itemChange(GraphicsItemChange change, const QVariant &value) {
 void Element::mousePressEvent(QGraphicsSceneMouseEvent *event) {
     if (event->button() == Qt::RightButton) {
         this->setRotation(rotation()+90);
-    }
-    QGraphicsItem::mousePressEvent(event);
+
+        QTransform transform;
+        transform.rotate(90);
+        firstLead = transform.map(firstLead);
+        secondLead = transform.map(secondLead);
+
+        event->accept();
+    }else
+        QGraphicsItem::mousePressEvent(event);
 }
 
 Resistor::Resistor() :Element(){
@@ -136,4 +143,211 @@ void Gnd::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidg
     }
 
 }
+// Ideal Diode
+IdealDiode::IdealDiode() : Element() {}
 
+void IdealDiode::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    // Triangle (anode)
+    QPolygonF triangle;
+    triangle << QPointF(-15, -8) << QPointF(5, 0) << QPointF(-15, 8);
+
+    painter->setPen(Qt::black);
+    painter->drawPolygon(triangle);
+
+    // Bar (cathode)
+    painter->drawLine(QPointF(5, -8), QPointF(5, 8));
+
+    // Leads
+    painter->drawLine(QPointF(-25, 0), QPointF(-15, 0));
+    painter->drawLine(QPointF(5, 0), QPointF(25, 0));
+
+    if (isSelected()) {
+        painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
+        painter->drawRect(boundingRect());
+    }
+}
+
+// Silicon Diode (similar but with different symbol)
+void SiliconDiode::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    IdealDiode::paint(painter, option, widget);
+
+    QPolygonF triangle;
+    triangle << QPointF(-15, -8) << QPointF(5, 0) << QPointF(-15, 8);
+
+    painter->setPen(Qt::black);
+    painter->setBrush(Qt::black);
+    painter->drawPolygon(triangle,Qt::OddEvenFill);
+    painter->setBrush(Qt::NoBrush);
+}
+
+DCVoltageSource::DCVoltageSource() :Element(){
+}
+
+// DC Voltage Source
+void DCVoltageSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    // Circle
+    painter->drawEllipse(-10, -10, 20, 20);
+
+    // Plus/minus signs
+    painter->drawLine(QPointF(-5, -5), QPointF(-5, -1));
+    painter->drawLine(QPointF(-7, -3), QPointF(-3, -3));
+
+    painter->drawLine(QPointF(-5, 1), QPointF(-5, 5));
+    painter->drawLine(QPointF(-7, 3), QPointF(-3, 3));
+
+    // Leads
+    painter->drawLine(QPointF(-25, 0), QPointF(-10, 0));
+    painter->drawLine(QPointF(10, 0), QPointF(25, 0));
+
+    if (isSelected()) {
+        painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
+        painter->drawRect(boundingRect());
+    }
+}
+
+// AC Voltage Source
+void ACVoltageSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    // Circle
+    painter->drawEllipse(-10, -10, 20, 20);
+
+    // Sine wave
+    QPainterPath wave;
+    wave.moveTo(-5, 0);
+    wave.cubicTo(-2.5, -7, 2.5, 7, 5, 0);
+    painter->drawPath(wave);
+
+    // Leads
+    painter->drawLine(QPointF(-25, 0), QPointF(-10, 0));
+    painter->drawLine(QPointF(10, 0), QPointF(25, 0));
+
+    if (isSelected()) {
+        painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
+        painter->drawRect(boundingRect());
+    }
+}
+
+// DC Current Source
+void DCCurrentSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    // Circle
+    painter->drawEllipse(-10, -10, 20, 20);
+
+    // Arrow inside
+    painter->drawLine(QPointF(0, -5), QPointF(0, 5));
+    painter->drawLine(QPointF(0, 5), QPointF(-3, 2));
+    painter->drawLine(QPointF(0, 5), QPointF(3, 2));
+
+    // "DC" label
+    painter->drawText(QRectF(-5, -3, 10, 6), Qt::AlignCenter, "DC");
+
+    // Leads
+    painter->drawLine(QPointF(-25, 0), QPointF(-10, 0));
+    painter->drawLine(QPointF(10, 0), QPointF(25, 0));
+
+    if (isSelected()) {
+        painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
+        painter->drawRect(boundingRect());
+    }
+}
+
+// AC Current Source
+void ACCurrentSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    // Circle
+    painter->drawEllipse(-10, -10, 20, 20);
+
+    // Arrow inside
+    painter->drawLine(QPointF(0, -5), QPointF(0, 5));
+    painter->drawLine(QPointF(0, 5), QPointF(-3, 2));
+    painter->drawLine(QPointF(0, 5), QPointF(3, 2));
+
+    // "~" symbol
+    QPainterPath wave;
+    wave.moveTo(-3, 0);
+    wave.cubicTo(-1.5, -3, 1.5, 3, 3, 0);
+    painter->drawPath(wave);
+
+    // Leads
+    painter->drawLine(QPointF(-25, 0), QPointF(-10, 0));
+    painter->drawLine(QPointF(10, 0), QPointF(25, 0));
+
+    if (isSelected()) {
+        painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
+        painter->drawRect(boundingRect());
+    }
+}
+
+// Dependent sources (diamond shape)
+void VCVS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    // Diamond shape
+    QPolygonF diamond;
+    diamond << QPointF(0, -10) << QPointF(10, 0) << QPointF(0, 10) << QPointF(-10, 0);
+    painter->drawPolygon(diamond);
+
+    // Label
+    painter->drawText(QRectF(-8, -5, 16, 10), Qt::AlignCenter, "VCVS");
+
+    // Leads
+    painter->drawLine(QPointF(-25, 0), QPointF(-10, 0));
+    painter->drawLine(QPointF(10, 0), QPointF(25, 0));
+
+    if (isSelected()) {
+        painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
+        painter->drawRect(boundingRect());
+    }
+}
+
+void VCCS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    // Diamond shape
+    QPolygonF diamond;
+    diamond << QPointF(0, -10) << QPointF(10, 0) << QPointF(0, 10) << QPointF(-10, 0);
+    painter->drawPolygon(diamond);
+
+    // Label
+    painter->drawText(QRectF(-8, -5, 16, 10), Qt::AlignCenter, "VCCS");
+
+    // Leads
+    painter->drawLine(QPointF(-25, 0), QPointF(-10, 0));
+    painter->drawLine(QPointF(10, 0), QPointF(25, 0));
+
+    if (isSelected()) {
+        painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
+        painter->drawRect(boundingRect());
+    }
+}
+
+void CCVS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    // Diamond shape
+    QPolygonF diamond;
+    diamond << QPointF(0, -10) << QPointF(10, 0) << QPointF(0, 10) << QPointF(-10, 0);
+    painter->drawPolygon(diamond);
+
+    // Label
+    painter->drawText(QRectF(-8, -5, 16, 10), Qt::AlignCenter, "CCVS");
+
+    // Leads
+    painter->drawLine(QPointF(-25, 0), QPointF(-10, 0));
+    painter->drawLine(QPointF(10, 0), QPointF(25, 0));
+
+    if (isSelected()) {
+        painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
+        painter->drawRect(boundingRect());
+    }
+}
+
+void CCCS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    // Diamond shape
+    QPolygonF diamond;
+    diamond << QPointF(0, -10) << QPointF(10, 0) << QPointF(0, 10) << QPointF(-10, 0);
+    painter->drawPolygon(diamond);
+
+    // Label
+    painter->drawText(QRectF(-8, -5, 16, 10), Qt::AlignCenter, "CCCS");
+
+    // Leads
+    painter->drawLine(QPointF(-25, 0), QPointF(-10, 0));
+    painter->drawLine(QPointF(10, 0), QPointF(25, 0));
+
+    if (isSelected()) {
+        painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
+        painter->drawRect(boundingRect());
+    }
+}

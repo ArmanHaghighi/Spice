@@ -66,6 +66,12 @@ public:
         icon7.addFile(QString::fromUtf8(":/icons/assets/ac.png"), QSize(), QIcon::Normal, QIcon::Off);
         QListWidgetItem *__qlistwidgetitem7 = new QListWidgetItem(listWidget);
         __qlistwidgetitem7->setIcon(icon7);
+        new QListWidgetItem(listWidget);
+        new QListWidgetItem(listWidget);
+        new QListWidgetItem(listWidget);
+        new QListWidgetItem(listWidget);
+        new QListWidgetItem(listWidget);
+        new QListWidgetItem(listWidget);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
         listWidget->setGeometry(QRect(10, 10, 381, 261));
 
@@ -98,6 +104,18 @@ public:
         ___qlistwidgetitem6->setText(QCoreApplication::translate("AddElementDialog", "DC_Voltage_Source", nullptr));
         QListWidgetItem *___qlistwidgetitem7 = listWidget->item(7);
         ___qlistwidgetitem7->setText(QCoreApplication::translate("AddElementDialog", "AC_Voltage_Source", nullptr));
+        QListWidgetItem *___qlistwidgetitem8 = listWidget->item(8);
+        ___qlistwidgetitem8->setText(QCoreApplication::translate("AddElementDialog", "DC_Current_Source", nullptr));
+        QListWidgetItem *___qlistwidgetitem9 = listWidget->item(9);
+        ___qlistwidgetitem9->setText(QCoreApplication::translate("AddElementDialog", "AC_Current_source", nullptr));
+        QListWidgetItem *___qlistwidgetitem10 = listWidget->item(10);
+        ___qlistwidgetitem10->setText(QCoreApplication::translate("AddElementDialog", "VCVS", nullptr));
+        QListWidgetItem *___qlistwidgetitem11 = listWidget->item(11);
+        ___qlistwidgetitem11->setText(QCoreApplication::translate("AddElementDialog", "VCCS", nullptr));
+        QListWidgetItem *___qlistwidgetitem12 = listWidget->item(12);
+        ___qlistwidgetitem12->setText(QCoreApplication::translate("AddElementDialog", "CCCS", nullptr));
+        QListWidgetItem *___qlistwidgetitem13 = listWidget->item(13);
+        ___qlistwidgetitem13->setText(QCoreApplication::translate("AddElementDialog", "CCVS", nullptr));
         listWidget->setSortingEnabled(__sortingEnabled);
 
     } // retranslateUi

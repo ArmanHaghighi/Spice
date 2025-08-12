@@ -80,7 +80,13 @@ private:
         IdealDiode,
         SiliconDiode,
         DCVoltageSource,
-        ACVoltageSource
+        ACVoltageSource,
+        DCCurrentSource,
+        ACCurrentSource,
+        VCVS,
+        VCCS,
+        CCVS,
+        CCCS
     };
     ToolType currentTool = ToolType::None;
 

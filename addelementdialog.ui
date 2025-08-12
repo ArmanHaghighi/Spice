@@ -110,6 +110,36 @@
       <normaloff>:/icons/assets/ac.png</normaloff>:/icons/assets/ac.png</iconset>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>DC_Current_Source</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>AC_Current_source</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>VCVS</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>VCCS</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>CCCS</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>CCVS</string>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources>

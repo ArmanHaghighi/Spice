@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[19];
-    char stringdata0[426];
+    QByteArrayData data[22];
+    char stringdata0[464];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -50,7 +50,10 @@ QT_MOC_LITERAL(14, 303, 23), // "on_actionDelete_toggled"
 QT_MOC_LITERAL(15, 327, 21), // "on_actionWire_toggled"
 QT_MOC_LITERAL(16, 349, 26), // "on_actionCapacitor_toggled"
 QT_MOC_LITERAL(17, 376, 28), // "on_actionAdd_Element_toggled"
-QT_MOC_LITERAL(18, 405, 20) // "on_actionGnd_toggled"
+QT_MOC_LITERAL(18, 405, 20), // "on_actionGnd_toggled"
+QT_MOC_LITERAL(19, 426, 18), // "handleMouseRelease"
+QT_MOC_LITERAL(20, 445, 12), // "QMouseEvent*"
+QT_MOC_LITERAL(21, 458, 5) // "event"
 
     },
     "MainWindow\0on_actionNew_triggered\0\0"
@@ -66,7 +69,8 @@ QT_MOC_LITERAL(18, 405, 20) // "on_actionGnd_toggled"
     "on_actionDelete_toggled\0on_actionWire_toggled\0"
     "on_actionCapacitor_toggled\0"
     "on_actionAdd_Element_toggled\0"
-    "on_actionGnd_toggled"
+    "on_actionGnd_toggled\0handleMouseRelease\0"
+    "QMouseEvent*\0event"
 };
 #undef QT_MOC_LITERAL
 
@@ -76,7 +80,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      17,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -84,22 +88,23 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   94,    2, 0x08 /* Private */,
-       3,    0,   95,    2, 0x08 /* Private */,
-       4,    0,   96,    2, 0x08 /* Private */,
-       5,    0,   97,    2, 0x08 /* Private */,
-       6,    0,   98,    2, 0x08 /* Private */,
-       7,    0,   99,    2, 0x08 /* Private */,
-       8,    0,  100,    2, 0x08 /* Private */,
-       9,    0,  101,    2, 0x08 /* Private */,
-      10,    1,  102,    2, 0x08 /* Private */,
-      12,    1,  105,    2, 0x08 /* Private */,
-      13,    1,  108,    2, 0x08 /* Private */,
-      14,    1,  111,    2, 0x08 /* Private */,
-      15,    1,  114,    2, 0x08 /* Private */,
-      16,    1,  117,    2, 0x08 /* Private */,
-      17,    1,  120,    2, 0x08 /* Private */,
-      18,    1,  123,    2, 0x08 /* Private */,
+       1,    0,   99,    2, 0x08 /* Private */,
+       3,    0,  100,    2, 0x08 /* Private */,
+       4,    0,  101,    2, 0x08 /* Private */,
+       5,    0,  102,    2, 0x08 /* Private */,
+       6,    0,  103,    2, 0x08 /* Private */,
+       7,    0,  104,    2, 0x08 /* Private */,
+       8,    0,  105,    2, 0x08 /* Private */,
+       9,    0,  106,    2, 0x08 /* Private */,
+      10,    1,  107,    2, 0x08 /* Private */,
+      12,    1,  110,    2, 0x08 /* Private */,
+      13,    1,  113,    2, 0x08 /* Private */,
+      14,    1,  116,    2, 0x08 /* Private */,
+      15,    1,  119,    2, 0x08 /* Private */,
+      16,    1,  122,    2, 0x08 /* Private */,
+      17,    1,  125,    2, 0x08 /* Private */,
+      18,    1,  128,    2, 0x08 /* Private */,
+      19,    1,  131,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -118,6 +123,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, QMetaType::Bool,   11,
     QMetaType::Void, QMetaType::Bool,   11,
     QMetaType::Void, QMetaType::Bool,   11,
+    QMetaType::Void, 0x80000000 | 20,   21,
 
        0        // eod
 };
@@ -144,6 +150,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 13: _t->on_actionCapacitor_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 14: _t->on_actionAdd_Element_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 15: _t->on_actionGnd_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 16: _t->handleMouseRelease((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -178,19 +185,19 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 17)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 17;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 16)
+        if (_id < 17)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 16;
+        _id -= 17;
     }
     return _id;
 }
 struct qt_meta_stringdata_SchematicView_t {
-    QByteArrayData data[5];
-    char stringdata0[47];
+    QByteArrayData data[6];
+    char stringdata0[61];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -203,11 +210,12 @@ QT_MOC_LITERAL(0, 0, 13), // "SchematicView"
 QT_MOC_LITERAL(1, 14, 12), // "mousePressed"
 QT_MOC_LITERAL(2, 27, 0), // ""
 QT_MOC_LITERAL(3, 28, 12), // "QMouseEvent*"
-QT_MOC_LITERAL(4, 41, 5) // "event"
+QT_MOC_LITERAL(4, 41, 5), // "event"
+QT_MOC_LITERAL(5, 47, 13) // "mouseReleased"
 
     },
     "SchematicView\0mousePressed\0\0QMouseEvent*\0"
-    "event"
+    "event\0mouseReleased"
 };
 #undef QT_MOC_LITERAL
 
@@ -217,17 +225,19 @@ static const uint qt_meta_data_SchematicView[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   19,    2, 0x06 /* Public */,
+       1,    1,   24,    2, 0x06 /* Public */,
+       5,    1,   27,    2, 0x06 /* Public */,
 
  // signals: parameters
+    QMetaType::Void, 0x80000000 | 3,    4,
     QMetaType::Void, 0x80000000 | 3,    4,
 
        0        // eod
@@ -240,6 +250,7 @@ void SchematicView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         (void)_t;
         switch (_id) {
         case 0: _t->mousePressed((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
+        case 1: _t->mouseReleased((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -248,6 +259,13 @@ void SchematicView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
             using _t = void (SchematicView::*)(QMouseEvent * );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&SchematicView::mousePressed)) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (SchematicView::*)(QMouseEvent * );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&SchematicView::mouseReleased)) {
+                *result = 1;
                 return;
             }
         }
@@ -283,13 +301,13 @@ int SchematicView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 2)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }
@@ -299,6 +317,13 @@ void SchematicView::mousePressed(QMouseEvent * _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void SchematicView::mouseReleased(QMouseEvent * _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

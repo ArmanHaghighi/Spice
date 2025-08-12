@@ -242,8 +242,7 @@ void MainWindow::tileSubWindowsVertically() const {
 // }
 
 
-void MainWindow::
-placeElementOnClick(QMouseEvent *event)
+void MainWindow::placeElementOnClick(QMouseEvent *event)
 {
     if (event->button() != Qt::LeftButton || currentTool == ToolType::None)
         return;
@@ -270,18 +269,36 @@ placeElementOnClick(QMouseEvent *event)
         case ToolType::Wire:
             // newElement = new Wire();
             break;
-        // case ToolType::IdealDiode:
-        //     // newElement = new IdealDiode();
-        //     break;
-        // case ToolType::SiliconDiode:
-        //     // newElement = new SiliconDiode();
-        //     break;
-        // case ToolType::DCVoltageSource:
-        //     // newElement = new DCVoltageSource();
-        //     break;
-        // case ToolType::ACVoltageSource:
-        //     // newElement = new ACVoltageSource();
-        //     break;
+        case ToolType::IdealDiode:
+            newElement = new IdealDiode();
+            break;
+        case ToolType::SiliconDiode:
+            newElement = new SiliconDiode();
+            break;
+        case ToolType::DCVoltageSource:
+            newElement = new DCVoltageSource();
+            break;
+        case ToolType::ACVoltageSource:
+            newElement = new ACVoltageSource();
+            break;
+        case ToolType::DCCurrentSource:
+            newElement = new DCCurrentSource();
+            break;
+        case ToolType::ACCurrentSource:
+            newElement = new ACCurrentSource();
+            break;
+        case ToolType::VCVS:
+            newElement = new VCVS();
+            break;
+        case ToolType::VCCS:
+            newElement = new VCCS();
+            break;
+        case ToolType::CCVS:
+            newElement = new CCVS();
+            break;
+        case ToolType::CCCS:
+            newElement = new CCCS();
+            break;
         default:
             return;
     }
@@ -411,7 +428,25 @@ void MainWindow::on_actionWire_toggled(bool arg1)
                 }
                 else if (elementName == "AC_Voltage_Source") {
                     currentTool = ToolType::ACVoltageSource;
+                } else if (elementName == "DC_Current_Source") {
+                    currentTool = ToolType::DCCurrentSource;
                 }
+                else if (elementName == "AC_Current_Source") {
+                    currentTool = ToolType::ACCurrentSource;
+                }
+                else if (elementName == "VCVS") {
+                    currentTool = ToolType::VCVS;
+                }
+                else if (elementName == "VCCS") {
+                    currentTool = ToolType::VCCS;
+                }
+                else if (elementName == "CCVS") {
+                    currentTool = ToolType::CCVS;
+                }
+                else if (elementName == "CCCS") {
+                    currentTool = ToolType::CCCS;
+                }
+
 
                 ui->schematicView->setCursor(Qt::CrossCursor);
             }

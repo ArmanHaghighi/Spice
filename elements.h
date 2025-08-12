@@ -46,20 +46,59 @@ public:
 class IdealDiode : public Element {
 public:
     IdealDiode();
-    QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 };
-class SiliconeDiode : public Element {
+class SiliconDiode : public IdealDiode {
 public:
-    SiliconeDiode();
-    QRectF boundingRect() const override;
+    SiliconDiode():IdealDiode(){}
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 };
 
-class VoltageSource : public Element {
+class DCVoltageSource : public Element {
 public:
-    VoltageSource();
-    QRectF boundingRect() const override;
+    DCVoltageSource();
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+};
+
+class ACVoltageSource : public Element {
+public:
+    ACVoltageSource():Element(){}
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+};
+
+class DCCurrentSource : public Element {
+public:
+    DCCurrentSource():Element(){}
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+};
+
+class ACCurrentSource : public Element {
+public:
+    ACCurrentSource():Element(){}
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+};
+
+class VCVS : public Element {
+public:
+    VCVS():Element(){}
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+};
+
+class VCCS : public Element {
+public:
+    VCCS():Element(){}
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+};
+
+class CCVS : public Element {
+public:
+    CCVS():Element(){}
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+};
+
+class CCCS : public Element {
+public:
+    CCCS():Element(){}
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 };
 #endif // ELEMENTS_H

@@ -298,6 +298,7 @@ C:/Users/Arman/Documents/Qt/Spice/addelementdialog.h
  mdp:C:/msys64/ucrt64/lib/clang/20/include/mm_malloc.h
 C:/Users/Arman/Documents/Qt/Spice/mainwindow.cpp
  uic:./ui_mainwindow.h
+ uic:ui_addelementdialog.h
  uic:ui_mainwindow.h
 C:/Users/Arman/Documents/Qt/Spice/main.cpp
 C:/Users/Arman/Documents/Qt/Spice/elements.cpp
