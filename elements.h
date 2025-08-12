@@ -17,6 +17,8 @@ public:
     string name;
     string value;
 
+    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+
 
 };
 
@@ -38,6 +40,25 @@ public:
 class Gnd : public Element {
 public:
     Gnd();
+    QRectF boundingRect() const override;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+};
+class IdealDiode : public Element {
+public:
+    IdealDiode();
+    QRectF boundingRect() const override;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+};
+class SiliconeDiode : public Element {
+public:
+    SiliconeDiode();
+    QRectF boundingRect() const override;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+};
+
+class VoltageSource : public Element {
+public:
+    VoltageSource();
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 };

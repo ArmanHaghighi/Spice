@@ -10,6 +10,7 @@ Element::Element() {
     setFlag(QGraphicsItem::ItemSendsGeometryChanges);
     firstLead={Element::boundingRect().right(),0};
     secondLead={Element::boundingRect().left(),0};
+    setTransformOriginPoint(Element::boundingRect().center());
 }
 
 QRectF Element::boundingRect() const {
@@ -20,13 +21,8 @@ QRectF Element::boundingRect() const {
 QVariant Element::itemChange(GraphicsItemChange change, const QVariant &value) {
     if (change == QGraphicsItem::ItemPositionChange&&scene()) {
         QPointF newPos = value.toPointF();
-        if (dynamic_cast<Gnd*>(this)) {
-            newPos.setX(qRound(newPos.x()/50)*50+25);
-            newPos.setY(qRound(newPos.y()/50)*50);
-        }else {
-            newPos.setX(qRound(newPos.x()/50)*50);
-            newPos.setY(qRound(newPos.y()/50)*50);
-        }
+            newPos.setX(qRound(newPos.x()/25)*25);
+            newPos.setY(qRound(newPos.y()/25)*25);
         return newPos;
     }
     return QGraphicsItem::itemChange(change, value);
@@ -39,6 +35,13 @@ QVariant Element::itemChange(GraphicsItemChange change, const QVariant &value) {
 //     qreal y = qRound(screenPos.y()/50)*50;
 //
 //     this->setPos(x,y);}
+
+void Element::mousePressEvent(QGraphicsSceneMouseEvent *event) {
+    if (event->button() == Qt::RightButton) {
+        this->setRotation(rotation()+90);
+    }
+    QGraphicsItem::mousePressEvent(event);
+}
 
 Resistor::Resistor() :Element(){
 }

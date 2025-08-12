@@ -45,10 +45,10 @@ SchematicView::SchematicView(MainWindow *mainWindow) {
     schView->setViewportUpdateMode(FullViewportUpdate);
 
     QPen gridPen(QColor(220, 220, 220),1,Qt::PenStyle::DotLine);
-    for(int x = -10025; x <= 10000; x += 50) {
+    for(int x = -10000; x <= 10000; x += 25) {
         schematicScene->addLine(x, -10000, x, 10000, gridPen);
     }
-    for(int y = -10000; y <= 10000; y += 50) {
+    for(int y = -10000; y <= 10000; y += 25) {
         schematicScene->addLine(-10000, y, 10000, y, gridPen);
     }
 }
@@ -250,13 +250,8 @@ placeElementOnClick(QMouseEvent *event)
 
     QPointF screenPos = ui->schematicView->mapToScene(event->pos());
     qreal x,y;
-    if (ToolType::Gnd==currentTool) {
-         x = qRound(screenPos.x()/50)*50+25;
-         y = qRound(screenPos.y()/50)*50;
-    }else {
-         x = qRound(screenPos.x()/50)*50;
-         y = qRound(screenPos.y()/50)*50;
-    }
+         x = qRound(screenPos.x()/25)*25;
+         y = qRound(screenPos.y()/25)*25;
     Element* newElement = nullptr;
 
     switch(currentTool) {
