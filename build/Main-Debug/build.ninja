@@ -94,6 +94,15 @@ build CMakeFiles/Spice.dir/addelementdialog.cpp.obj: CXX_COMPILER__Spice_unscann
   OBJECT_DIR = CMakeFiles\Spice.dir
   OBJECT_FILE_DIR = CMakeFiles\Spice.dir
 
+build CMakeFiles/Spice.dir/properties.cpp.obj: CXX_COMPILER__Spice_unscanned_Debug C$:/Users/Arman/Documents/Qt/Spice/properties.cpp || cmake_object_order_depends_target_Spice
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles\Spice.dir\properties.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fansi-escape-codes -fcolor-diagnostics
+  INCLUDES = -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug -IC:/Users/Arman/Documents/Qt/Spice -IC:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/Spice_autogen/include -isystem C:/msys64/ucrt64/include -isystem C:/msys64/ucrt64/include/QtWidgets -isystem C:/msys64/ucrt64/include/QtGui -isystem C:/msys64/ucrt64/include/QtCore -isystem C:/msys64/ucrt64/share/qt5/mkspecs/win32-g++
+  OBJECT_DIR = CMakeFiles\Spice.dir
+  OBJECT_FILE_DIR = CMakeFiles\Spice.dir
+
 build CMakeFiles/Spice.dir/Spice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CXX_COMPILER__Spice_unscanned_Debug C$:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/Spice_autogen/EWIEGA46WW/qrc_resources.cpp || cmake_object_order_depends_target_Spice
   CONFIG = Debug
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
@@ -111,7 +120,7 @@ build CMakeFiles/Spice.dir/Spice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CXX_C
 #############################################
 # Link the executable Spice.exe
 
-build Spice.exe: CXX_EXECUTABLE_LINKER__Spice_Debug CMakeFiles/Spice.dir/Spice_autogen/mocs_compilation.cpp.obj CMakeFiles/Spice.dir/main.cpp.obj CMakeFiles/Spice.dir/mainwindow.cpp.obj CMakeFiles/Spice.dir/elements.cpp.obj CMakeFiles/Spice.dir/addelementdialog.cpp.obj CMakeFiles/Spice.dir/Spice_autogen/EWIEGA46WW/qrc_resources.cpp.obj | C$:/msys64/ucrt64/lib/libQt5Widgets.dll.a C$:/msys64/ucrt64/lib/libQt5Gui.dll.a C$:/msys64/ucrt64/lib/libQt5Core.dll.a C$:/msys64/ucrt64/lib/libqtmain.a || Spice_autogen Spice_autogen_timestamp_deps
+build Spice.exe: CXX_EXECUTABLE_LINKER__Spice_Debug CMakeFiles/Spice.dir/Spice_autogen/mocs_compilation.cpp.obj CMakeFiles/Spice.dir/main.cpp.obj CMakeFiles/Spice.dir/mainwindow.cpp.obj CMakeFiles/Spice.dir/elements.cpp.obj CMakeFiles/Spice.dir/addelementdialog.cpp.obj CMakeFiles/Spice.dir/properties.cpp.obj CMakeFiles/Spice.dir/Spice_autogen/EWIEGA46WW/qrc_resources.cpp.obj | C$:/msys64/ucrt64/lib/libQt5Widgets.dll.a C$:/msys64/ucrt64/lib/libQt5Gui.dll.a C$:/msys64/ucrt64/lib/libQt5Core.dll.a C$:/msys64/ucrt64/lib/libqtmain.a || Spice_autogen Spice_autogen_timestamp_deps
   CONFIG = Debug
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
@@ -198,7 +207,7 @@ build Spice_autogen_timestamp_deps: phony
 #############################################
 # Utility command for Spice_autogen
 
-build Spice_autogen: phony CMakeFiles/Spice_autogen Spice_autogen/include/ui_mainwindow.h Spice_autogen/include/ui_addelementdialog.h Spice_autogen/timestamp Spice_autogen/mocs_compilation.cpp Spice_autogen_timestamp_deps
+build Spice_autogen: phony CMakeFiles/Spice_autogen Spice_autogen/include/ui_mainwindow.h Spice_autogen/include/ui_addelementdialog.h Spice_autogen/include/ui_properties.h Spice_autogen/timestamp Spice_autogen/mocs_compilation.cpp Spice_autogen_timestamp_deps
 
 
 #############################################
@@ -224,7 +233,7 @@ build Spice_autogen/EWIEGA46WW/qrc_resources.cpp | ${cmake_ninja_workdir}Spice_a
 #############################################
 # Phony custom command for CMakeFiles\Spice_autogen
 
-build CMakeFiles/Spice_autogen Spice_autogen/include/ui_mainwindow.h Spice_autogen/include/ui_addelementdialog.h | ${cmake_ninja_workdir}CMakeFiles/Spice_autogen ${cmake_ninja_workdir}Spice_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}Spice_autogen/include/ui_addelementdialog.h: phony Spice_autogen/timestamp || Spice_autogen_timestamp_deps
+build CMakeFiles/Spice_autogen Spice_autogen/include/ui_mainwindow.h Spice_autogen/include/ui_addelementdialog.h Spice_autogen/include/ui_properties.h | ${cmake_ninja_workdir}CMakeFiles/Spice_autogen ${cmake_ninja_workdir}Spice_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}Spice_autogen/include/ui_addelementdialog.h ${cmake_ninja_workdir}Spice_autogen/include/ui_properties.h: phony Spice_autogen/timestamp || Spice_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

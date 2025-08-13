@@ -4,25 +4,28 @@
 #include <QGraphicsSceneDragDropEvent>
 #include <qpainter.h>
 #include <QPixmap>
+
+#include "properties.h"
+#include "ui_properties.h"
+
 Element::Element() {
     setFlag(QGraphicsItem::ItemIsSelectable);
     setFlag(QGraphicsItem::ItemIsMovable);
     setFlag(QGraphicsItem::ItemSendsGeometryChanges);
-    firstLead={Element::boundingRect().right(),0};
-    secondLead={Element::boundingRect().left(),0};
+    firstLead = {Element::boundingRect().right(), 0};
+    secondLead = {Element::boundingRect().left(), 0};
     setTransformOriginPoint(Element::boundingRect().center());
 }
 
 QRectF Element::boundingRect() const {
-    return {-25,-10,50,20};
-
+    return {-25, -10, 50, 20};
 }
 
 QVariant Element::itemChange(GraphicsItemChange change, const QVariant &value) {
-    if (change == QGraphicsItem::ItemPositionChange&&scene()) {
+    if (change == QGraphicsItem::ItemPositionChange && scene()) {
         QPointF newPos = value.toPointF();
-            newPos.setX(qRound(newPos.x()/25)*25);
-            newPos.setY(qRound(newPos.y()/25)*25);
+        newPos.setX(qRound(newPos.x() / 25) * 25);
+        newPos.setY(qRound(newPos.y() / 25) * 25);
         return newPos;
     }
     return QGraphicsItem::itemChange(change, value);
@@ -38,7 +41,7 @@ QVariant Element::itemChange(GraphicsItemChange change, const QVariant &value) {
 
 void Element::mousePressEvent(QGraphicsSceneMouseEvent *event) {
     if (event->button() == Qt::RightButton) {
-        this->setRotation(rotation()+90);
+        this->setRotation(rotation() + 90);
 
         QTransform transform;
         transform.rotate(90);
@@ -46,27 +49,69 @@ void Element::mousePressEvent(QGraphicsSceneMouseEvent *event) {
         secondLead = transform.map(secondLead);
 
         event->accept();
-    }else
+    } else
         QGraphicsItem::mousePressEvent(event);
 }
 
-Resistor::Resistor() :Element(){
+void Element::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
+    if (event->button() == Qt::LeftButton) {
+        auto *properties = new Properties(dynamic_cast<QWidget *>(this));
+        properties->getUi()->NameTxt->setText(name);
+        properties->getUi()->ValTxt->setText(value);
+        if (properties->exec() == QDialog::Accepted) {
+            this->setName(properties->getUi()->NameTxt->text());
+            this->setValue(properties->getUi()->ValTxt->text());
+        }
+
+        event->accept();
+    } else
+        QGraphicsItem::mouseDoubleClickEvent(event);
+}
+
+void Element::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    painter->setPen(QPen(Qt::black));
+    painter->drawText(boundingRect().topLeft(), name);
+    painter->drawText(QPointF{boundingRect().bottomLeft().x(), boundingRect().bottomLeft().y() + 10}, value);
+}
+
+void Element::setName(QString name) {
+    this->name = name;
+}
+
+
+void Element::setValue(QString value) {
+    if (value.isEmpty())
+        return;
+    this->value = value;
+}
+
+Resistor::Resistor() : Element() {
+}
+
+void Resistor::setName(QString name) {
+    if (name.isEmpty())
+        return;
+    if (name.at(0) != 'R') {
+        name.insert(0, "R");
+    }
+    this->name = name;
 }
 
 void Resistor::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    Element::paint(painter, option, widget);
     static const QPointF points[] = {
-        {-25,0},
-        {-15,0},
-        {-12,10},
-        {-6,-10},
-        {0,10},
-        {6,-10},
-        {12,10},
-        {15,0},
-        {25,0}
+        {-25, 0},
+        {-15, 0},
+        {-12, 10},
+        {-6, -10},
+        {0, 10},
+        {6, -10},
+        {12, 10},
+        {15, 0},
+        {25, 0}
     };
     painter->setPen(Qt::black);
-    painter->drawPolyline(points,9);
+    painter->drawPolyline(points, 9);
     // Optional: Draw component selection highlight
     if (isSelected()) {
         painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
@@ -74,19 +119,21 @@ void Resistor::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
     }
 }
 
-Capacitor::Capacitor() :Element(){
+Capacitor::Capacitor() : Element() {
 }
 
 void Capacitor::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    Element::paint(painter, option, widget);
+
     static const QPointF pointsPairs[] = {
-        {-25,0},{-5,0},
-        {-5,10},{-5,-10},
-        {5,10},{5,-10},
-        {25,0},{5,0}
+        {-25, 0}, {-5, 0},
+        {-5, 10}, {-5, -10},
+        {5, 10}, {5, -10},
+        {25, 0}, {5, 0}
 
     };
     painter->setPen(Qt::black);
-    painter->drawLines(pointsPairs,4);
+    painter->drawLines(pointsPairs, 4);
     // Optional: Draw component selection highlight
     if (isSelected()) {
         painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
@@ -94,20 +141,32 @@ void Capacitor::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
     }
 }
 
-Inductor::Inductor() :Element(){
+void Capacitor::setName(QString name) {
+    if (name.isEmpty())
+        return;
+    char const c = 'C';
+    if (name.at(0) != c) {
+        name.insert(0, c);
+    }
+    this->name = name;
+}
+
+Inductor::Inductor() : Element() {
 }
 
 void Inductor::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    Element::paint(painter, option, widget);
+
     Q_UNUSED(option);
     Q_UNUSED(widget);
 
-    QPainterPath painterPath({-25,0});
+    QPainterPath painterPath({-25, 0});
 
-    painterPath.lineTo(-15,0);
-    painterPath.arcTo({-15,-5,10,10},180,-180);
-    painterPath.arcTo({-5,-5,10,10},180,-180);
-    painterPath.arcTo({5,-5,10,10},180,-180);
-    painterPath.lineTo(25,0);
+    painterPath.lineTo(-15, 0);
+    painterPath.arcTo({-15, -5, 10, 10}, 180, -180);
+    painterPath.arcTo({-5, -5, 10, 10}, 180, -180);
+    painterPath.arcTo({5, -5, 10, 10}, 180, -180);
+    painterPath.lineTo(25, 0);
 
     painter->setPen(Qt::black);
     painter->drawPath(painterPath);
@@ -118,7 +177,17 @@ void Inductor::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
     }
 }
 
-Gnd::Gnd() :Element(){
+void Inductor::setName(QString name) {
+    if (name.isEmpty())
+        return;
+    char const c = 'I';
+    if (name.at(0) != c) {
+        name.insert(0, c);
+    }
+    this->name = name;
+}
+
+Gnd::Gnd() : Element() {
 }
 
 QRectF Gnd::boundingRect() const {
@@ -126,9 +195,10 @@ QRectF Gnd::boundingRect() const {
 }
 
 void Gnd::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+
     static const QPointF pointsPairs[] = {
-        {0, 0}, {0,20 },
-        {-12.5,20},{12.5,20},
+        {0, 0}, {0, 20},
+        {-12.5, 20}, {12.5, 20},
         {-7, 25}, {7, 25},
         {-3, 30}, {3, 30}
     };
@@ -141,12 +211,19 @@ void Gnd::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidg
         painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
         painter->drawRect(boundingRect());
     }
-
 }
+
+void Gnd::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
+    event->accept();
+}
+
 // Ideal Diode
-IdealDiode::IdealDiode() : Element() {}
+IdealDiode::IdealDiode() : Element() {
+}
 
 void IdealDiode::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    Element::paint(painter, option, widget);
+
     // Triangle (anode)
     QPolygonF triangle;
     triangle << QPointF(-15, -8) << QPointF(5, 0) << QPointF(-15, 8);
@@ -167,8 +244,20 @@ void IdealDiode::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     }
 }
 
+void IdealDiode::setName(QString name) {
+    if (name.isEmpty())
+        return;
+    char const c = 'D';
+    if (name.at(0) != c) {
+        name.insert(0, c);
+    }
+    this->name = name;
+}
+
 // Silicon Diode (similar but with different symbol)
 void SiliconDiode::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    Element::paint(painter, option, widget);
+
     IdealDiode::paint(painter, option, widget);
 
     QPolygonF triangle;
@@ -176,15 +265,27 @@ void SiliconDiode::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
 
     painter->setPen(Qt::black);
     painter->setBrush(Qt::black);
-    painter->drawPolygon(triangle,Qt::OddEvenFill);
+    painter->drawPolygon(triangle, Qt::OddEvenFill);
     painter->setBrush(Qt::NoBrush);
 }
 
-DCVoltageSource::DCVoltageSource() :Element(){
+void SiliconDiode::setName(QString name) {
+    if (name.isEmpty())
+        return;
+    char const c = 'D';
+    if (name.at(0) != c) {
+        name.insert(0, c);
+    }
+    this->name = name;
+}
+
+DCVoltageSource::DCVoltageSource() : Element() {
 }
 
 // DC Voltage Source
 void DCVoltageSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    Element::paint(painter, option, widget);
+
     // Circle
     painter->drawEllipse(-10, -10, 20, 20);
 
@@ -205,8 +306,20 @@ void DCVoltageSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
     }
 }
 
+void DCVoltageSource::setName(QString name) {
+    if (name.isEmpty())
+        return;
+    char const c = 'D';
+    if (name.at(0) != c) {
+        name.insert(0, c);
+    }
+    this->name = name;
+}
+
 // AC Voltage Source
 void ACVoltageSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    Element::paint(painter, option, widget);
+
     // Circle
     painter->drawEllipse(-10, -10, 20, 20);
 
@@ -226,8 +339,20 @@ void ACVoltageSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
     }
 }
 
+void ACVoltageSource::setName(QString name) {
+    // if (name.isEmpty())                  //TODO:implement naming system based on the netlist system
+    //     return;
+    // string const c="Vsin";
+    // if (name.at(0) != c) {
+    //     name.insert(0, c);
+    // }
+    // this->name=name;
+}
+
 // DC Current Source
 void DCCurrentSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    Element::paint(painter, option, widget);
+
     // Circle
     painter->drawEllipse(-10, -10, 20, 20);
 
@@ -249,8 +374,14 @@ void DCCurrentSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
     }
 }
 
+void DCCurrentSource::setName(QString name) {
+    Element::setName(name);
+}
+
 // AC Current Source
 void ACCurrentSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    Element::paint(painter, option, widget);
+
     // Circle
     painter->drawEllipse(-10, -10, 20, 20);
 
@@ -275,8 +406,14 @@ void ACCurrentSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
     }
 }
 
+void ACCurrentSource::setName(QString name) {
+    Element::setName(name);
+}
+
 // Dependent sources (diamond shape)
 void VCVS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    Element::paint(painter, option, widget);
+
     // Diamond shape
     QPolygonF diamond;
     diamond << QPointF(0, -10) << QPointF(10, 0) << QPointF(0, 10) << QPointF(-10, 0);
@@ -295,7 +432,13 @@ void VCVS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     }
 }
 
+void VCVS::setName(QString name) {
+    Element::setName(name);
+}
+
 void VCCS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    Element::paint(painter, option, widget);
+
     // Diamond shape
     QPolygonF diamond;
     diamond << QPointF(0, -10) << QPointF(10, 0) << QPointF(0, 10) << QPointF(-10, 0);
@@ -314,7 +457,13 @@ void VCCS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     }
 }
 
+void VCCS::setName(QString name) {
+    Element::setName(name);
+}
+
 void CCVS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    Element::paint(painter, option, widget);
+
     // Diamond shape
     QPolygonF diamond;
     diamond << QPointF(0, -10) << QPointF(10, 0) << QPointF(0, 10) << QPointF(-10, 0);
@@ -333,7 +482,13 @@ void CCVS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     }
 }
 
+void CCVS::setName(QString name) {
+    Element::setName(name);
+}
+
 void CCCS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    Element::paint(painter, option, widget);
+
     // Diamond shape
     QPolygonF diamond;
     diamond << QPointF(0, -10) << QPointF(10, 0) << QPointF(0, 10) << QPointF(-10, 0);
@@ -350,4 +505,8 @@ void CCCS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
         painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
         painter->drawRect(boundingRect());
     }
+}
+
+void CCCS::setName(QString name) {
+    Element::setName(name);
 }

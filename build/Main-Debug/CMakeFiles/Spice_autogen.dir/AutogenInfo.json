@@ -94,6 +94,12 @@
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
+		],
+		[
+			"C:/Users/Arman/Documents/Qt/Spice/properties.h",
+			"MU",
+			"EWIEGA46WW/moc_properties.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -151,7 +157,8 @@
 		[ "C:/Users/Arman/Documents/Qt/Spice/addelementdialog.cpp", "MU", null ],
 		[ "C:/Users/Arman/Documents/Qt/Spice/elements.cpp", "MU", null ],
 		[ "C:/Users/Arman/Documents/Qt/Spice/main.cpp", "MU", null ],
-		[ "C:/Users/Arman/Documents/Qt/Spice/mainwindow.cpp", "MU", null ]
+		[ "C:/Users/Arman/Documents/Qt/Spice/mainwindow.cpp", "MU", null ],
+		[ "C:/Users/Arman/Documents/Qt/Spice/properties.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

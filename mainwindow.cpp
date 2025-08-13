@@ -43,7 +43,7 @@ SchematicView::SchematicView(MainWindow *mainWindow) {
     schView->setRenderHint(QPainter::Antialiasing);
     schView->setDragMode(RubberBandDrag);
     schView->setViewportUpdateMode(FullViewportUpdate);
-
+    schView->setResizeAnchor(AnchorUnderMouse);
     QPen gridPen(QColor(220, 220, 220),1,Qt::PenStyle::DotLine);
     for(int x = -10000; x <= 10000; x += 25) {
         schematicScene->addLine(x, -10000, x, 10000, gridPen);
@@ -55,6 +55,12 @@ SchematicView::SchematicView(MainWindow *mainWindow) {
 
 SchematicView::SchematicView(QWidget *wid)
 {
+
+}
+
+void SchematicView::resizeEvent(QResizeEvent *event) {
+
+    QGraphicsView::resizeEvent(event);
 
 }
 
@@ -389,6 +395,8 @@ void MainWindow::on_actionWire_toggled(bool arg1)
     {
         if (!arg1) {
             ui->actionAdd_Element->setChecked(false);
+            currentTool = ToolType::None;
+            ui->schematicView->setCursor(Qt::ArrowCursor);
             return;
         }
 
@@ -396,6 +404,8 @@ void MainWindow::on_actionWire_toggled(bool arg1)
         for(QAction *a : ui->toolBar->actions()) {
             if (a != ui->actionAdd_Element) {
                 a->setChecked(false);
+                currentTool = ToolType::None;
+                ui->schematicView->setCursor(Qt::ArrowCursor);
             }
         }
 

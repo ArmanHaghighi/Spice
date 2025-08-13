@@ -42,6 +42,7 @@ else()
             resources.qrc
             elements.h elements.cpp
             addelementdialog.h addelementdialog.cpp addelementdialog.ui
+            properties.h properties.cpp properties.ui
 
         )
     endif()

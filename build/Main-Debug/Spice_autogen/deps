@@ -12,6 +12,8 @@ Spice_autogen/timestamp: \
 	C:/Users/Arman/Documents/Qt/Spice/main.cpp \
 	C:/Users/Arman/Documents/Qt/Spice/mainwindow.cpp \
 	C:/Users/Arman/Documents/Qt/Spice/mainwindow.h \
+	C:/Users/Arman/Documents/Qt/Spice/properties.cpp \
+	C:/Users/Arman/Documents/Qt/Spice/properties.h \
 	C:/Users/Arman/Documents/Qt/Spice/resources.qrc \
 	C:/msys64/mingw64/include/c++/15.1.0/algorithm \
 	C:/msys64/mingw64/include/c++/15.1.0/any \
@@ -514,4 +516,5 @@ Spice_autogen/timestamp: \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/WindowsPaths.cmake \
 	C:/Users/Arman/Documents/Qt/Spice/addelementdialog.ui \
 	C:/Users/Arman/Documents/Qt/Spice/mainwindow.ui \
+	C:/Users/Arman/Documents/Qt/Spice/properties.ui \
 	C:/msys64/ucrt64/bin/cmake.exe
