@@ -22,3 +22,14 @@
 260	3186	7767909792589247	CMakeFiles/Spice.dir/elements.cpp.obj	a43612beb8cc550
 247	3688	7767909792448767	CMakeFiles/Spice.dir/mainwindow.cpp.obj	4cf9cc3c1f029bae
 3688	4025	7767909826866944	Spice.exe	c168f10b739fdf7e
+37	2253	7768933062771784	Spice_autogen/timestamp	7a79df07da10c4b7
+37	2253	7768933062771784	Spice_autogen/mocs_compilation.cpp	7a79df07da10c4b7
+37	2253	7768933062771784	C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen/timestamp	7a79df07da10c4b7
+37	2253	7768933062771784	C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen/mocs_compilation.cpp	7a79df07da10c4b7
+2322	4578	7768933063884481	CMakeFiles/Spice.dir/properties.cpp.obj	2b48ff0ce7cab22e
+2315	4579	7768933063814549	CMakeFiles/Spice.dir/addelementdialog.cpp.obj	7014ada6713efaa5
+2291	5220	7768933063572993	CMakeFiles/Spice.dir/main.cpp.obj	a1e851f011b4ef91
+2254	5281	7768933063204590	CMakeFiles/Spice.dir/Spice_autogen/mocs_compilation.cpp.obj	d953a4c0429cde05
+2308	5515	7768933063742899	CMakeFiles/Spice.dir/elements.cpp.obj	a43612beb8cc550
+2299	5852	7768933063652894	CMakeFiles/Spice.dir/mainwindow.cpp.obj	4cf9cc3c1f029bae
+5852	6200	7768933099189857	Spice.exe	c168f10b739fdf7e
