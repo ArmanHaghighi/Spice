@@ -9,6 +9,7 @@
 #include <bits/stdc++.h>
 #include "elements.h"
 #include "addelementdialog.h"
+#include "trandialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

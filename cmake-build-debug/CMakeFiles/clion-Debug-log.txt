@@ -1,4 +1,23 @@
-C:\msys64\ucrt64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/msys64/ucrt64/bin/ninja.exe -DCMAKE_C_COMPILER=C:/msys64/ucrt64/bin/gcc.exe -DCMAKE_CXX_COMPILER=C:/msys64/ucrt64/bin/g++.exe -G Ninja -S C:\Users\Arman\Documents\Qt\Spice -B C:\Users\Arman\Documents\Qt\Spice\cmake-build-debug
--- Configuring done (1.2s)
--- Generating done (0.5s)
--- Build files have been written to: C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug
+C:\msys64\ucrt64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=C:/msys64/ucrt64/bin/gcc.exe -DCMAKE_CXX_COMPILER=C:/msys64/ucrt64/bin/g++.exe -G "MinGW Makefiles" -S "C:\Users\Latitude 5420\CLionProjects\Spice" -B "C:\Users\Latitude 5420\CLionProjects\Spice\cmake-build-debug"
+-- The CXX compiler identification is GNU 15.1.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/msys64/ucrt64/bin/g++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Performing Test HAVE_STDATOMIC
+-- Performing Test HAVE_STDATOMIC - Success
+-- Found WrapAtomic: TRUE
+-- Found WrapVulkanHeaders: C:/msys64/ucrt64/include
+-- Configuring done (3.9s)
+-- Generating done (0.6s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_C_COMPILER
+
+
+-- Build files have been written to: C:/Users/Latitude 5420/CLionProjects/Spice/cmake-build-debug

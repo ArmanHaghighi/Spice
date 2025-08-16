@@ -1,9 +1,9 @@
-C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/Spice.dir
-C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/list_install_components.dir
-C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/install.dir
-C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/install/local.dir
-C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/install/strip.dir
-C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/Spice_autogen_timestamp_deps.dir
-C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/Spice_autogen.dir
+C:/Users/Latitude 5420/CLionProjects/Spice/cmake-build-debug/CMakeFiles/Spice.dir
+C:/Users/Latitude 5420/CLionProjects/Spice/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Latitude 5420/CLionProjects/Spice/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Latitude 5420/CLionProjects/Spice/cmake-build-debug/CMakeFiles/list_install_components.dir
+C:/Users/Latitude 5420/CLionProjects/Spice/cmake-build-debug/CMakeFiles/install.dir
+C:/Users/Latitude 5420/CLionProjects/Spice/cmake-build-debug/CMakeFiles/install/local.dir
+C:/Users/Latitude 5420/CLionProjects/Spice/cmake-build-debug/CMakeFiles/install/strip.dir
+C:/Users/Latitude 5420/CLionProjects/Spice/cmake-build-debug/CMakeFiles/Spice_autogen_timestamp_deps.dir
+C:/Users/Latitude 5420/CLionProjects/Spice/cmake-build-debug/CMakeFiles/Spice_autogen.dir
