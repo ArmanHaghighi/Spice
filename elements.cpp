@@ -289,12 +289,7 @@ void DCVoltageSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
     // Circle
     painter->drawEllipse(-10, -10, 20, 20);
 
-    // Plus/minus signs
-    painter->drawLine(QPointF(-5, -5), QPointF(-5, -1));
-    painter->drawLine(QPointF(-7, -3), QPointF(-3, -3));
-
-    painter->drawLine(QPointF(-5, 1), QPointF(-5, 5));
-    painter->drawLine(QPointF(-7, 3), QPointF(-3, 3));
+    painter->drawText(QPointF{-2.8,6},"V");
 
     // Leads
     painter->drawLine(QPointF(-25, 0), QPointF(-10, 0));
@@ -340,13 +335,13 @@ void ACVoltageSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 }
 
 void ACVoltageSource::setName(QString name) {
-    // if (name.isEmpty())                  //TODO:implement naming system based on the netlist system
-    //     return;
-    // string const c="Vsin";
-    // if (name.at(0) != c) {
-    //     name.insert(0, c);
-    // }
-    // this->name=name;
+    if (name.isEmpty())                  //change if needed
+        return;
+    string const c="Vsin";
+    if (name.toStdString().substr(0, c.size()) == c) {
+        name.insert(0, c.c_str());
+    }
+    this->name=name;
 }
 
 // DC Current Source
@@ -355,14 +350,12 @@ void DCCurrentSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 
     // Circle
     painter->drawEllipse(-10, -10, 20, 20);
+    //Line
 
-    // Arrow inside
-    painter->drawLine(QPointF(0, -5), QPointF(0, 5));
-    painter->drawLine(QPointF(0, 5), QPointF(-3, 2));
-    painter->drawLine(QPointF(0, 5), QPointF(3, 2));
+    painter->drawLine(-4,-6,4,-6);
 
-    // "DC" label
-    painter->drawText(QRectF(-5, -3, 10, 6), Qt::AlignCenter, "DC");
+    // "A" label
+    painter->drawText( QPointF(-2.8,4), "A");
 
     // Leads
     painter->drawLine(QPointF(-25, 0), QPointF(-10, 0));
@@ -385,10 +378,8 @@ void ACCurrentSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
     // Circle
     painter->drawEllipse(-10, -10, 20, 20);
 
-    // Arrow inside
-    painter->drawLine(QPointF(0, -5), QPointF(0, 5));
-    painter->drawLine(QPointF(0, 5), QPointF(-3, 2));
-    painter->drawLine(QPointF(0, 5), QPointF(3, 2));
+    // "A" label
+    painter->drawText( QPointF(-2.8,4), "A");
 
     // "~" symbol
     QPainterPath wave;
