@@ -3,7 +3,11 @@
 
 #include <QGraphicsItem>
 #include <bits/stdc++.h>
+
+
 using namespace std;
+
+constexpr double GRID_SIZE =12.5;
 class Element : public QGraphicsItem
 {
 public:
@@ -96,6 +100,7 @@ public:
 class VCVS : public Element {
 public:
     VCVS():Element(){}
+    QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void setName(QString name) override;
 };
@@ -103,6 +108,7 @@ public:
 class VCCS : public Element {
 public:
     VCCS():Element(){}
+    QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void setName(QString name) override;
 };
@@ -110,6 +116,7 @@ public:
 class CCVS : public Element {
 public:
     CCVS():Element(){}
+    QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void setName(QString name) override;
 };
@@ -117,6 +124,7 @@ public:
 class CCCS : public Element {
 public:
     CCCS():Element(){}
+    QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void setName(QString name) override;
 };

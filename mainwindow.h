@@ -83,6 +83,7 @@ private:
         ACVoltageSource,
         DCCurrentSource,
         ACCurrentSource,
+        tSource,
         VCVS,
         VCCS,
         CCVS,
@@ -110,5 +111,6 @@ protected:
     void resizeEvent(QResizeEvent *event) override;
     void mousePressEvent(QMouseEvent* event) override ;
     void mouseReleaseEvent(QMouseEvent* event) override;
+    void wheelEvent(QWheelEvent *event) override;
 };
 #endif // MAINWINDOW_H

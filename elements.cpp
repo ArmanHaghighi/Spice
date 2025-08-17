@@ -18,14 +18,14 @@ Element::Element() {
 }
 
 QRectF Element::boundingRect() const {
-    return {-25, -10, 50, 20};
+    return {-25, -12.5, 50, 25};
 }
 
 QVariant Element::itemChange(GraphicsItemChange change, const QVariant &value) {
     if (change == QGraphicsItem::ItemPositionChange && scene()) {
         QPointF newPos = value.toPointF();
-        newPos.setX(qRound(newPos.x() / 25) * 25);
-        newPos.setY(qRound(newPos.y() / 25) * 25);
+        newPos.setX(qRound(newPos.x() / GRID_SIZE) * GRID_SIZE);
+        newPos.setY(qRound(newPos.y() / GRID_SIZE) * GRID_SIZE);
         return newPos;
     }
     return QGraphicsItem::itemChange(change, value);
@@ -383,8 +383,8 @@ void ACCurrentSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 
     // "~" symbol
     QPainterPath wave;
-    wave.moveTo(-3, 0);
-    wave.cubicTo(-1.5, -3, 1.5, 3, 3, 0);
+    wave.moveTo(-3, -6.5);
+    wave.cubicTo(-1.5, -8.5, 1.5, -3.5, 3, -6.5);
     painter->drawPath(wave);
 
     // Leads
@@ -401,46 +401,75 @@ void ACCurrentSource::setName(QString name) {
     Element::setName(name);
 }
 
-// Dependent sources (diamond shape)
-void VCVS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
-    Element::paint(painter, option, widget);
+QRectF VCVS::boundingRect() const {
+    return {-25, -25, 37.5, 50};
+}
 
+void VCVS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     // Diamond shape
     QPolygonF diamond;
-    diamond << QPointF(0, -10) << QPointF(10, 0) << QPointF(0, 10) << QPointF(-10, 0);
+    diamond << QPointF(0, -10)
+            << QPointF(10, 0)
+            << QPointF(0, 10)
+            << QPointF(-10, 0);
     painter->drawPolygon(diamond);
 
     // Label
-    painter->drawText(QRectF(-8, -5, 16, 10), Qt::AlignCenter, "VCVS");
+    painter->drawText(QRectF(-10, -8, 20, 16), Qt::AlignCenter, "E");
 
-    // Leads
-    painter->drawLine(QPointF(-25, 0), QPointF(-10, 0));
-    painter->drawLine(QPointF(10, 0), QPointF(25, 0));
+    // === Output Leads (right) ===
+    painter->drawLine(QPointF(0, -25), QPointF(0, -10));  // +
+    painter->drawLine(QPointF(0, 25), QPointF(0, 10)); // -
+
+    // === Control Leads (left): sense voltage ===
+    painter->drawLine(QPointF(-25, -12.5), QPointF(-12.5, -12.5));
+    painter->drawLine(QPointF(-12.5, -12.5), QPointF(-5, -5));
+
+    painter->drawLine(QPointF(-25, 12.5), QPointF(-12.5, 12.5));
+    painter->drawLine(QPointF(-5, 5), QPointF(-12.5, 12.5));
+
+    painter->drawText(QRectF(-20, -25, 10, 10), Qt::AlignRight, "+");
+    painter->drawText(QRectF(-20, 10, 10, 10), Qt::AlignRight, "−");
 
     if (isSelected()) {
         painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
         painter->drawRect(boundingRect());
-    }
-}
+    }}
 
 void VCVS::setName(QString name) {
     Element::setName(name);
 }
+
+QRectF VCCS::boundingRect() const {
+    return {-25, -25, 37.5, 50};}
 
 void VCCS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     Element::paint(painter, option, widget);
 
     // Diamond shape
     QPolygonF diamond;
-    diamond << QPointF(0, -10) << QPointF(10, 0) << QPointF(0, 10) << QPointF(-10, 0);
+    diamond << QPointF(0, -10)
+            << QPointF(10, 0)
+            << QPointF(0, 10)
+            << QPointF(-10, 0);
     painter->drawPolygon(diamond);
 
     // Label
-    painter->drawText(QRectF(-8, -5, 16, 10), Qt::AlignCenter, "VCCS");
+    painter->drawText(QRectF(-10, -8, 20, 16), Qt::AlignCenter, "G");
 
-    // Leads
-    painter->drawLine(QPointF(-25, 0), QPointF(-10, 0));
-    painter->drawLine(QPointF(10, 0), QPointF(25, 0));
+    // === Output Leads (right) ===
+    painter->drawLine(QPointF(0, -25), QPointF(0, -10));  // +
+    painter->drawLine(QPointF(0, 25), QPointF(0, 10)); // -
+
+    // === Control Leads (left): sense voltage ===
+    painter->drawLine(QPointF(-25, -12.5), QPointF(-12.5, -12.5));
+    painter->drawLine(QPointF(-12.5, -12.5), QPointF(-5, -5));
+
+    painter->drawLine(QPointF(-25, 12.5), QPointF(-12.5, 12.5));
+    painter->drawLine(QPointF(-5, 5), QPointF(-12.5, 12.5));
+
+    painter->drawText(QRectF(-20, -25, 10, 10), Qt::AlignRight, "+");
+    painter->drawText(QRectF(-20, 10, 10, 10), Qt::AlignRight, "−");
 
     if (isSelected()) {
         painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
@@ -452,20 +481,34 @@ void VCCS::setName(QString name) {
     Element::setName(name);
 }
 
-void CCVS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
-    Element::paint(painter, option, widget);
+QRectF CCVS::boundingRect() const {
+    return {-25, -25, 37.5, 50};}
 
+void CCVS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     // Diamond shape
     QPolygonF diamond;
-    diamond << QPointF(0, -10) << QPointF(10, 0) << QPointF(0, 10) << QPointF(-10, 0);
+    diamond << QPointF(0, -10)
+            << QPointF(10, 0)
+            << QPointF(0, 10)
+            << QPointF(-10, 0);
     painter->drawPolygon(diamond);
 
     // Label
-    painter->drawText(QRectF(-8, -5, 16, 10), Qt::AlignCenter, "CCVS");
+    painter->drawText(QRectF(-10, -8, 20, 16), Qt::AlignCenter, "H");
 
-    // Leads
-    painter->drawLine(QPointF(-25, 0), QPointF(-10, 0));
-    painter->drawLine(QPointF(10, 0), QPointF(25, 0));
+    // === Output Leads (right) ===
+    painter->drawLine(QPointF(0, -25), QPointF(0, -10));  // +
+    painter->drawLine(QPointF(0, 25), QPointF(0, 10)); // -
+
+    // === Control Leads (left): sense voltage ===
+    painter->drawLine(QPointF(-25, -12.5), QPointF(-12.5, -12.5));
+    painter->drawLine(QPointF(-12.5, -12.5), QPointF(-5, -5));
+
+    painter->drawLine(QPointF(-25, 12.5), QPointF(-12.5, 12.5));
+    painter->drawLine(QPointF(-5, 5), QPointF(-12.5, 12.5));
+
+    painter->drawText(QRectF(-20, -25, 10, 10), Qt::AlignRight, "+");
+    painter->drawText(QRectF(-20, 10, 10, 10), Qt::AlignRight, "−");
 
     if (isSelected()) {
         painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
@@ -477,27 +520,41 @@ void CCVS::setName(QString name) {
     Element::setName(name);
 }
 
-void CCCS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
-    Element::paint(painter, option, widget);
+QRectF CCCS::boundingRect() const {
+    return {-25, -25, 37.5, 50};}
 
-    // Diamond shape
+void CCCS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+      // Diamond shape
     QPolygonF diamond;
-    diamond << QPointF(0, -10) << QPointF(10, 0) << QPointF(0, 10) << QPointF(-10, 0);
+    diamond << QPointF(0, -10)
+            << QPointF(10, 0)
+            << QPointF(0, 10)
+            << QPointF(-10, 0);
     painter->drawPolygon(diamond);
 
     // Label
-    painter->drawText(QRectF(-8, -5, 16, 10), Qt::AlignCenter, "CCCS");
+    painter->drawText(QRectF(-10, -8, 20, 16), Qt::AlignCenter, "F");
 
-    // Leads
-    painter->drawLine(QPointF(-25, 0), QPointF(-10, 0));
-    painter->drawLine(QPointF(10, 0), QPointF(25, 0));
+    // === Output Leads (right) ===
+    painter->drawLine(QPointF(0, -25), QPointF(0, -10));  // +
+    painter->drawLine(QPointF(0, 25), QPointF(0, 10)); // -
+
+    // === Control Leads (left): sense voltage ===
+    painter->drawLine(QPointF(-25, -12.5), QPointF(-12.5, -12.5));
+    painter->drawLine(QPointF(-12.5, -12.5), QPointF(-5, -5));
+
+    painter->drawLine(QPointF(-25, 12.5), QPointF(-12.5, 12.5));
+    painter->drawLine(QPointF(-5, 5), QPointF(-12.5, 12.5));
+
+    painter->drawText(QRectF(-20, -25, 10, 10), Qt::AlignRight, "+");
+    painter->drawText(QRectF(-20, 10, 10, 10), Qt::AlignRight, "−");
 
     if (isSelected()) {
         painter->setPen(QPen(Qt::blue, 1, Qt::DashLine));
         painter->drawRect(boundingRect());
-    }
-}
+    }}
 
 void CCCS::setName(QString name) {
     Element::setName(name);
 }
+

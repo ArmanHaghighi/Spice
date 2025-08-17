@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-8808e9387660f6408d82.json",
+					"jsonFile" : "directory-.-Debug-13297567fa7e3672e7e7.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Spice::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Spice-Debug-7b3f24ebb05fa78276d0.json",
+					"jsonFile" : "target-Spice-Debug-32bcb61c827d31ac46fd.json",
 					"name" : "Spice",
 					"projectIndex" : 0
 				},

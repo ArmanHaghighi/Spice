@@ -44,10 +44,10 @@ SchematicView::SchematicView(MainWindow *mainWindow) {
     schView->setViewportUpdateMode(FullViewportUpdate);
     schView->setResizeAnchor(AnchorUnderMouse);
     QPen gridPen(QColor(220, 220, 220),1,Qt::PenStyle::DotLine);
-    for(int x = -10000; x <= 10000; x += 25) {
+    for(double x = -10000; x <= 10000; x += GRID_SIZE) {
         schematicScene->addLine(x, -10000, x, 10000, gridPen);
     }
-    for(int y = -10000; y <= 10000; y += 25) {
+    for(double y = -10000; y <= 10000; y += GRID_SIZE) {
         schematicScene->addLine(-10000, y, 10000, y, gridPen);
     }
 }
@@ -71,6 +71,20 @@ void SchematicView::mousePressEvent(QMouseEvent *event) {
 void SchematicView::mouseReleaseEvent(QMouseEvent *event) {
     emit mouseReleased(event);
     QGraphicsView::mouseReleaseEvent(event);
+}
+
+void SchematicView::wheelEvent(QWheelEvent *event) {
+    if (event->modifiers() .testFlag(Qt::ControlModifier)) {
+        const double scaleFactor =1.15;
+
+        if (event->angleDelta().y() > 0) {
+            scale(scaleFactor, scaleFactor);
+        }
+        else
+            scale(1/scaleFactor, 1/scaleFactor);
+    }
+    else
+        QGraphicsView::wheelEvent(event);
 }
 
 
