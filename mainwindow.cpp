@@ -223,14 +223,15 @@ void MainWindow::on_actionCapacitor_toggled(bool checked)
 
 void MainWindow::on_actionTransient_triggered()
 {
-    TranDialog d;
+    TranDialog *d=new TranDialog(this);
     QString iStop, iStart, iStep;
-    if(d.exec()==QDialog::Accepted)
+    if(d->exec()==QDialog::Accepted)
     {
-        iStop = d.ui->inputStop->text();
-        iStart = d.ui->inputStart->text();
-        iStep = d.ui->inputStep->text();
+        iStop = d->ui->inputStop->text();
+        iStart = d->ui->inputStart->text();
+        iStep = d->ui->inputStep->text();
     }
+    delete d;
 }
 
 

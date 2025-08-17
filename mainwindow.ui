@@ -54,7 +54,7 @@
      <x>0</x>
      <y>0</y>
      <width>1022</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -85,7 +85,6 @@
     <addaction name="actionWire"/>
     <addaction name="actionGnd"/>
     <addaction name="separator"/>
-    <addaction name="actionDuplicate"/>
     <addaction name="actionDelete"/>
    </widget>
    <addaction name="menuFile"/>
@@ -119,7 +118,6 @@
    <addaction name="actionGnd"/>
    <addaction name="actionWire"/>
    <addaction name="separator"/>
-   <addaction name="actionDuplicate"/>
    <addaction name="actionDelete"/>
   </widget>
   <action name="actionNew">
@@ -227,21 +225,6 @@
    </property>
    <property name="shortcut">
     <string>I</string>
-   </property>
-  </action>
-  <action name="actionDuplicate">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="resources.qrc">
-     <normaloff>:/icons/assets/duplicate.png</normaloff>:/icons/assets/duplicate.png</iconset>
-   </property>
-   <property name="text">
-    <string>Duplicate</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+C</string>
    </property>
   </action>
   <action name="actionDelete">
