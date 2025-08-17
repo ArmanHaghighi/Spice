@@ -18,6 +18,9 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        trandialog.cpp
+        trandialog.h
+        trandialog.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

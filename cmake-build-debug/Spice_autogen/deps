@@ -1,19 +1,21 @@
 Spice_autogen/timestamp: \
-	C:/Users/Arman/Documents/Qt/Spice/CMakeLists.txt \
-	C:/Users/Arman/Documents/Qt/Spice/addelementdialog.cpp \
-	C:/Users/Arman/Documents/Qt/Spice/addelementdialog.h \
-	C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeCXXCompiler.cmake \
-	C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeRCCompiler.cmake \
-	C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeSystem.cmake \
-	C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen/moc_predefs.h \
-	C:/Users/Arman/Documents/Qt/Spice/elements.cpp \
-	C:/Users/Arman/Documents/Qt/Spice/elements.h \
-	C:/Users/Arman/Documents/Qt/Spice/main.cpp \
-	C:/Users/Arman/Documents/Qt/Spice/mainwindow.cpp \
-	C:/Users/Arman/Documents/Qt/Spice/mainwindow.h \
-	C:/Users/Arman/Documents/Qt/Spice/properties.cpp \
-	C:/Users/Arman/Documents/Qt/Spice/properties.h \
-	C:/Users/Arman/Documents/Qt/Spice/resources.qrc \
+	C:/Users/Arman/Documents/GitHub/Spice/CMakeLists.txt \
+	C:/Users/Arman/Documents/GitHub/Spice/addelementdialog.cpp \
+	C:/Users/Arman/Documents/GitHub/Spice/addelementdialog.h \
+	C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeCXXCompiler.cmake \
+	C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeRCCompiler.cmake \
+	C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeSystem.cmake \
+	C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/Spice_autogen/moc_predefs.h \
+	C:/Users/Arman/Documents/GitHub/Spice/elements.cpp \
+	C:/Users/Arman/Documents/GitHub/Spice/elements.h \
+	C:/Users/Arman/Documents/GitHub/Spice/main.cpp \
+	C:/Users/Arman/Documents/GitHub/Spice/mainwindow.cpp \
+	C:/Users/Arman/Documents/GitHub/Spice/mainwindow.h \
+	C:/Users/Arman/Documents/GitHub/Spice/properties.cpp \
+	C:/Users/Arman/Documents/GitHub/Spice/properties.h \
+	C:/Users/Arman/Documents/GitHub/Spice/resources.qrc \
+	C:/Users/Arman/Documents/GitHub/Spice/trandialog.cpp \
+	C:/Users/Arman/Documents/GitHub/Spice/trandialog.h \
 	C:/msys64/ucrt64/include/QtCore/qalgorithms.h \
 	C:/msys64/ucrt64/include/QtCore/qarraydata.h \
 	C:/msys64/ucrt64/include/QtCore/qatomic.h \
@@ -488,13 +490,16 @@ Spice_autogen/timestamp: \
 	C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mm_malloc.h \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeCXXInformation.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeDetermineRCCompiler.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeGenericSystem.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeInitializeConfigs.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeLanguageInformation.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeParseArguments.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeRCCompiler.cmake.in \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeRCInformation.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeTestRCCompiler.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-CXX.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU.cmake \
@@ -513,7 +518,8 @@ Spice_autogen/timestamp: \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-windres.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/WindowsPaths.cmake \
-	C:/Users/Arman/Documents/Qt/Spice/addelementdialog.ui \
-	C:/Users/Arman/Documents/Qt/Spice/mainwindow.ui \
-	C:/Users/Arman/Documents/Qt/Spice/properties.ui \
+	C:/Users/Arman/Documents/GitHub/Spice/addelementdialog.ui \
+	C:/Users/Arman/Documents/GitHub/Spice/mainwindow.ui \
+	C:/Users/Arman/Documents/GitHub/Spice/properties.ui \
+	C:/Users/Arman/Documents/GitHub/Spice/trandialog.ui \
 	C:/msys64/ucrt64/bin/cmake.exe

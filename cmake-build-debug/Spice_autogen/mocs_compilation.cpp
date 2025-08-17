@@ -2,3 +2,4 @@
 #include "EWIEGA46WW/moc_addelementdialog.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
 #include "EWIEGA46WW/moc_properties.cpp"
+#include "EWIEGA46WW/moc_trandialog.cpp"

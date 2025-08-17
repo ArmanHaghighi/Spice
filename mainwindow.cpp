@@ -7,6 +7,9 @@
 #include <QShortcut>
 #include <QMessageBox>
 #include <ui_addelementdialog.h>
+#include <ui_trandialog.h>
+
+#include "trandialog.h"
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -218,10 +221,17 @@ void MainWindow::on_actionCapacitor_toggled(bool checked)
 
 
 
-    void MainWindow::on_actionTransient_triggered()
+void MainWindow::on_actionTransient_triggered()
+{
+    TranDialog d;
+    QString iStop, iStart, iStep;
+    if(d.exec()==QDialog::Accepted)
     {
-
+        iStop = d.ui->inputStop->text();
+        iStart = d.ui->inputStart->text();
+        iStep = d.ui->inputStep->text();
     }
+}
 
 
     void MainWindow::on_actionAc_Sweep_triggered()

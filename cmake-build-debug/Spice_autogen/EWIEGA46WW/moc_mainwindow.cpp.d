@@ -1,7 +1,7 @@
-C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/Arman/Documents/Qt/Spice/mainwindow.h \
-  C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen/moc_predefs.h \
-  C:/Users/Arman/Documents/Qt/Spice/addelementdialog.h \
-  C:/Users/Arman/Documents/Qt/Spice/elements.h \
+C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/Spice_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/Arman/Documents/GitHub/Spice/mainwindow.h \
+  C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/Spice_autogen/moc_predefs.h \
+  C:/Users/Arman/Documents/GitHub/Spice/addelementdialog.h \
+  C:/Users/Arman/Documents/GitHub/Spice/elements.h \
   C:/msys64/ucrt64/include/QtCore/qalgorithms.h \
   C:/msys64/ucrt64/include/QtCore/qarraydata.h \
   C:/msys64/ucrt64/include/QtCore/qatomic.h \

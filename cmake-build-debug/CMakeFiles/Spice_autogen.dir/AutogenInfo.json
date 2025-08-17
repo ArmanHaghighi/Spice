@@ -1,17 +1,17 @@
 {
 	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
-	"BUILD_DIR" : "C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen",
-	"CMAKE_BINARY_DIR" : "C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug",
-	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/Arman/Documents/Qt/Spice",
+	"BUILD_DIR" : "C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/Spice_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/Arman/Documents/GitHub/Spice",
 	"CMAKE_EXECUTABLE" : "C:/msys64/ucrt64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"C:/Users/Arman/Documents/Qt/Spice/CMakeLists.txt",
-		"C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeSystem.cmake",
+		"C:/Users/Arman/Documents/GitHub/Spice/CMakeLists.txt",
+		"C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeSystem.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-Initialize.cmake",
-		"C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeCXXCompiler.cmake",
+		"C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeCXXCompiler.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/CMakeGenericSystem.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/CMakeInitializeConfigs.cmake",
@@ -24,9 +24,12 @@
 		"C:/msys64/ucrt64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU.cmake",
-		"C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeRCCompiler.cmake",
+		"C:/msys64/ucrt64/share/cmake/Modules/CMakeDetermineRCCompiler.cmake",
+		"C:/msys64/ucrt64/share/cmake/Modules/CMakeRCCompiler.cmake.in",
+		"C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/CMakeFiles/4.0.3/CMakeRCCompiler.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/CMakeRCInformation.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-windres.cmake",
+		"C:/msys64/ucrt64/share/cmake/Modules/CMakeTestRCCompiler.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake",
@@ -65,42 +68,48 @@
 		"C:/msys64/ucrt64/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/CMakeParseArguments.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/GNUInstallDirs.cmake",
-		"C:/Users/Arman/Documents/Qt/Spice/resources.qrc"
+		"C:/Users/Arman/Documents/GitHub/Spice/resources.qrc"
 	],
-	"CMAKE_SOURCE_DIR" : "C:/Users/Arman/Documents/Qt/Spice",
+	"CMAKE_SOURCE_DIR" : "C:/Users/Arman/Documents/GitHub/Spice",
 	"CROSS_CONFIG" : false,
-	"DEP_FILE" : "C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen/deps",
+	"DEP_FILE" : "C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/Spice_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "Spice_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/Arman/Documents/Qt/Spice/addelementdialog.h",
+			"C:/Users/Arman/Documents/GitHub/Spice/addelementdialog.h",
 			"MU",
 			"EWIEGA46WW/moc_addelementdialog.cpp",
 			null
 		],
 		[
-			"C:/Users/Arman/Documents/Qt/Spice/elements.h",
+			"C:/Users/Arman/Documents/GitHub/Spice/elements.h",
 			"MU",
 			"EWIEGA46WW/moc_elements.cpp",
 			null
 		],
 		[
-			"C:/Users/Arman/Documents/Qt/Spice/mainwindow.h",
+			"C:/Users/Arman/Documents/GitHub/Spice/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
 		],
 		[
-			"C:/Users/Arman/Documents/Qt/Spice/properties.h",
+			"C:/Users/Arman/Documents/GitHub/Spice/properties.h",
 			"MU",
 			"EWIEGA46WW/moc_properties.cpp",
+			null
+		],
+		[
+			"C:/Users/Arman/Documents/GitHub/Spice/trandialog.h",
+			"MU",
+			"EWIEGA46WW/moc_trandialog.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen/include",
-	"MOC_COMPILATION_FILE" : "C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/Spice_autogen/include",
+	"MOC_COMPILATION_FILE" : "C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/Spice_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
@@ -111,8 +120,8 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug",
-		"C:/Users/Arman/Documents/Qt/Spice",
+		"C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug",
+		"C:/Users/Arman/Documents/GitHub/Spice",
 		"C:/msys64/ucrt64/include/QtWidgets",
 		"C:/msys64/ucrt64/include/QtGui",
 		"C:/msys64/ucrt64/include/QtCore",
@@ -136,24 +145,29 @@
 		"-E",
 		"C:/msys64/ucrt64/share/cmake/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/Spice_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 8,
-	"PARSE_CACHE_FILE" : "C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/Spice_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/CMakeFiles/Spice_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "C:/msys64/ucrt64/bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "C:/msys64/ucrt64/bin/uic.exe",
 	"QT_VERSION_MAJOR" : 5,
 	"QT_VERSION_MINOR" : 15,
-	"SETTINGS_FILE" : "C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/CMakeFiles/Spice_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "C:/Users/Arman/Documents/GitHub/Spice/cmake-build-debug/CMakeFiles/Spice_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "C:/Users/Arman/Documents/Qt/Spice/addelementdialog.cpp", "MU", null ],
-		[ "C:/Users/Arman/Documents/Qt/Spice/elements.cpp", "MU", null ],
-		[ "C:/Users/Arman/Documents/Qt/Spice/main.cpp", "MU", null ],
-		[ "C:/Users/Arman/Documents/Qt/Spice/mainwindow.cpp", "MU", null ],
-		[ "C:/Users/Arman/Documents/Qt/Spice/properties.cpp", "MU", null ]
+		[
+			"C:/Users/Arman/Documents/GitHub/Spice/addelementdialog.cpp",
+			"MU",
+			null
+		],
+		[ "C:/Users/Arman/Documents/GitHub/Spice/elements.cpp", "MU", null ],
+		[ "C:/Users/Arman/Documents/GitHub/Spice/main.cpp", "MU", null ],
+		[ "C:/Users/Arman/Documents/GitHub/Spice/mainwindow.cpp", "MU", null ],
+		[ "C:/Users/Arman/Documents/GitHub/Spice/properties.cpp", "MU", null ],
+		[ "C:/Users/Arman/Documents/GitHub/Spice/trandialog.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],
