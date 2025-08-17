@@ -2,7 +2,6 @@
 #define TRANDIALOG_H
 
 #include <QDialog>
-
 namespace Ui {
 class TranDialog;
 }

@@ -22,7 +22,6 @@
 #define __cpp_static_assert 201411L
 #define __BFLT16_MIN_10_EXP__ (-37)
 #define __cpp_inheriting_constructors 201511L
-#define QT_NEEDS_QMAIN 1
 #define QT_GUI_LIB 1
 #define __ORDER_LITTLE_ENDIAN__ 1234
 #define __WCHAR_MAX__ 0xffff
@@ -84,14 +83,12 @@
 #define __FLT128_MIN_10_EXP__ (-4931)
 #define __FLT32X_IS_IEC_60559__ 1
 #define __INT_LEAST16_WIDTH__ 16
-#define MINGW_HAS_SECURE_API 1
 #define __SCHAR_MAX__ 0x7f
 #define __FLT128_MANT_DIG__ 113
 #define __WCHAR_MIN__ 0
 #define __INT64_C(c) c ## LL
 #define __GCC_ATOMIC_POINTER_LOCK_FREE 2
 #define __ATOMIC_SEQ_CST 5
-#define _UNICODE 1
 #define __INT_LEAST64_MAX__ 0x7fffffffffffffffLL
 #define __FLT32X_MANT_DIG__ 53
 #define __GCC_ATOMIC_CHAR16_T_LOCK_FREE 2
@@ -116,7 +113,6 @@
 #define __FLT64X_DENORM_MIN__ 3.64519953188247460252840593361941982e-4951F64x
 #define __FLT32X_HAS_INFINITY__ 1
 #define __INT_WIDTH__ 32
-#define UNICODE 1
 #define __DECIMAL_DIG__ 21
 #define __FLT64_EPSILON__ 2.22044604925031308084726333618164062e-16F64
 #define __INT16_MAX__ 0x7fff
@@ -150,7 +146,6 @@
 #define __INT64_MAX__ 0x7fffffffffffffffLL
 #define __SIZEOF_FLOAT__ 4
 #define __WINNT__ 1
-#define WINVER 0x0A00
 #define __HAVE_SPECULATION_SAFE_VALUE 1
 #define __cpp_fold_expressions 201603L
 #define __DEC32_MIN_EXP__ (-94)
@@ -234,7 +229,6 @@
 #define __FLT128_MAX_EXP__ 16384
 #define __FLT32_MANT_DIG__ 24
 #define __cpp_decltype 200707L
-#define _WIN32_WINNT 0x0A00
 #define __FLOAT_WORD_ORDER__ __ORDER_LITTLE_ENDIAN__
 #define SIZEOF_DPTR (sizeof(void*))
 #define __FLT32X_MIN_EXP__ (-1021)
@@ -430,7 +424,6 @@
 #define __FLT32_DIG__ 6
 #define __UINT64_TYPE__ long long unsigned int
 #define __UINT32_C(c) c ## U
-#define ARCHITECTURE_ID "x86_64"
 #define __cpp_alias_templates 200704L
 #define WINNT 1
 #define __FLT_DENORM_MIN__ 1.40129846432481707092372958328991613e-45F
@@ -441,7 +434,6 @@
 #define __PIC__ 1
 #define __INT32_MAX__ 0x7fffffff
 #define __UINT_FAST32_TYPE__ unsigned int
-#define _ENABLE_EXTENDED_ALIGNED_STORAGE 1
 #define __FLT16_MANT_DIG__ 11
 #define __FLT32X_NORM_MAX__ 1.79769313486231570814527423731704357e+308F32x
 #define __CHAR32_TYPE__ unsigned int

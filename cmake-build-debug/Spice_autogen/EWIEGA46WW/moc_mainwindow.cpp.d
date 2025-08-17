@@ -1,7 +1,123 @@
-C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/Latitude\ 5420/CLionProjects/Spice/mainwindow.h \
-  C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/moc_predefs.h \
-  C:/Users/Latitude\ 5420/CLionProjects/Spice/addelementdialog.h \
-  C:/Users/Latitude\ 5420/CLionProjects/Spice/elements.h \
+C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/Arman/Documents/Qt/Spice/mainwindow.h \
+  C:/Users/Arman/Documents/Qt/Spice/cmake-build-debug/Spice_autogen/moc_predefs.h \
+  C:/Users/Arman/Documents/Qt/Spice/addelementdialog.h \
+  C:/Users/Arman/Documents/Qt/Spice/elements.h \
+  C:/Users/Arman/Documents/Qt/Spice/trandialog.h \
+  C:/msys64/ucrt64/include/QtCore/qalgorithms.h \
+  C:/msys64/ucrt64/include/QtCore/qarraydata.h \
+  C:/msys64/ucrt64/include/QtCore/qatomic.h \
+  C:/msys64/ucrt64/include/QtCore/qatomic_cxx11.h \
+  C:/msys64/ucrt64/include/QtCore/qbasicatomic.h \
+  C:/msys64/ucrt64/include/QtCore/qbytearray.h \
+  C:/msys64/ucrt64/include/QtCore/qbytearraylist.h \
+  C:/msys64/ucrt64/include/QtCore/qchar.h \
+  C:/msys64/ucrt64/include/QtCore/qcompilerdetection.h \
+  C:/msys64/ucrt64/include/QtCore/qconfig.h \
+  C:/msys64/ucrt64/include/QtCore/qcontainerfwd.h \
+  C:/msys64/ucrt64/include/QtCore/qcontainertools_impl.h \
+  C:/msys64/ucrt64/include/QtCore/qcoreevent.h \
+  C:/msys64/ucrt64/include/QtCore/qdatastream.h \
+  C:/msys64/ucrt64/include/QtCore/qfile.h \
+  C:/msys64/ucrt64/include/QtCore/qfiledevice.h \
+  C:/msys64/ucrt64/include/QtCore/qflags.h \
+  C:/msys64/ucrt64/include/QtCore/qgenericatomic.h \
+  C:/msys64/ucrt64/include/QtCore/qglobal.h \
+  C:/msys64/ucrt64/include/QtCore/qglobalstatic.h \
+  C:/msys64/ucrt64/include/QtCore/qhash.h \
+  C:/msys64/ucrt64/include/QtCore/qhashfunctions.h \
+  C:/msys64/ucrt64/include/QtCore/qiodevice.h \
+  C:/msys64/ucrt64/include/QtCore/qiterator.h \
+  C:/msys64/ucrt64/include/QtCore/qline.h \
+  C:/msys64/ucrt64/include/QtCore/qlist.h \
+  C:/msys64/ucrt64/include/QtCore/qlogging.h \
+  C:/msys64/ucrt64/include/QtCore/qmap.h \
+  C:/msys64/ucrt64/include/QtCore/qmargins.h \
+  C:/msys64/ucrt64/include/QtCore/qmetatype.h \
+  C:/msys64/ucrt64/include/QtCore/qnamespace.h \
+  C:/msys64/ucrt64/include/QtCore/qnumeric.h \
+  C:/msys64/ucrt64/include/QtCore/qobject.h \
+  C:/msys64/ucrt64/include/QtCore/qobject_impl.h \
+  C:/msys64/ucrt64/include/QtCore/qobjectdefs.h \
+  C:/msys64/ucrt64/include/QtCore/qobjectdefs_impl.h \
+  C:/msys64/ucrt64/include/QtCore/qpair.h \
+  C:/msys64/ucrt64/include/QtCore/qpoint.h \
+  C:/msys64/ucrt64/include/QtCore/qprocessordetection.h \
+  C:/msys64/ucrt64/include/QtCore/qrect.h \
+  C:/msys64/ucrt64/include/QtCore/qrefcount.h \
+  C:/msys64/ucrt64/include/QtCore/qregexp.h \
+  C:/msys64/ucrt64/include/QtCore/qscopedpointer.h \
+  C:/msys64/ucrt64/include/QtCore/qset.h \
+  C:/msys64/ucrt64/include/QtCore/qshareddata.h \
+  C:/msys64/ucrt64/include/QtCore/qsharedpointer.h \
+  C:/msys64/ucrt64/include/QtCore/qsharedpointer_impl.h \
+  C:/msys64/ucrt64/include/QtCore/qsize.h \
+  C:/msys64/ucrt64/include/QtCore/qstring.h \
+  C:/msys64/ucrt64/include/QtCore/qstringalgorithms.h \
+  C:/msys64/ucrt64/include/QtCore/qstringlist.h \
+  C:/msys64/ucrt64/include/QtCore/qstringliteral.h \
+  C:/msys64/ucrt64/include/QtCore/qstringmatcher.h \
+  C:/msys64/ucrt64/include/QtCore/qstringview.h \
+  C:/msys64/ucrt64/include/QtCore/qsysinfo.h \
+  C:/msys64/ucrt64/include/QtCore/qsystemdetection.h \
+  C:/msys64/ucrt64/include/QtCore/qtcore-config.h \
+  C:/msys64/ucrt64/include/QtCore/qtypeinfo.h \
+  C:/msys64/ucrt64/include/QtCore/qurl.h \
+  C:/msys64/ucrt64/include/QtCore/qvariant.h \
+  C:/msys64/ucrt64/include/QtCore/qvarlengtharray.h \
+  C:/msys64/ucrt64/include/QtCore/qvector.h \
+  C:/msys64/ucrt64/include/QtCore/qversiontagging.h \
+  C:/msys64/ucrt64/include/QtGui/QMouseEvent \
+  C:/msys64/ucrt64/include/QtGui/qbrush.h \
+  C:/msys64/ucrt64/include/QtGui/qcolor.h \
+  C:/msys64/ucrt64/include/QtGui/qcursor.h \
+  C:/msys64/ucrt64/include/QtGui/qevent.h \
+  C:/msys64/ucrt64/include/QtGui/qfont.h \
+  C:/msys64/ucrt64/include/QtGui/qfontinfo.h \
+  C:/msys64/ucrt64/include/QtGui/qfontmetrics.h \
+  C:/msys64/ucrt64/include/QtGui/qicon.h \
+  C:/msys64/ucrt64/include/QtGui/qimage.h \
+  C:/msys64/ucrt64/include/QtGui/qkeysequence.h \
+  C:/msys64/ucrt64/include/QtGui/qmatrix.h \
+  C:/msys64/ucrt64/include/QtGui/qpaintdevice.h \
+  C:/msys64/ucrt64/include/QtGui/qpainter.h \
+  C:/msys64/ucrt64/include/QtGui/qpainterpath.h \
+  C:/msys64/ucrt64/include/QtGui/qpalette.h \
+  C:/msys64/ucrt64/include/QtGui/qpen.h \
+  C:/msys64/ucrt64/include/QtGui/qpixelformat.h \
+  C:/msys64/ucrt64/include/QtGui/qpixmap.h \
+  C:/msys64/ucrt64/include/QtGui/qpolygon.h \
+  C:/msys64/ucrt64/include/QtGui/qregion.h \
+  C:/msys64/ucrt64/include/QtGui/qrgb.h \
+  C:/msys64/ucrt64/include/QtGui/qrgba64.h \
+  C:/msys64/ucrt64/include/QtGui/qtextoption.h \
+  C:/msys64/ucrt64/include/QtGui/qtgui-config.h \
+  C:/msys64/ucrt64/include/QtGui/qtguiglobal.h \
+  C:/msys64/ucrt64/include/QtGui/qtouchdevice.h \
+  C:/msys64/ucrt64/include/QtGui/qtransform.h \
+  C:/msys64/ucrt64/include/QtGui/qvector2d.h \
+  C:/msys64/ucrt64/include/QtGui/qwindowdefs.h \
+  C:/msys64/ucrt64/include/QtGui/qwindowdefs_win.h \
+  C:/msys64/ucrt64/include/QtWidgets/QDialog \
+  C:/msys64/ucrt64/include/QtWidgets/QGraphicsItem \
+  C:/msys64/ucrt64/include/QtWidgets/QGraphicsView \
+  C:/msys64/ucrt64/include/QtWidgets/QMainWindow \
+  C:/msys64/ucrt64/include/QtWidgets/QMdiArea \
+  C:/msys64/ucrt64/include/QtWidgets/QMdiSubWindow \
+  C:/msys64/ucrt64/include/QtWidgets/qabstractscrollarea.h \
+  C:/msys64/ucrt64/include/QtWidgets/qdialog.h \
+  C:/msys64/ucrt64/include/QtWidgets/qframe.h \
+  C:/msys64/ucrt64/include/QtWidgets/qgraphicsitem.h \
+  C:/msys64/ucrt64/include/QtWidgets/qgraphicsscene.h \
+  C:/msys64/ucrt64/include/QtWidgets/qgraphicsview.h \
+  C:/msys64/ucrt64/include/QtWidgets/qmainwindow.h \
+  C:/msys64/ucrt64/include/QtWidgets/qmdiarea.h \
+  C:/msys64/ucrt64/include/QtWidgets/qmdisubwindow.h \
+  C:/msys64/ucrt64/include/QtWidgets/qscrollarea.h \
+  C:/msys64/ucrt64/include/QtWidgets/qsizepolicy.h \
+  C:/msys64/ucrt64/include/QtWidgets/qtabwidget.h \
+  C:/msys64/ucrt64/include/QtWidgets/qtwidgets-config.h \
+  C:/msys64/ucrt64/include/QtWidgets/qtwidgetsglobal.h \
+  C:/msys64/ucrt64/include/QtWidgets/qwidget.h \
   C:/msys64/ucrt64/include/_mingw.h \
   C:/msys64/ucrt64/include/_mingw_mac.h \
   C:/msys64/ucrt64/include/_mingw_off_t.h \
@@ -16,6 +132,7 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/c++/15.1.0/atomic \
   C:/msys64/ucrt64/include/c++/15.1.0/backward/auto_ptr.h \
   C:/msys64/ucrt64/include/c++/15.1.0/backward/binders.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/barrier \
   C:/msys64/ucrt64/include/c++/15.1.0/bit \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/algorithmfwd.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/align.h \
@@ -23,12 +140,14 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/c++/15.1.0/bits/allocated_ptr.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/allocator.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/atomic_base.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/atomic_futex.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/atomic_lockfree_defines.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/atomic_timed_wait.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/atomic_wait.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/basic_ios.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/basic_ios.tcc \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/basic_string.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/basic_string.tcc \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/c++0x_warning.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/char_traits.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/charconv.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/chrono.h \
@@ -38,25 +157,22 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/c++/15.1.0/bits/cxxabi_forced.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/cxxabi_init_exception.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/deque.tcc \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/enable_special_members.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/erase_if.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/exception.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/exception_defines.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/exception_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/forward_list.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/forward_list.tcc \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/formatfwd.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/fstream.tcc \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/functexcept.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/functional_hash.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/gslice.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/gslice_array.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/hash_bytes.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/hashtable.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/hashtable_policy.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/indirect_array.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/invoke.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/ios_base.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/istream.tcc \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/iterator_concepts.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/list.tcc \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/locale_classes.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/locale_classes.tcc \
@@ -67,37 +183,36 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/c++/15.1.0/bits/locale_facets_nonio.tcc \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/localefwd.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/mask_array.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/max_size_type.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/memory_resource.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/memoryfwd.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/mofunc_impl.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/monostate.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/move.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/move_only_function.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/nested_exception.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/new_allocator.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/node_handle.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/ostream.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/ostream.tcc \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/ostream_insert.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/out_ptr.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/parse_numbers.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/predefined_ops.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/ptr_traits.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/quoted_string.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/random.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/random.tcc \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/range_access.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/ranges_algo.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/ranges_algobase.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/ranges_base.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/ranges_cmp.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/ranges_uninitialized.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/ranges_util.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/refwrap.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/regex.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/regex.tcc \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/regex_automaton.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/regex_automaton.tcc \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/regex_compiler.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/regex_compiler.tcc \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/regex_constants.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/regex_error.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/regex_executor.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/regex_executor.tcc \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/regex_scanner.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/regex_scanner.tcc \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/requires_hosted.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/sat_arith.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/semaphore_base.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/shared_ptr.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/shared_ptr_atomic.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/shared_ptr_base.h \
@@ -140,10 +255,7 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/c++/15.1.0/bits/stringfwd.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/this_thread_sleep.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/uniform_int_dist.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/unique_lock.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/unique_ptr.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/unordered_map.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/bits/unordered_set.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/uses_allocator.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/uses_allocator_args.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bits/utility.h \
@@ -155,6 +267,7 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/c++/15.1.0/bits/version.h \
   C:/msys64/ucrt64/include/c++/15.1.0/bitset \
   C:/msys64/ucrt64/include/c++/15.1.0/cassert \
+  C:/msys64/ucrt64/include/c++/15.1.0/ccomplex \
   C:/msys64/ucrt64/include/c++/15.1.0/cctype \
   C:/msys64/ucrt64/include/c++/15.1.0/cerrno \
   C:/msys64/ucrt64/include/c++/15.1.0/cfenv \
@@ -162,6 +275,7 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/c++/15.1.0/charconv \
   C:/msys64/ucrt64/include/c++/15.1.0/chrono \
   C:/msys64/ucrt64/include/c++/15.1.0/cinttypes \
+  C:/msys64/ucrt64/include/c++/15.1.0/ciso646 \
   C:/msys64/ucrt64/include/c++/15.1.0/climits \
   C:/msys64/ucrt64/include/c++/15.1.0/clocale \
   C:/msys64/ucrt64/include/c++/15.1.0/cmath \
@@ -172,12 +286,15 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/c++/15.1.0/condition_variable \
   C:/msys64/ucrt64/include/c++/15.1.0/csetjmp \
   C:/msys64/ucrt64/include/c++/15.1.0/csignal \
+  C:/msys64/ucrt64/include/c++/15.1.0/cstdalign \
   C:/msys64/ucrt64/include/c++/15.1.0/cstdarg \
+  C:/msys64/ucrt64/include/c++/15.1.0/cstdbool \
   C:/msys64/ucrt64/include/c++/15.1.0/cstddef \
   C:/msys64/ucrt64/include/c++/15.1.0/cstdint \
   C:/msys64/ucrt64/include/c++/15.1.0/cstdio \
   C:/msys64/ucrt64/include/c++/15.1.0/cstdlib \
   C:/msys64/ucrt64/include/c++/15.1.0/cstring \
+  C:/msys64/ucrt64/include/c++/15.1.0/ctgmath \
   C:/msys64/ucrt64/include/c++/15.1.0/ctime \
   C:/msys64/ucrt64/include/c++/15.1.0/cuchar \
   C:/msys64/ucrt64/include/c++/15.1.0/cwchar \
@@ -186,6 +303,7 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/c++/15.1.0/debug/debug.h \
   C:/msys64/ucrt64/include/c++/15.1.0/deque \
   C:/msys64/ucrt64/include/c++/15.1.0/exception \
+  C:/msys64/ucrt64/include/c++/15.1.0/expected \
   C:/msys64/ucrt64/include/c++/15.1.0/ext/aligned_buffer.h \
   C:/msys64/ucrt64/include/c++/15.1.0/ext/alloc_traits.h \
   C:/msys64/ucrt64/include/c++/15.1.0/ext/atomicity.h \
@@ -194,10 +312,14 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/c++/15.1.0/ext/string_conversions.h \
   C:/msys64/ucrt64/include/c++/15.1.0/ext/type_traits.h \
   C:/msys64/ucrt64/include/c++/15.1.0/filesystem \
+  C:/msys64/ucrt64/include/c++/15.1.0/flat_map \
+  C:/msys64/ucrt64/include/c++/15.1.0/flat_set \
+  C:/msys64/ucrt64/include/c++/15.1.0/format \
   C:/msys64/ucrt64/include/c++/15.1.0/forward_list \
   C:/msys64/ucrt64/include/c++/15.1.0/fstream \
   C:/msys64/ucrt64/include/c++/15.1.0/functional \
   C:/msys64/ucrt64/include/c++/15.1.0/future \
+  C:/msys64/ucrt64/include/c++/15.1.0/generator \
   C:/msys64/ucrt64/include/c++/15.1.0/initializer_list \
   C:/msys64/ucrt64/include/c++/15.1.0/iomanip \
   C:/msys64/ucrt64/include/c++/15.1.0/ios \
@@ -205,6 +327,7 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/c++/15.1.0/iostream \
   C:/msys64/ucrt64/include/c++/15.1.0/istream \
   C:/msys64/ucrt64/include/c++/15.1.0/iterator \
+  C:/msys64/ucrt64/include/c++/15.1.0/latch \
   C:/msys64/ucrt64/include/c++/15.1.0/limits \
   C:/msys64/ucrt64/include/c++/15.1.0/list \
   C:/msys64/ucrt64/include/c++/15.1.0/locale \
@@ -213,25 +336,40 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/c++/15.1.0/memory_resource \
   C:/msys64/ucrt64/include/c++/15.1.0/mutex \
   C:/msys64/ucrt64/include/c++/15.1.0/new \
+  C:/msys64/ucrt64/include/c++/15.1.0/numbers \
   C:/msys64/ucrt64/include/c++/15.1.0/numeric \
   C:/msys64/ucrt64/include/c++/15.1.0/optional \
   C:/msys64/ucrt64/include/c++/15.1.0/ostream \
+  C:/msys64/ucrt64/include/c++/15.1.0/print \
   C:/msys64/ucrt64/include/c++/15.1.0/pstl/execution_defs.h \
   C:/msys64/ucrt64/include/c++/15.1.0/pstl/glue_numeric_defs.h \
   C:/msys64/ucrt64/include/c++/15.1.0/queue \
   C:/msys64/ucrt64/include/c++/15.1.0/random \
+  C:/msys64/ucrt64/include/c++/15.1.0/ranges \
   C:/msys64/ucrt64/include/c++/15.1.0/ratio \
   C:/msys64/ucrt64/include/c++/15.1.0/regex \
   C:/msys64/ucrt64/include/c++/15.1.0/scoped_allocator \
+  C:/msys64/ucrt64/include/c++/15.1.0/semaphore \
   C:/msys64/ucrt64/include/c++/15.1.0/set \
   C:/msys64/ucrt64/include/c++/15.1.0/shared_mutex \
+  C:/msys64/ucrt64/include/c++/15.1.0/source_location \
+  C:/msys64/ucrt64/include/c++/15.1.0/span \
+  C:/msys64/ucrt64/include/c++/15.1.0/spanstream \
   C:/msys64/ucrt64/include/c++/15.1.0/sstream \
   C:/msys64/ucrt64/include/c++/15.1.0/stack \
+  C:/msys64/ucrt64/include/c++/15.1.0/stacktrace \
+  C:/msys64/ucrt64/include/c++/15.1.0/stdatomic.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/stdbit.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/stdckdint.h \
   C:/msys64/ucrt64/include/c++/15.1.0/stdexcept \
+  C:/msys64/ucrt64/include/c++/15.1.0/stdfloat \
+  C:/msys64/ucrt64/include/c++/15.1.0/stop_token \
   C:/msys64/ucrt64/include/c++/15.1.0/streambuf \
   C:/msys64/ucrt64/include/c++/15.1.0/string \
   C:/msys64/ucrt64/include/c++/15.1.0/string_view \
+  C:/msys64/ucrt64/include/c++/15.1.0/syncstream \
   C:/msys64/ucrt64/include/c++/15.1.0/system_error \
+  C:/msys64/ucrt64/include/c++/15.1.0/text_encoding \
   C:/msys64/ucrt64/include/c++/15.1.0/thread \
   C:/msys64/ucrt64/include/c++/15.1.0/tr1/bessel_function.tcc \
   C:/msys64/ucrt64/include/c++/15.1.0/tr1/beta_function.tcc \
@@ -255,6 +393,7 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/c++/15.1.0/valarray \
   C:/msys64/ucrt64/include/c++/15.1.0/variant \
   C:/msys64/ucrt64/include/c++/15.1.0/vector \
+  C:/msys64/ucrt64/include/c++/15.1.0/version \
   C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/atomic_word.h \
   C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/basic_file.h \
   C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/c++allocator.h \
@@ -268,7 +407,6 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/gthr.h \
   C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/messages_members.h \
-  C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/os_defines.h \
   C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/stdc++.h \
   C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/time_members.h \
@@ -280,9 +418,7 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/crtdefs.h \
   C:/msys64/ucrt64/include/ctype.h \
   C:/msys64/ucrt64/include/errno.h \
-  C:/msys64/ucrt64/include/fenv.h \
   C:/msys64/ucrt64/include/float.h \
-  C:/msys64/ucrt64/include/inttypes.h \
   C:/msys64/ucrt64/include/limits.h \
   C:/msys64/ucrt64/include/locale.h \
   C:/msys64/ucrt64/include/malloc.h \
@@ -292,213 +428,6 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/pthread_signal.h \
   C:/msys64/ucrt64/include/pthread_time.h \
   C:/msys64/ucrt64/include/pthread_unistd.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/QList \
-  C:/msys64/ucrt64/include/qt6/QtCore/QObject \
-  C:/msys64/ucrt64/include/qt6/QtCore/QRect \
-  C:/msys64/ucrt64/include/qt6/QtCore/QSize \
-  C:/msys64/ucrt64/include/qt6/QtCore/QSizeF \
-  C:/msys64/ucrt64/include/qt6/QtCore/q17memory.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/q20functional.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/q20iterator.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/q20memory.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/q20type_traits.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/q20utility.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/q23utility.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qabstracteventdispatcher.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qalgorithms.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qanystringview.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qarraydata.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qarraydataops.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qarraydatapointer.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qassert.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qatomic.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qatomic_cxx11.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qbasicatomic.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qbasictimer.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qbindingstorage.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qbytearray.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qbytearrayalgorithms.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qbytearraylist.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qbytearrayview.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qchar.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qcompare.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qcompare_impl.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qcomparehelpers.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qcompilerdetection.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qconfig.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qconstructormacros.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qcontainerfwd.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qcontainerinfo.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qcontainertools_impl.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qcontiguouscache.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qcoreapplication.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qcoreapplication_platform.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qcoreevent.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qdarwinhelpers.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qdatastream.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qdeadlinetimer.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qdebug.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qelapsedtimer.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qendian.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qeventloop.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qexceptionhandling.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qflags.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qfloat16.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qforeach.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qfunctionaltools_impl.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qfunctionpointer.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qgenericatomic.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qglobal.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qglobalstatic.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qhash.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qhashfunctions.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qiodevice.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qiodevicebase.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qiterable.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qiterator.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qlatin1stringview.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qline.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qlist.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qlocale.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qlogging.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qmalloc.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qmap.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qmargins.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qmath.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qmetacontainer.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qmetatype.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qminmax.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qnamespace.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qnativeinterface.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qnumeric.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qobject.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qobject_impl.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qobjectdefs.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qobjectdefs_impl.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qoverload.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qpair.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qpoint.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qprocessordetection.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qrect.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qrefcount.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qscopedpointer.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qscopeguard.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qset.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qshareddata.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qshareddata_impl.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qsharedpointer.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qsharedpointer_impl.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qsize.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qspan.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qstdlibdetection.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qstring.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qstringalgorithms.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qstringbuilder.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qstringconverter.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qstringconverter_base.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qstringfwd.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qstringlist.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qstringliteral.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qstringmatcher.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qstringtokenizer.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qstringview.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qswap.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qsysinfo.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qsystemdetection.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtaggedpointer.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtclasshelpermacros.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtconfiginclude.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtconfigmacros.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtcore-config.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtcoreexports.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtcoreglobal.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtdeprecationdefinitions.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtdeprecationmarkers.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtenvironmentvariables.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtextstream.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtformat_impl.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtmetamacros.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtnoop.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtpreprocessorsupport.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtresource.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qttranslation.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qttypetraits.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtversion.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtversionchecks.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtypeinfo.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qtypes.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qurl.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qutf8stringview.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qvariant.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qvarlengtharray.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qversiontagging.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qxptype_traits.h \
-  C:/msys64/ucrt64/include/qt6/QtCore/qyieldcpu.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/QMouseEvent \
-  C:/msys64/ucrt64/include/qt6/QtGui/QTransform \
-  C:/msys64/ucrt64/include/qt6/QtGui/qaction.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qbitmap.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qbrush.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qcolor.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qcursor.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qevent.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qeventpoint.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qfont.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qfontinfo.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qfontmetrics.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qfontvariableaxis.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qguiapplication.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qguiapplication_platform.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qicon.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qimage.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qinputdevice.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qinputmethod.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qkeysequence.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qpaintdevice.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qpainter.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qpainterpath.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qpalette.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qpen.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qpixelformat.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qpixmap.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qpointingdevice.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qpolygon.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qregion.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qrgb.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qrgba64.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qscreen.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qscreen_platform.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qtextoption.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qtgui-config.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qtguiexports.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qtguiglobal.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qtransform.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qvector2d.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qvectornd.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qwindowdefs.h \
-  C:/msys64/ucrt64/include/qt6/QtGui/qwindowdefs_win.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/QDialog \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/QGraphicsItem \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/QGraphicsView \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/QMainWindow \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/QMdiArea \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/QMdiSubWindow \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qabstractscrollarea.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qdialog.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qframe.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qgraphicsitem.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qgraphicsscene.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qgraphicsview.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qmainwindow.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qmdiarea.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qmdisubwindow.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qscrollarea.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qsizepolicy.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qtabwidget.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qtwidgets-config.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qtwidgetsexports.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qtwidgetsglobal.h \
-  C:/msys64/ucrt64/include/qt6/QtWidgets/qwidget.h \
   C:/msys64/ucrt64/include/sched.h \
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
@@ -506,11 +435,11 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/sec_api/string_s.h \
   C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
+  C:/msys64/ucrt64/include/semaphore.h \
   C:/msys64/ucrt64/include/setjmp.h \
   C:/msys64/ucrt64/include/signal.h \
   C:/msys64/ucrt64/include/stdarg.h \
   C:/msys64/ucrt64/include/stddef.h \
-  C:/msys64/ucrt64/include/stdint.h \
   C:/msys64/ucrt64/include/stdio.h \
   C:/msys64/ucrt64/include/stdlib.h \
   C:/msys64/ucrt64/include/string.h \
@@ -518,14 +447,7 @@ C:/Users/Latitude\ 5420/CLionProjects/Spice/cmake-build-debug/Spice_autogen/EWIE
   C:/msys64/ucrt64/include/sys/timeb.h \
   C:/msys64/ucrt64/include/sys/types.h \
   C:/msys64/ucrt64/include/time.h \
-  C:/msys64/ucrt64/include/uchar.h \
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
   C:/msys64/ucrt64/include/wctype.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/emmintrin.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mm_malloc.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mmintrin.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mwaitintrin.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/pmmintrin.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/stdbool.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/xmmintrin.h
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mm_malloc.h

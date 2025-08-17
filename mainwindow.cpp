@@ -8,6 +8,7 @@
 #include <QMessageBox>
 #include <ui_addelementdialog.h>
 #include "ui_mainwindow.h"
+#include "ui_trandialog.h"
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)

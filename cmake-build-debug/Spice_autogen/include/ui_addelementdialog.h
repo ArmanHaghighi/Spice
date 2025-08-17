@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'addelementdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 6.9.1
+** Created by: Qt User Interface Compiler version 5.15.17
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,7 +10,6 @@
 #define UI_ADDELEMENTDIALOG_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAbstractButton>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
@@ -27,44 +26,44 @@ public:
     void setupUi(QDialog *AddElementDialog)
     {
         if (AddElementDialog->objectName().isEmpty())
-            AddElementDialog->setObjectName("AddElementDialog");
+            AddElementDialog->setObjectName(QString::fromUtf8("AddElementDialog"));
         AddElementDialog->resize(400, 346);
         buttonBox = new QDialogButtonBox(AddElementDialog);
-        buttonBox->setObjectName("buttonBox");
+        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
         buttonBox->setGeometry(QRect(30, 290, 341, 32));
         buttonBox->setOrientation(Qt::Orientation::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok);
         listWidget = new QListWidget(AddElementDialog);
         QIcon icon;
-        icon.addFile(QString::fromUtf8(":/icons/assets/electrical.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon.addFile(QString::fromUtf8(":/icons/assets/electrical.png"), QSize(), QIcon::Normal, QIcon::Off);
         QListWidgetItem *__qlistwidgetitem = new QListWidgetItem(listWidget);
         __qlistwidgetitem->setIcon(icon);
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/icons/assets/inductor.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon1.addFile(QString::fromUtf8(":/icons/assets/inductor.png"), QSize(), QIcon::Normal, QIcon::Off);
         QListWidgetItem *__qlistwidgetitem1 = new QListWidgetItem(listWidget);
         __qlistwidgetitem1->setIcon(icon1);
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/icons/assets/capacitor.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon2.addFile(QString::fromUtf8(":/icons/assets/capacitor.png"), QSize(), QIcon::Normal, QIcon::Off);
         QListWidgetItem *__qlistwidgetitem2 = new QListWidgetItem(listWidget);
         __qlistwidgetitem2->setIcon(icon2);
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/icons/assets/computer.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon3.addFile(QString::fromUtf8(":/icons/assets/computer.png"), QSize(), QIcon::Normal, QIcon::Off);
         QListWidgetItem *__qlistwidgetitem3 = new QListWidgetItem(listWidget);
         __qlistwidgetitem3->setIcon(icon3);
         QIcon icon4;
-        icon4.addFile(QString::fromUtf8(":/icons/assets/diagram (2).png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon4.addFile(QString::fromUtf8(":/icons/assets/diagram (2).png"), QSize(), QIcon::Normal, QIcon::Off);
         QListWidgetItem *__qlistwidgetitem4 = new QListWidgetItem(listWidget);
         __qlistwidgetitem4->setIcon(icon4);
         QIcon icon5;
-        icon5.addFile(QString::fromUtf8(":/icons/assets/diagram.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon5.addFile(QString::fromUtf8(":/icons/assets/diagram.png"), QSize(), QIcon::Normal, QIcon::Off);
         QListWidgetItem *__qlistwidgetitem5 = new QListWidgetItem(listWidget);
         __qlistwidgetitem5->setIcon(icon5);
         QIcon icon6;
-        icon6.addFile(QString::fromUtf8(":/icons/assets/dc.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon6.addFile(QString::fromUtf8(":/icons/assets/dc.png"), QSize(), QIcon::Normal, QIcon::Off);
         QListWidgetItem *__qlistwidgetitem6 = new QListWidgetItem(listWidget);
         __qlistwidgetitem6->setIcon(icon6);
         QIcon icon7;
-        icon7.addFile(QString::fromUtf8(":/icons/assets/ac.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon7.addFile(QString::fromUtf8(":/icons/assets/ac.png"), QSize(), QIcon::Normal, QIcon::Off);
         QListWidgetItem *__qlistwidgetitem7 = new QListWidgetItem(listWidget);
         __qlistwidgetitem7->setIcon(icon7);
         new QListWidgetItem(listWidget);
@@ -73,12 +72,12 @@ public:
         new QListWidgetItem(listWidget);
         new QListWidgetItem(listWidget);
         new QListWidgetItem(listWidget);
-        listWidget->setObjectName("listWidget");
+        listWidget->setObjectName(QString::fromUtf8("listWidget"));
         listWidget->setGeometry(QRect(10, 10, 381, 261));
 
         retranslateUi(AddElementDialog);
-        QObject::connect(buttonBox, &QDialogButtonBox::accepted, AddElementDialog, qOverload<>(&QDialog::accept));
-        QObject::connect(buttonBox, &QDialogButtonBox::rejected, AddElementDialog, qOverload<>(&QDialog::reject));
+        QObject::connect(buttonBox, SIGNAL(accepted()), AddElementDialog, SLOT(accept()));
+        QObject::connect(buttonBox, SIGNAL(rejected()), AddElementDialog, SLOT(reject()));
 
         QMetaObject::connectSlotsByName(AddElementDialog);
     } // setupUi

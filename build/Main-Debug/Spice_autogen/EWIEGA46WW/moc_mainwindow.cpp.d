@@ -2,6 +2,7 @@ C:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/Spice_autogen/EWIEGA46WW/moc_
   C:/Users/Arman/Documents/Qt/Spice/build/Main-Debug/Spice_autogen/moc_predefs.h \
   C:/Users/Arman/Documents/Qt/Spice/addelementdialog.h \
   C:/Users/Arman/Documents/Qt/Spice/elements.h \
+  C:/Users/Arman/Documents/Qt/Spice/trandialog.h \
   C:/msys64/mingw64/include/c++/15.1.0/algorithm \
   C:/msys64/mingw64/include/c++/15.1.0/any \
   C:/msys64/mingw64/include/c++/15.1.0/array \

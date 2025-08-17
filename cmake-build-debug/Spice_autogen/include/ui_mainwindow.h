@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 6.9.1
+** Created by: Qt User Interface Compiler version 5.15.17
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,7 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
+#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QMainWindow>
@@ -62,103 +62,103 @@ public:
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName("MainWindow");
+            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(1022, 694);
         actionNew = new QAction(MainWindow);
-        actionNew->setObjectName("actionNew");
+        actionNew->setObjectName(QString::fromUtf8("actionNew"));
         QIcon icon;
-        icon.addFile(QString::fromUtf8(":/icons/assets/new.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon.addFile(QString::fromUtf8(":/icons/assets/new.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionNew->setIcon(icon);
         actionOpen = new QAction(MainWindow);
-        actionOpen->setObjectName("actionOpen");
+        actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/icons/assets/open-folder.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon1.addFile(QString::fromUtf8(":/icons/assets/open-folder.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionOpen->setIcon(icon1);
         actionSave = new QAction(MainWindow);
-        actionSave->setObjectName("actionSave");
+        actionSave->setObjectName(QString::fromUtf8("actionSave"));
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/icons/assets/disk.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon2.addFile(QString::fromUtf8(":/icons/assets/disk.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionSave->setIcon(icon2);
         actionTransient = new QAction(MainWindow);
-        actionTransient->setObjectName("actionTransient");
+        actionTransient->setObjectName(QString::fromUtf8("actionTransient"));
         actionAc_Sweep = new QAction(MainWindow);
-        actionAc_Sweep->setObjectName("actionAc_Sweep");
+        actionAc_Sweep->setObjectName(QString::fromUtf8("actionAc_Sweep"));
         actionDc_Sweep = new QAction(MainWindow);
-        actionDc_Sweep->setObjectName("actionDc_Sweep");
+        actionDc_Sweep->setObjectName(QString::fromUtf8("actionDc_Sweep"));
         actionPhase = new QAction(MainWindow);
-        actionPhase->setObjectName("actionPhase");
+        actionPhase->setObjectName(QString::fromUtf8("actionPhase"));
         actionAdd_Element = new QAction(MainWindow);
-        actionAdd_Element->setObjectName("actionAdd_Element");
+        actionAdd_Element->setObjectName(QString::fromUtf8("actionAdd_Element"));
         actionAdd_Element->setCheckable(true);
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/icons/assets/electrical-component.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon3.addFile(QString::fromUtf8(":/icons/assets/electrical-component.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionAdd_Element->setIcon(icon3);
         actionResistor = new QAction(MainWindow);
-        actionResistor->setObjectName("actionResistor");
+        actionResistor->setObjectName(QString::fromUtf8("actionResistor"));
         actionResistor->setCheckable(true);
         QIcon icon4;
-        icon4.addFile(QString::fromUtf8(":/icons/assets/resistor.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon4.addFile(QString::fromUtf8(":/icons/assets/resistor.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionResistor->setIcon(icon4);
         actionCapacitor = new QAction(MainWindow);
-        actionCapacitor->setObjectName("actionCapacitor");
+        actionCapacitor->setObjectName(QString::fromUtf8("actionCapacitor"));
         actionCapacitor->setCheckable(true);
         QIcon icon5;
-        icon5.addFile(QString::fromUtf8(":/icons/assets/capacitor.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon5.addFile(QString::fromUtf8(":/icons/assets/capacitor.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionCapacitor->setIcon(icon5);
         actionInductor = new QAction(MainWindow);
-        actionInductor->setObjectName("actionInductor");
+        actionInductor->setObjectName(QString::fromUtf8("actionInductor"));
         actionInductor->setCheckable(true);
         QIcon icon6;
-        icon6.addFile(QString::fromUtf8(":/icons/assets/electrical (3).png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon6.addFile(QString::fromUtf8(":/icons/assets/electrical (3).png"), QSize(), QIcon::Normal, QIcon::Off);
         actionInductor->setIcon(icon6);
         actionDuplicate = new QAction(MainWindow);
-        actionDuplicate->setObjectName("actionDuplicate");
+        actionDuplicate->setObjectName(QString::fromUtf8("actionDuplicate"));
         actionDuplicate->setCheckable(true);
         QIcon icon7;
-        icon7.addFile(QString::fromUtf8(":/icons/assets/duplicate.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon7.addFile(QString::fromUtf8(":/icons/assets/duplicate.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionDuplicate->setIcon(icon7);
         actionDelete = new QAction(MainWindow);
-        actionDelete->setObjectName("actionDelete");
+        actionDelete->setObjectName(QString::fromUtf8("actionDelete"));
         actionDelete->setCheckable(true);
         QIcon icon8;
-        icon8.addFile(QString::fromUtf8(":/icons/assets/delete.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon8.addFile(QString::fromUtf8(":/icons/assets/delete.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionDelete->setIcon(icon8);
         actionWire = new QAction(MainWindow);
-        actionWire->setObjectName("actionWire");
+        actionWire->setObjectName(QString::fromUtf8("actionWire"));
         actionWire->setCheckable(true);
         QIcon icon9;
-        icon9.addFile(QString::fromUtf8(":/icons/assets/wire.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon9.addFile(QString::fromUtf8(":/icons/assets/wire.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionWire->setIcon(icon9);
         actionGnd = new QAction(MainWindow);
-        actionGnd->setObjectName("actionGnd");
+        actionGnd->setObjectName(QString::fromUtf8("actionGnd"));
         actionGnd->setCheckable(true);
         QIcon icon10;
-        icon10.addFile(QString::fromUtf8(":/icons/assets/computer.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon10.addFile(QString::fromUtf8(":/icons/assets/computer.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionGnd->setIcon(icon10);
         centralwidget = new QWidget(MainWindow);
-        centralwidget->setObjectName("centralwidget");
+        centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
-        gridLayout->setObjectName("gridLayout");
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         mdiArea = new QMdiArea(centralwidget);
-        mdiArea->setObjectName("mdiArea");
+        mdiArea->setObjectName(QString::fromUtf8("mdiArea"));
         mdiArea->setViewMode(QMdiArea::ViewMode::SubWindowView);
         Schematic = new QWidget();
-        Schematic->setObjectName("Schematic");
+        Schematic->setObjectName(QString::fromUtf8("Schematic"));
         gridLayout_2 = new QGridLayout(Schematic);
-        gridLayout_2->setObjectName("gridLayout_2");
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         schematicView = new SchematicView(Schematic);
-        schematicView->setObjectName("schematicView");
+        schematicView->setObjectName(QString::fromUtf8("schematicView"));
         schematicView->setTransformationAnchor(QGraphicsView::ViewportAnchor::AnchorViewCenter);
 
         gridLayout_2->addWidget(schematicView, 0, 0, 1, 1);
 
         mdiArea->addSubWindow(Schematic);
         Simulation = new QWidget();
-        Simulation->setObjectName("Simulation");
+        Simulation->setObjectName(QString::fromUtf8("Simulation"));
         verticalLayout = new QVBoxLayout(Simulation);
-        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         widget = new QWidget(Simulation);
-        widget->setObjectName("widget");
+        widget->setObjectName(QString::fromUtf8("widget"));
 
         verticalLayout->addWidget(widget);
 
@@ -168,21 +168,21 @@ public:
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName("menubar");
+        menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 1022, 25));
         menuFile = new QMenu(menubar);
-        menuFile->setObjectName("menuFile");
+        menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuSimulation = new QMenu(menubar);
-        menuSimulation->setObjectName("menuSimulation");
+        menuSimulation->setObjectName(QString::fromUtf8("menuSimulation"));
         menuSchematic = new QMenu(menubar);
-        menuSchematic->setObjectName("menuSchematic");
+        menuSchematic->setObjectName(QString::fromUtf8("menuSchematic"));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName("statusbar");
+        statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
         toolBar = new QToolBar(MainWindow);
-        toolBar->setObjectName("toolBar");
-        MainWindow->addToolBar(Qt::ToolBarArea::TopToolBarArea, toolBar);
+        toolBar->setObjectName(QString::fromUtf8("toolBar"));
+        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
 
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuSchematic->menuAction());
