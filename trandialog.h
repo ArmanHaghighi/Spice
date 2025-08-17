@@ -1,20 +1,16 @@
-#ifndef TRANDIALOG_H
-#define TRANDIALOG_H
+#pragma once
+#include "ui_TranDialog.h"
 
-#include <QDialog>
-namespace Ui {
-class TranDialog;
-}
+QT_BEGIN_NAMESPACE
+namespace Ui { class TranDialog; };
+QT_END_NAMESPACE
 
 class TranDialog : public QDialog
 {
     Q_OBJECT
-
 public:
-    explicit TranDialog(QWidget *parent = nullptr);
+    TranDialog(QWidget* parent = nullptr);
     ~TranDialog();
 
-    Ui::TranDialog *ui;
+    Ui::TranDialog* ui;
 };
-
-#endif // TRANDIALOG_H

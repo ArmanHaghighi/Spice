@@ -1,15 +1,19 @@
 #include "mainwindow.h"
-
 #include <qlistwidget.h>
-
 #include "./ui_mainwindow.h"
 #include "elements.h"
 #include <QShortcut>
 #include <QMessageBox>
 #include <ui_addelementdialog.h>
 #include <ui_trandialog.h>
-
+#include <ui_ACDialog.h>
+#include <ui_DCDialog.h>
+#include <ui_phaseDialog.h>
+#include "acdialog.h"
 #include "trandialog.h"
+#include "dcdialog.h"
+#include "phasedialog.h"
+
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -216,11 +220,6 @@ void MainWindow::on_actionCapacitor_toggled(bool checked)
     }
 
 
-
-
-
-
-
 void MainWindow::on_actionTransient_triggered()
 {
     TranDialog *d=new TranDialog(this);
@@ -237,19 +236,58 @@ void MainWindow::on_actionTransient_triggered()
 
     void MainWindow::on_actionAc_Sweep_triggered()
     {
+        ACDialog *d=new ACDialog(this);
+        QString numOfPts, startFreq, stopFreq, typeOfSweep;
+        if(d->exec()==ACDialog::Accepted)
+        {
+            numOfPts = d->ui->inumOfPts->text();
+            startFreq = d->ui->istartFreq->text();
+            stopFreq = d->ui->istopFreq->text();
+            if(d->ui->linear->isChecked())
+                typeOfSweep = "linear";
+            else if(d->ui->octave->isChecked())
+                typeOfSweep = "octave";
+            else if(d->ui->decade->isChecked())
+                typeOfSweep = "decade";
 
+        }
+        delete d;
     }
 
 
     void MainWindow::on_actionDc_Sweep_triggered()
     {
+        DCDialog *d=new DCDialog(this);
+        QString increment, startValue, stopValue, typeOfSweep;
+        if(d->exec()==ACDialog::Accepted)
+        {
+            increment = d->ui->iIncrement->text();
+            startValue = d->ui->iStartVal->text();
+            stopValue = d->ui->iStopVal->text();
+            if(d->ui->linear->isChecked())
+                typeOfSweep = "linear";
+            else if(d->ui->octave->isChecked())
+                typeOfSweep = "octave";
+            else if(d->ui->decade->isChecked())
+                typeOfSweep = "decade";
 
+        }
+        delete d;
     }
 
 
     void MainWindow::on_actionPhase_triggered()
     {
-
+        phaseDialog *d=new phaseDialog(this);
+        QString freq, startPhase, stopPhase, numOfPts;
+        if(d->exec()==ACDialog::Accepted)
+        {
+            freq = d->ui->iFreq->text();
+            startPhase = d->ui->iStartPhase->text();
+            stopPhase = d->ui->iEndPhase->text();
+            numOfPts = d->ui->iNumOfPts->text();
+        }
+        delete d;
     }
 
 

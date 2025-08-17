@@ -21,12 +21,19 @@ set(PROJECT_SOURCES
         trandialog.cpp
         trandialog.h
         trandialog.ui
+        resources.qrc
+        elements.h elements.cpp
+        addelementdialog.h addelementdialog.cpp addelementdialog.ui
+        properties.h properties.cpp properties.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Spice
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        acdialog.h acdialog.cpp acdialog.ui
+        dcdialog.h dcdialog.cpp dcdialog.ui
+        phasedialog.h phasedialog.cpp phasedialog.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Spice APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -42,11 +49,6 @@ else()
     else()
         add_executable(Spice
             ${PROJECT_SOURCES}
-            resources.qrc
-            elements.h elements.cpp
-            addelementdialog.h addelementdialog.cpp addelementdialog.ui
-            properties.h properties.cpp properties.ui
-
         )
     endif()
 endif()
