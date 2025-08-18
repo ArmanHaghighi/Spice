@@ -215,6 +215,23 @@ void Inductor::setName(QString name) {
 }
 
 Gnd::Gnd() : Element() {
+    firstLead={0,0};
+}
+
+void Gnd::addNodes() {
+    // Clear existing nodes
+    for (Node* node : nodes) {
+        delete node;
+    }
+    nodes.clear();
+
+    // Create first lead node (local coordinates)
+    Node* node1 = new Node(this);
+    node1->setPos(firstLead);  // Position relative to element
+    node1->setName("Gnd");
+
+    nodes.append(node1);
+
 }
 
 QRectF Gnd::boundingRect() const {

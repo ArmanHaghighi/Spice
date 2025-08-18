@@ -43,6 +43,6 @@ void Node::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWid
     // Show name and voltage
     painter->setPen(Qt::black);
     QString text = m_name;
-
-    painter->drawText(boundingRect().translated(8, -8), text);
+    painter->setFont(QFont("tahoma",6,3));
+    painter->drawText(boundingRect().topRight()+QPointF{3,-3}, text);
 }

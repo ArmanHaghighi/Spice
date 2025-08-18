@@ -58,6 +58,7 @@ public:
 class Gnd : public Element {
 public:
     Gnd();
+    void addNodes() override;
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
@@ -118,21 +119,21 @@ public:
     void setName(QString name) override;
 };
 
-class VCCS : public Element {
+class VCCS : public DependantSource {
 public:
     VCCS():Element(){}
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void setName(QString name) override;
 };
 
-class CCVS : public Element {
+class CCVS : public DependantSource {
 public:
     CCVS():Element(){}
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void setName(QString name) override;
 };
 
-class CCCS : public Element {
+class CCCS : public DependantSource {
 public:
     CCCS():Element(){}
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
