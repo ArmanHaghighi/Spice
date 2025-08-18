@@ -5,10 +5,11 @@
 #include <qpainter.h>
 #include <QPixmap>
 
+#include "node.h"
 #include "properties.h"
 #include "ui_properties.h"
 
-Element::Element() {
+Element::Element(QGraphicsScene* parent) {
     setFlag(QGraphicsItem::ItemIsSelectable);
     setFlag(QGraphicsItem::ItemIsMovable);
     setFlag(QGraphicsItem::ItemSendsGeometryChanges);
@@ -17,9 +18,33 @@ Element::Element() {
     setTransformOriginPoint(Element::boundingRect().center());
 }
 
+
 QRectF Element::boundingRect() const {
     return {-25, -12.5, 50, 25};
 }
+
+void Element::addNodes() {
+    // Clear existing nodes
+    for (Node* node : nodes) {
+        delete node;
+    }
+    nodes.clear();
+
+    // Create first lead node (local coordinates)
+    Node* node1 = new Node(this);
+    node1->setPos(firstLead);  // Position relative to element
+    node1->setName(name+ "_1");
+
+    // Create second lead node
+    Node* node2 = new Node(this);
+    node2->setPos(secondLead);
+    node2->setName(name + "_2");
+
+    nodes.append(node1);
+    nodes.append(node2);
+}
+
+
 
 QVariant Element::itemChange(GraphicsItemChange change, const QVariant &value) {
     if (change == QGraphicsItem::ItemPositionChange && scene()) {
@@ -86,6 +111,8 @@ void Element::setValue(QString value) {
 }
 
 Resistor::Resistor() : Element() {
+
+
 }
 
 void Resistor::setName(QString name) {
@@ -99,7 +126,7 @@ void Resistor::setName(QString name) {
 
 void Resistor::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     Element::paint(painter, option, widget);
-    static const QPointF points[] = {
+        static const QPointF points[] = {
         {-25, 0},
         {-15, 0},
         {-12, 10},
@@ -401,8 +428,32 @@ void ACCurrentSource::setName(QString name) {
     Element::setName(name);
 }
 
-QRectF VCVS::boundingRect() const {
+DependantSource::DependantSource():Element() {
+    firstLead={0,25};
+    secondLead={0,-25};
+    thirdLead={-25,-12.5};
+    fourthLead={-25,12.5};
+}
+
+QRectF DependantSource::boundingRect() const {
     return {-25, -25, 37.5, 50};
+}
+
+
+void DependantSource::addNodes() {
+    Element::addNodes();
+
+    Node* node3 = new Node(this);
+    node3->setPos(thirdLead);  // Position relative to element
+    node3->setName(name+ "_3");
+
+    // Create second lead node
+    Node* node4 = new Node(this);
+    node4->setPos(fourthLead);
+    node4->setName(name + "_4");
+
+    nodes.append(node3);
+    nodes.append(node4);
 }
 
 void VCVS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
@@ -440,8 +491,7 @@ void VCVS::setName(QString name) {
     Element::setName(name);
 }
 
-QRectF VCCS::boundingRect() const {
-    return {-25, -25, 37.5, 50};}
+
 
 void VCCS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     Element::paint(painter, option, widget);
@@ -481,8 +531,6 @@ void VCCS::setName(QString name) {
     Element::setName(name);
 }
 
-QRectF CCVS::boundingRect() const {
-    return {-25, -25, 37.5, 50};}
 
 void CCVS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     // Diamond shape
@@ -520,8 +568,6 @@ void CCVS::setName(QString name) {
     Element::setName(name);
 }
 
-QRectF CCCS::boundingRect() const {
-    return {-25, -25, 37.5, 50};}
 
 void CCCS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
       // Diamond shape

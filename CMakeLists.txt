@@ -46,6 +46,8 @@ else()
             elements.h elements.cpp
             addelementdialog.h addelementdialog.cpp addelementdialog.ui
             properties.h properties.cpp properties.ui
+            node.h node.cpp
+            wire.h wire.cpp
 
         )
     endif()

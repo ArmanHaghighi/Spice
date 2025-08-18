@@ -9,6 +9,7 @@
 #include <ui_addelementdialog.h>
 #include <ui_trandialog.h>
 
+#include "node.h"
 #include "trandialog.h"
 using namespace std;
 
@@ -257,20 +258,6 @@ void MainWindow::tileSubWindowsVertically() const {
     ui->mdiArea->tileSubWindows();
 }
 
-// void MainWindow::placeElementOnClick(QMouseEvent *event,Element* e,QAction* action) {
-//     if (event->button()==Qt::LeftButton&&action->isChecked()) {
-//         QPointF screenPos = ui->schematicView->mapToScene(event->pos());
-//
-//         qreal x =round(screenPos.x()/50)*50;
-//         qreal y =round(screenPos.y()/50)*50;
-//
-//         e->setPos(x,y);
-//         schematic->schematicScene->addItem(e);
-//
-//         elements.emplace_back(e);
-//     }
-// }
-
 
 void MainWindow::placeElementOnClick(QMouseEvent *event)
 {
@@ -334,8 +321,10 @@ void MainWindow::placeElementOnClick(QMouseEvent *event)
     }
 
     if (newElement) {
-        newElement->setPos(x, y);
         schematic->schematicScene->addItem(newElement);
+        newElement->setPos(x, y);
+
+        newElement->addNodes();
         elements.emplace_back(newElement);
     }
 }

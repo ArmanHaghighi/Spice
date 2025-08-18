@@ -5,16 +5,19 @@
 #include <bits/stdc++.h>
 
 
+class Node;
 using namespace std;
 
 constexpr double GRID_SIZE =12.5;
 class Element : public QGraphicsItem
 {
 public:
-    Element();
+    explicit Element(QGraphicsScene* parent=nullptr);
     QRectF boundingRect() const override;
-    QPointF firstLead;
-    QPointF secondLead;
+
+
+    QVector<Node*> nodes{};
+    virtual void addNodes();
 
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
 
@@ -27,6 +30,9 @@ public:
     virtual void setValue(QString value);
 
     protected:
+    QPointF firstLead;
+    QPointF secondLead;
+
     QString name;
     QString value;
 };
@@ -96,11 +102,18 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void setName(QString name) override;
 };
+class DependantSource : virtual public Element {
+    public:
+    QPointF thirdLead;
+    QPointF fourthLead;
+    DependantSource();
 
-class VCVS : public Element {
+    QRectF boundingRect() const override;
+    void addNodes() override;
+};
+class VCVS : public DependantSource {
 public:
     VCVS():Element(){}
-    QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void setName(QString name) override;
 };
@@ -108,7 +121,6 @@ public:
 class VCCS : public Element {
 public:
     VCCS():Element(){}
-    QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void setName(QString name) override;
 };
@@ -116,7 +128,6 @@ public:
 class CCVS : public Element {
 public:
     CCVS():Element(){}
-    QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void setName(QString name) override;
 };
@@ -124,7 +135,6 @@ public:
 class CCCS : public Element {
 public:
     CCCS():Element(){}
-    QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void setName(QString name) override;
 };
