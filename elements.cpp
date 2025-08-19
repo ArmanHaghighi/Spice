@@ -402,6 +402,40 @@ void ACVoltageSource::setName(QString name) {
     this->name=name;
 }
 
+void ACVoltageSource::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
+    if (event->button() == Qt::LeftButton) {
+        auto *properties = new Properties(dynamic_cast<QWidget *>(this));
+        properties->getUi()->NameTxt->setText(name);
+        properties->getUi()->ValTxt->setText(value);
+        const auto phase = new QLabel("Phase",properties);
+        const auto phaseTxt = new QLineEdit(properties);
+        const auto offset = new QLabel("Offset",properties);
+        const auto offsetTxt = new QLineEdit(properties);
+        // Get the existing grid layout
+        QGridLayout *gridLayout = properties->getUi()->gridLayout;
+
+        // Add new widgets to the grid layout in the correct positions
+        int nextRow = gridLayout->rowCount(); // Get the next available row
+
+        gridLayout->addWidget(phase, nextRow, 0);
+        gridLayout->addWidget(phaseTxt, nextRow + 1, 0);
+        gridLayout->addWidget(offset, nextRow + 2, 0);
+        gridLayout->addWidget(offsetTxt, nextRow + 3, 0);
+        if (properties->exec() == QDialog::Accepted) {
+            this->setName(properties->getUi()->NameTxt->text());
+            this->setValue(properties->getUi()->ValTxt->text());
+            this->offset=offsetTxt->text();
+            this->phase=phaseTxt->text();
+
+        }
+
+        delete properties;
+
+        event->accept();
+    } else
+        QGraphicsItem::mouseDoubleClickEvent(event);
+}
+
 // DC Current Source
 void DCCurrentSource::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     Element::paint(painter, option, widget);

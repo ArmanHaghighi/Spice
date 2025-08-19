@@ -90,6 +90,10 @@ public:
     ACVoltageSource():Element(){}
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void setName(QString name) override;
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
+private:
+    QString phase;
+    QString offset;
 };
 
 class DCCurrentSource : public Element {

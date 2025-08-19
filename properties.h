@@ -13,7 +13,7 @@ class Properties : public QDialog
 
 public:
     explicit Properties(QWidget *parent = nullptr);
-    ~Properties();
+    ~Properties() override;
     Ui::Properties* getUi(){
         return ui;
     }
