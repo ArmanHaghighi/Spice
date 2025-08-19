@@ -4,12 +4,12 @@
 
 Node::Node(Element* parent,NodeType type)
     :QGraphicsObject(parent)
-,ellipse(new QGraphicsEllipseItem(-3, -3, 6, 6, this)) {
+,ellipse(new QGraphicsEllipseItem()) {
     setFlag(QGraphicsItem::ItemIsSelectable);
     setFlag(QGraphicsItem::ItemSendsGeometryChanges);
     ellipse->setFlag(ItemIsSelectable);
     if (type==NodeType::Junction){
-        ellipse->setFlag(ItemIsMovable);
+        // ellipse->setFlag(ItemIsMovable);
         // ellipse->setBrush(Qt::green);
     }
 }
@@ -48,6 +48,11 @@ void Node::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWid
     else
         ellipse->setPen(QPen(Qt::darkBlue));
 
+    QPointF newPos = pos();
+    newPos.setX(qRound(newPos.x() / GRID_SIZE) * GRID_SIZE);
+    newPos.setY(qRound(newPos.y() / GRID_SIZE) * GRID_SIZE);
+    setPos(newPos);
+    ellipse->setRect(-3,-3,6,6);
     ellipse->paint(painter, option, widget);
 
     // Show name and voltage
@@ -59,13 +64,13 @@ void Node::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWid
 
 
 QVariant Node::itemChange(GraphicsItemChange change, const QVariant& value) {
-     // if (change == ItemPositionChange && scene()) {
-     //     // Snap to grid
-     //     QPointF newPos = value.toPointF();
-     //     newPos.setX(qRound(newPos.x() / GRID_SIZE) * GRID_SIZE);
-     //     newPos.setY(qRound(newPos.y() / GRID_SIZE) * GRID_SIZE);
-     //     return newPos;
-     // }
+     if (change == ItemPositionChange && scene()) {
+         // Snap to grid
+         QPointF newPos = value.toPointF();
+         newPos.setX(qRound(newPos.x() / GRID_SIZE) * GRID_SIZE);
+         newPos.setY(qRound(newPos.y() / GRID_SIZE) * GRID_SIZE);
+         return newPos;
+     }
      if (change == ItemPositionHasChanged || change == ItemScenePositionHasChanged) {
         emit scenePositionChanged();
     }
