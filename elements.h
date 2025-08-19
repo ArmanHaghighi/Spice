@@ -24,10 +24,12 @@ public:
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
 
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
-
+void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     virtual void setName(QString name);
     virtual void setValue(QString value);
+    signals:
+    void elementMoved();
 
     protected:
     QPointF firstLead;

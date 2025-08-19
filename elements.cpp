@@ -53,6 +53,13 @@ QVariant Element::itemChange(GraphicsItemChange change, const QVariant &value) {
         newPos.setY(qRound(newPos.y() / GRID_SIZE) * GRID_SIZE);
         return newPos;
     }
+    if (change == ItemPositionHasChanged||change==ItemPositionChange||change==ItemScenePositionHasChanged) {
+        // Update all child nodes
+        for (Node* node : nodes) {
+            node->setScenePosition(node->scenePos());
+        }
+        // emit elementMoved();
+    }
     return QGraphicsItem::itemChange(change, value);
 }
 
@@ -91,6 +98,13 @@ void Element::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
         event->accept();
     } else
         QGraphicsItem::mouseDoubleClickEvent(event);
+}
+
+void Element::mouseMoveEvent(QGraphicsSceneMouseEvent *event) {
+    QGraphicsItem::mouseMoveEvent(event);
+    for (Node* node : nodes) {
+        node->update();
+    }
 }
 
 void Element::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {

@@ -9,7 +9,9 @@
 #include <bits/stdc++.h>
 #include "elements.h"
 #include "addelementdialog.h"
+#include "node.h"
 
+class Wire;
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -65,11 +67,18 @@ private slots:
     void on_actionGnd_toggled(bool arg1);
 
     void handleMouseRelease(QMouseEvent* event);
+
+    Node *createJunctionAt(const QPointF &scenePos);
+
+    void createWire(Node *start, Node *end, Node* wireStartNode = nullptr);
+
 private:
     SchematicView* schematic=nullptr;
     QShortcut *escapeShortcut;
     std::vector<Element*> elements;
-
+    Node* wireStartNode = nullptr;
+    std::vector<Wire*> wires;
+    QVector<Node*> junctionNodes;
     enum class ToolType {
         None,
         Resistor,

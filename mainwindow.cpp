@@ -15,6 +15,7 @@
 #include "trandialog.h"
 #include "dcdialog.h"
 #include "phasedialog.h"
+#include "wire.h"
 
 using namespace std;
 
@@ -27,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
         action->setIconVisibleInMenu(false);  // Hides icons in menus
     }
     escapeShortcut = new QShortcut(QKeySequence(Qt::Key_Escape), this);
+    connect(escapeShortcut, &QShortcut::activated, this, &MainWindow::on_actionEscape_triggered);
     connect(escapeShortcut, &QShortcut::activated, this, &MainWindow::on_actionEscape_triggered);
 
     connect(ui->schematicView,  &SchematicView::mousePressed,
@@ -52,12 +54,17 @@ SchematicView::SchematicView(MainWindow *mainWindow) {
     schView->setDragMode(RubberBandDrag);
     schView->setViewportUpdateMode(FullViewportUpdate);
     schView->setResizeAnchor(AnchorUnderMouse);
+
+
     QPen gridPen(QColor(220, 220, 220),1,Qt::PenStyle::DotLine);
     for(double x = -10000; x <= 10000; x += GRID_SIZE) {
-        schematicScene->addLine(x, -10000, x, 10000, gridPen);
+        QGraphicsLineItem *line = schematicScene->addLine(x, -10000, x, 10000, gridPen);
+        line->setZValue(-10);
     }
     for(double y = -10000; y <= 10000; y += GRID_SIZE) {
-        schematicScene->addLine(-10000, y, 10000, y, gridPen);
+        QGraphicsLineItem *line =schematicScene->addLine(-10000, y, 10000, y, gridPen);
+        line->setZValue(-10);
+
     }
 }
 
@@ -366,6 +373,63 @@ void MainWindow::placeElementOnClick(QMouseEvent *event)
         newElement->addNodes();
         elements.emplace_back(newElement);
     }
+    if (currentTool == ToolType::Wire && event->button() == Qt::LeftButton) {
+        QPointF scenePos = ui->schematicView->mapToScene(event->pos());
+        QList<QGraphicsItem*> items = schematic->schematicScene->items(scenePos);
+        Node* node = nullptr;
+        Wire* wire = nullptr;
+
+        // Find the top-most node or wire at the click position
+        for (QGraphicsItem* item : items) {
+            if (!node) node = dynamic_cast<Node*>(item);
+            if (!wire) wire = dynamic_cast<Wire*>(item);
+            if (node || wire) break;
+        }
+
+        if (node) {
+            if (!wireStartNode) {
+                wireStartNode = node;
+                node->ellipse->setBrush(Qt::red);
+            } else if (wireStartNode != node) {
+                createWire(wireStartNode, node);
+            } else {
+                // Clicked same node - cancel
+                wireStartNode->ellipse->setPen(QPen(Qt::darkBlue));
+                wireStartNode = nullptr;
+            }
+        }
+        else if (wire) {
+            // Create junction point at wire intersection
+            Node* junction = createJunctionAt(scenePos);
+
+             // Split the existing wire into two wires
+            Node* originalStart = wire->startNode();
+            Node* originalEnd = wire->endNode();
+
+            // Remove the original wire
+            schematic->schematicScene->removeItem(wire);
+            wires.erase(std::remove(wires.begin(), wires.end(), wire), wires.end());
+            delete wire;
+            // Create new wires from original start to junction and junction to original end
+            createWire(originalStart, junction,wireStartNode);
+            createWire(junction, originalEnd,wireStartNode);
+
+            if (!wireStartNode) {
+                wireStartNode = junction;
+                junction->ellipse->setBrush(Qt::red);
+            } else {
+                createWire(wireStartNode, junction);
+            }
+        }
+        else if (wireStartNode) {
+            // Reset if clicked on empty space
+            wireStartNode->ellipse->setPen(QPen(Qt::darkBlue));
+            wireStartNode->ellipse->setBrush(Qt::NoBrush);
+            wireStartNode = nullptr;
+        }
+        return;
+    }
+
 }
 
 
@@ -416,19 +480,59 @@ void MainWindow::deleteSelectedItems() {
             del=true;
     }
     if (selection.size()<=1) del=true;
-    if (del) {
-        // Delete all selected items
+   if (del) {
         for (QGraphicsItem* item : selection) {
-            Element* element = dynamic_cast<Element*>(item);
-            if (element) {
-                // Remove from our elements vector
-                elements.erase(std::remove(elements.begin(), elements.end(), element),
-                             elements.end());
+            // Handle wire deletion
+            if (Wire* wire = dynamic_cast<Wire*>(item)) {
+                schematic->schematicScene->removeItem(wire);
+                wires.erase(std::remove(wires.begin(), wires.end(), wire), wires.end());
+                delete wire;
+            }
+            // Handle node/junction deletion
+            else if (Node* node = dynamic_cast<Node*>(item)) {
+                // Delete connected wires
+                for (auto it = wires.begin(); it != wires.end();) {
+                    Wire* wire = *it;
+                    if (wire->startNode() == node || wire->endNode() == node) {
+                        schematic->schematicScene->removeItem(wire);
+                        delete wire;
+                        it = wires.erase(it);
+                    } else {
+                        ++it;
+                    }
+                }
 
-                // Remove from scene
+                // Remove from appropriate container
+                if (node->type == Node::Junction) {
+                    junctionNodes.erase(std::remove(junctionNodes.begin(), junctionNodes.end(), node),
+                                      junctionNodes.end());
+                } else {
+                    // Find and remove from element's node list
+                    for (auto& element : elements) {
+                        element->nodes.removeOne(node);
+                    }
+                }
+
+                schematic->schematicScene->removeItem(node);
+                delete node;
+            }
+            // Handle element deletion
+            else if (Element* element = dynamic_cast<Element*>(item)) {
+                // Delete connected wires
+                for (auto it = wires.begin(); it != wires.end();) {
+                    Wire* wire = *it;
+                    if (element->nodes.contains(wire->startNode()) ||
+                        element->nodes.contains(wire->endNode())) {
+                        schematic->schematicScene->removeItem(wire);
+                        delete wire;
+                        it = wires.erase(it);
+                    } else {
+                        ++it;
+                    }
+                }
+
+                elements.erase(std::remove(elements.begin(), elements.end(), element), elements.end());
                 schematic->schematicScene->removeItem(element);
-
-                // Delete the object
                 delete element;
             }
         }
@@ -437,9 +541,20 @@ void MainWindow::deleteSelectedItems() {
 }
 
 
-void MainWindow::on_actionWire_toggled(bool arg1)
+void MainWindow::on_actionWire_toggled(bool checked)
 {
-
+    if (checked) {
+        currentTool = ToolType::Wire;
+        for(QAction *a:ui->toolBar->actions()) {
+            if (a != ui->actionWire) a->setChecked(false);
+        }
+        ui->schematicView->setCursor(Qt::CrossCursor);
+        wireStartNode = nullptr;
+    } else if(currentTool == ToolType::Wire) {
+        ui->schematicView->setCursor(Qt::ArrowCursor);
+        currentTool = ToolType::None;
+        wireStartNode = nullptr;
+    }
 }
 
 
@@ -545,3 +660,32 @@ void MainWindow::on_actionGnd_toggled(bool checked)
 void MainWindow::handleMouseRelease(QMouseEvent *event) {
 }
 
+
+Node* MainWindow::createJunctionAt(const QPointF& scenePos) {
+    // Create new junction node
+    Node* junction = new Node(nullptr,Node::Junction);
+    junction->setPos(scenePos);
+    junction->setFlag(QGraphicsItem::ItemIsMovable);
+    junction->setFlag(QGraphicsItem::ItemSendsScenePositionChanges);
+
+    // Add to scene
+    schematic->schematicScene->addItem(junction);
+    junctionNodes.push_back(junction);
+
+    return junction;
+}
+
+void MainWindow::createWire(Node* start, Node* end,   Node* wireStartNode ) {
+    Wire* wire = new Wire(start, end);
+    schematic->schematicScene->addItem(wire);
+    wires.push_back(wire);
+
+    // Reset visual feedback
+    start->ellipse->setBrush(Qt::darkBlue);
+    end->ellipse->setBrush(Qt::darkBlue);
+    if (start->type == Node::Junction) {
+        start->ellipse->setBrush(Qt::yellow);
+    }
+
+    this->wireStartNode = wireStartNode;
+}
