@@ -9,9 +9,17 @@
 
 class Element;
 
-class Node : public QGraphicsObject{
+class Node : public QGraphicsObject,public  std::enable_shared_from_this<Node>{
     Q_OBJECT
 public:
+    // Add these methods:
+    int getId() const { return id; }
+    void setId(int newId) {
+        id = newId;
+        if (id >= nextId) nextId = id + 1;
+    }
+    static int getNextId() { return nextId; }
+    static void setNextId(int value) { nextId = value; }
     enum NodeType { Default, Junction };
     explicit Node(Element* parent=nullptr,NodeType type=Default);
     QRectF boundingRect() const override;
@@ -53,7 +61,8 @@ private:
     QSet<Element*> m_connections;
     bool nameSet=false;
     bool m_hasCustomName = false;
-
+    int id;
+    static int nextId;
 };
 
 #endif // NODE_H

@@ -102,7 +102,7 @@ QVariant Wire::itemChange(GraphicsItemChange change, const QVariant &value) {
 void Wire::updateConnection() {
     // Reconnect to nodes if needed
     disconnect(m_startNode, nullptr, this, nullptr);
-    disconnect(m_endNode, nullptr, this, nullptr);
+    disconnect(m_endNode,nullptr, this, nullptr);
 
     connect(m_startNode, &Node::scenePositionChanged, this, &Wire::updatePath);
     connect(m_endNode, &Node::scenePositionChanged, this, &Wire::updatePath);

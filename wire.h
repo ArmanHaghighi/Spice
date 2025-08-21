@@ -3,6 +3,8 @@
 
 #include <QGraphicsPathItem>
 #include <QGraphicsObject>
+#include <cereal/access.hpp>
+
 #include "node.h"
 
 class Wire :  public QGraphicsObject{
@@ -22,17 +24,23 @@ public:
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
     void updateConnection();
     template <class Archive>
-    void serialize(Archive& ar) {
-        ar(std::shared_ptr<Node>( startNode()),std::shared_ptr<Node>( endNode()));
+   void serialize(Archive& ar) {
+        ar(startNodeId, endNodeId);
     }
+
+    void setNodeIds(int startId, int endId) { startNodeId = startId; endNodeId = endId; }
+    std::pair<int, int> getNodeIds() const { return {startNodeId, endNodeId}; }
+
     Wire()=default;
     signals:
         void connectionChanged();
-
+friend class cereal::access;
 private:
     QGraphicsPathItem* pathItem;
-    Node* m_startNode;
-    Node* m_endNode;
+   Node* m_startNode;
+   Node* m_endNode;
+    int startNodeId = -1;
+    int endNodeId = -1;
 };
 
 #endif // WIRE_H

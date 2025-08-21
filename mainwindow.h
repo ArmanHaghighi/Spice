@@ -22,12 +22,51 @@ QT_END_NAMESPACE
 class SchematicView;
 class QShortcut;
 
-struct CircuitData {
-    std::vector<std::shared_ptr<Element>> elements;
-    std::vector<std::shared_ptr<Node>> nodes;
-    std::vector<std::shared_ptr<Wire>> wires;
+struct ElementData {
+    QString type;
+    QString name;
+    QString value;
+    QPointF pos;
+    double rotation;
+    QPointF firstLead;
+    QPointF secondLead;
+    std::vector<int> nodeIds;
 
-    template <class Archive>
+    template<class Archive>
+    void serialize(Archive& ar) {
+        ar(type, name, value, pos, rotation, firstLead, secondLead, nodeIds);
+    }
+};
+
+struct NodeData {
+    int id;
+    QPointF pos;
+    QString name;
+    bool hasCustomName;
+    QString type;
+
+    template<class Archive>
+    void serialize(Archive& ar) {
+        ar(id, pos, name, hasCustomName, type);
+    }
+};
+
+struct WireData {
+    int startNodeId;
+    int endNodeId;
+
+    template<class Archive>
+    void serialize(Archive& ar) {
+        ar(startNodeId, endNodeId);
+    }
+};
+
+struct CircuitData {
+    std::vector<ElementData> elements;
+    std::vector<NodeData> nodes;
+    std::vector<WireData> wires;
+
+    template<class Archive>
     void serialize(Archive& ar) {
         ar(elements, nodes, wires);
     }

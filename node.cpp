@@ -13,9 +13,10 @@
 #include <QQueue>
 
 
+ int Node::nextId=0;
 
 Node::Node(Element* parent,NodeType type)
-    :QGraphicsObject(parent)
+    :QGraphicsObject(parent),id(nextId++),type(type)
 ,ellipse(new QGraphicsEllipseItem()) {
     setFlag(QGraphicsItem::ItemIsSelectable);
     setFlag(QGraphicsItem::ItemSendsGeometryChanges);

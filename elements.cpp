@@ -124,6 +124,14 @@ void Element::setValue(QString value) {
     this->value = value;
 }
 
+QString Element::getValue() {
+return value;
+}
+
+QString Element::getName() {
+    return name;
+}
+
 Resistor::Resistor() : Element() {
 
 

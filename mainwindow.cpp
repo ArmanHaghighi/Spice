@@ -476,6 +476,8 @@ void MainWindow::on_actionDelete_toggled(bool checked)
         // Disconnect the signal when delete mode is turned off
         disconnect(ui->schematicView, &SchematicView::mouseReleased,
                    this, &MainWindow::deleteSelectedItems);
+        ui->schematicView->setCursor(Qt::ArrowCursor);
+
     }
 }
 
@@ -778,7 +780,6 @@ void MainWindow::handleNodeNamePropagation(Node* source, const QString& name) {
         }
     }
 }
-
 bool MainWindow::saveCircuit(const QString& filename) {
     try {
         std::ofstream ofs(filename.toStdString(), std::ios::binary);
@@ -786,17 +787,54 @@ bool MainWindow::saveCircuit(const QString& filename) {
 
         CircuitData data;
 
-        // Convert elements to shared_ptr
+        // Save elements
         for (Element* element : elements) {
-            data.elements.push_back(std::shared_ptr<Element>(element));
+            ElementData ed;
+            ed.type = element->getTypeName();
+            ed.name = element->getName();
+            ed.value = element->getValue();
+            ed.pos = element->pos();
+            ed.rotation = element->rotation();
+            ed.firstLead = element->firstLead;
+            ed.secondLead = element->secondLead;
+
+            // Save node IDs
+            for (Node* node : element->nodes) {
+                ed.nodeIds.push_back(node->getId());
+            }
+
+            data.elements.push_back(ed);
         }
 
-        // Convert nodes to shared_ptr (both element nodes and junction nodes)
-        // This needs careful implementation based on your node management
+        // Save nodes (from elements and junctions)
+        for (Element* element : elements) {
+            for (Node* node : element->nodes) {
+                NodeData nd;
+                nd.id = node->getId();
+                nd.pos = node->pos();
+                nd.name = node->name();
+                nd.hasCustomName = node->hasCustomName();
+                nd.type = (node->type == Node::Junction) ? "Junction" : "Element";
+                data.nodes.push_back(nd);
+            }
+        }
 
-        // Convert wires to shared_ptr
+        for (Node* node : junctionNodes) {
+            NodeData nd;
+            nd.id = node->getId();
+            nd.pos = node->pos();
+            nd.name = node->name();
+            nd.hasCustomName = node->hasCustomName();
+            nd.type = "Junction";
+            data.nodes.push_back(nd);
+        }
+
+        // Save wires
         for (Wire* wire : wires) {
-            data.wires.push_back(std::shared_ptr<Wire>(wire));
+            WireData wd;
+            wd.startNodeId = wire->startNode()->getId();
+            wd.endNodeId = wire->endNode()->getId();
+            data.wires.push_back(wd);
         }
 
         archive(data);
@@ -806,10 +844,8 @@ bool MainWindow::saveCircuit(const QString& filename) {
         return false;
     }
 }
-
 bool MainWindow::loadCircuit(const QString& filename) {
     try {
-        // Clear current circuit first
         clearCircuit();
 
         std::ifstream ifs(filename.toStdString(), std::ios::binary);
@@ -818,17 +854,88 @@ bool MainWindow::loadCircuit(const QString& filename) {
         CircuitData data;
         archive(data);
 
-        // Reconstruct the circuit from loaded data
-        for (auto& element : data.elements) {
-            schematic->schematicScene->addItem(element.get());
-            element->addNodes();
-            elements.push_back(element.get());
+        // Map to store node IDs to node pointers
+        std::map<int, Node*> nodeMap;
+
+        // Create elements first
+        for (const ElementData& ed : data.elements) {
+            Element* element = nullptr;
+
+            if (ed.type == "Resistor") {
+                element = new Resistor();
+            } else if (ed.type == "Capacitor") {
+                element = new Capacitor();
+            } else if (ed.type == "Inductor") {
+                element = new Inductor();
+            } else if (ed.type == "Gnd") {
+                element = new Gnd();
+            } else if (ed.type == "IdealDiode") {
+                element = new IdealDiode();
+            } else if (ed.type == "SiliconDiode") {
+                element = new SiliconDiode();
+            } else if (ed.type == "DCVoltageSource") {
+                element = new DCVoltageSource();
+            } else if (ed.type == "ACVoltageSource") {
+                element = new ACVoltageSource();
+            } else if (ed.type == "DCCurrentSource") {
+                element = new DCCurrentSource();
+            } else if (ed.type == "ACCurrentSource") {
+                element = new ACCurrentSource();
+            } else if (ed.type == "VCVS") {
+                element = new VCVS();
+            } else if (ed.type == "VCCS") {
+                element = new VCCS();
+            } else if (ed.type == "CCVS") {
+                element = new CCVS();
+            } else if (ed.type == "CCCS") {
+                element = new CCCS();
+            }
+
+            if (element) {
+                schematic->schematicScene->addItem(element);
+                element->setName(ed.name);
+                element->setValue(ed.value);
+                element->setPos(ed.pos);
+                element->setRotation(ed.rotation);
+                element->firstLead = ed.firstLead;
+                element->secondLead = ed.secondLead;
+
+
+                element->addNodes();
+
+                // Update node IDs and add to map
+                for (size_t i = 0; i < ed.nodeIds.size() && i < element->nodes.size(); ++i) {
+                    element->nodes[i]->setId(ed.nodeIds[i]);
+                    nodeMap[ed.nodeIds[i]] = element->nodes[i];
+                }
+
+                elements.push_back(element);
+            }
         }
 
-        // Recreate wires and connections
-        for (auto& wire : data.wires) {
-            schematic->schematicScene->addItem(wire.get());
-            wires.push_back(wire.get());
+        // Create junction nodes
+        for (const NodeData& nd : data.nodes) {
+            if (nd.type == "Junction") {
+                Node* node = new Node(nullptr, Node::Junction);
+                node->setId(nd.id);
+                node->setPos(nd.pos);
+                node->setName(nd.name);
+                node->setHasCustomName(nd.hasCustomName);
+
+                schematic->schematicScene->addItem(node);
+                junctionNodes.push_back(node);
+                nodeMap[nd.id] = node;
+            }
+        }
+
+        // Create wires
+        for (const WireData& wd : data.wires) {
+            if (nodeMap.find(wd.startNodeId) != nodeMap.end() &&
+                nodeMap.find(wd.endNodeId) != nodeMap.end()) {
+                Wire* wire = new Wire(nodeMap[wd.startNodeId], nodeMap[wd.endNodeId]);
+                schematic->schematicScene->addItem(wire);
+                wires.push_back(wire);
+            }
         }
 
         return true;
@@ -837,8 +944,28 @@ bool MainWindow::loadCircuit(const QString& filename) {
         return false;
     }
 }
-
 void MainWindow::clearCircuit() {
-    // Implementation to clear the current circuit
-    // Remove all elements, nodes, and wires from the scene and vectors
+    // Clear wires first (they depend on nodes)
+    for (Wire* wire : wires) {
+        schematic->schematicScene->removeItem(wire);
+        delete wire;
+    }
+    wires.clear();
+
+    // Clear junction nodes
+    for (Node* node : junctionNodes) {
+        schematic->schematicScene->removeItem(node);
+        delete node;
+    }
+    junctionNodes.clear();
+
+    // Clear elements (they own their nodes)
+    for (Element* element : elements) {
+        schematic->schematicScene->removeItem(element);
+        delete element;
+    }
+    elements.clear();
+
+    // Reset node ID counter
+    Node::setNextId(0);
 }

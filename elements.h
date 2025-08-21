@@ -37,12 +37,15 @@ public:
     virtual void setValue(QString value);
     // Virtual function to get type name
     virtual QString getTypeName() const = 0;
+    QPointF firstLead;
+    QPointF secondLead;
+    QString getName();
+    QString getValue();
     signals:
     void elementMoved();
 
     protected:
-    QPointF firstLead;
-    QPointF secondLead;
+
 
     QString name;
     QString value;
@@ -180,8 +183,9 @@ public:
 namespace cereal {
     template <class Archive>
     void serialize(Archive& ar, QPointF& point) {
-        ar(point.x(), point.y());
+        ar(point.rx(), point.ry());
     }
+
 }
 // Serialization for QString
 namespace cereal {
