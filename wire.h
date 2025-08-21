@@ -21,6 +21,11 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
     void updateConnection();
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar(std::shared_ptr<Node>( startNode()),std::shared_ptr<Node>( endNode()));
+    }
+    Wire()=default;
     signals:
         void connectionChanged();
 

@@ -4,9 +4,9 @@
 #include "elements.h"
 #include <QShortcut>
 #include <QMessageBox>
+#include <QQueue>
 #include <ui_addelementdialog.h>
 #include <ui_trandialog.h>
-
 #include "node.h"
 #include <ui_ACDialog.h>
 #include <ui_DCDialog.h>
@@ -16,6 +16,7 @@
 #include "dcdialog.h"
 #include "phasedialog.h"
 #include "wire.h"
+#include <QFileDialog>
 
 using namespace std;
 
@@ -33,6 +34,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->schematicView,  &SchematicView::mousePressed,
                 this, &MainWindow::placeElementOnClick);
+    connect(this, &MainWindow::nodeNamePropagationRequested,
+        this, &MainWindow::handleNodeNamePropagation);
     schematic = new SchematicView(this);
 
 }
@@ -72,6 +75,8 @@ SchematicView::SchematicView(QWidget *wid)
 {
 
 }
+
+
 
 void SchematicView::resizeEvent(QResizeEvent *event) {
 
@@ -174,13 +179,19 @@ void MainWindow::on_actionCapacitor_toggled(bool checked)
 
     void MainWindow::on_actionOpen_triggered()
     {
-
+        QString filename = QFileDialog::getOpenFileName(this, "Load Circuit", "", "Circuit Files (*.cir)");
+        if (!filename.isEmpty()) {
+            loadCircuit(filename);
+        }
     }
 
 
     void MainWindow::on_actionSave_triggered()
     {
-
+        QString filename = QFileDialog::getSaveFileName(this, "Save Circuit", "", "Circuit Files (*.cir)");
+        if (!filename.isEmpty()) {
+            saveCircuit(filename);
+        }
     }
 
 
@@ -304,6 +315,10 @@ void MainWindow::tileSubWindowsVertically() const {
     ui->mdiArea->tileSubWindows();
 }
 
+void MainWindow::tidyNodes() {
+
+}
+
 
 void MainWindow::placeElementOnClick(QMouseEvent *event)
 {
@@ -328,9 +343,10 @@ void MainWindow::placeElementOnClick(QMouseEvent *event)
             break;
         case ToolType::Gnd:
             newElement = new Gnd();
-            break;
-        case ToolType::Wire:
-            // newElement = new Wire();
+            if (newElement && !newElement->nodes.isEmpty()) {
+                newElement->nodes.first()->setName("Gnd");
+                newElement->nodes.first()->setHasCustomName(true); // GND name should not change
+            }
             break;
         case ToolType::IdealDiode:
             newElement = new IdealDiode();
@@ -363,7 +379,7 @@ void MainWindow::placeElementOnClick(QMouseEvent *event)
             newElement = new CCCS();
             break;
         default:
-            return;
+            break;
     }
 
     if (newElement) {
@@ -674,12 +690,59 @@ Node* MainWindow::createJunctionAt(const QPointF& scenePos) {
 
     return junction;
 }
-
-void MainWindow::createWire(Node* start, Node* end,   Node* wireStartNode ) {
+//
+// void MainWindow::createWire(Node* start, Node* end,   Node* wireStartNode ) {
+//     Wire* wire = new Wire(start, end);
+//     schematic->schematicScene->addItem(wire);
+//     wires.push_back(wire);
+//     start->m_connectedNodes.insert(end);
+//     end->m_connectedNodes.insert(start);
+//
+//     // Reset visual feedback
+//     start->ellipse->setBrush(Qt::darkBlue);
+//     end->ellipse->setBrush(Qt::darkBlue);
+//     if (start->type == Node::Junction) {
+//         start->ellipse->setBrush(Qt::yellow);
+//     }
+//
+//     this->wireStartNode = wireStartNode;
+// }
+void MainWindow::createWire(Node* start, Node* end, Node* wireStartNode) {
     Wire* wire = new Wire(start, end);
     schematic->schematicScene->addItem(wire);
     wires.push_back(wire);
+    start->m_connectedNodes.insert(end);
+    end->m_connectedNodes.insert(start);
 
+    // Handle name propagation
+    if (start->hasCustomName() && !end->hasCustomName()) {
+        // Start has a custom name, end doesn't - propagate start's name
+        end->setName(start->name());
+        end->setHasCustomName(false);
+        emit nodeNamePropagationRequested(start, start->name());
+    } else if (!start->hasCustomName() && end->hasCustomName()) {
+        // End has a custom name, start doesn't - propagate end's name
+        start->setName(end->name());
+        start->setHasCustomName(false);
+        emit nodeNamePropagationRequested(end, end->name());
+    } else if (!start->hasCustomName() && !end->hasCustomName()) {
+        // Neither has a custom name - give them a common name
+        QString commonName = start->name().isEmpty() ? end->name() : start->name();
+        if (commonName.isEmpty()) {
+            // Generate a new name if both are empty
+            commonName = "N" + QString::number(nodeCount++);
+        }
+        start->setName(commonName);
+        end->setName(commonName);
+        start->setHasCustomName(false);
+        end->setHasCustomName(false);
+    }
+    else {
+        // If both have custom names
+        end->setName(start->name());
+        end->setHasCustomName(false);
+        emit nodeNamePropagationRequested(start, start->name());
+    }
     // Reset visual feedback
     start->ellipse->setBrush(Qt::darkBlue);
     end->ellipse->setBrush(Qt::darkBlue);
@@ -688,4 +751,94 @@ void MainWindow::createWire(Node* start, Node* end,   Node* wireStartNode ) {
     }
 
     this->wireStartNode = wireStartNode;
+}
+void MainWindow::handleNodeNamePropagation(Node* source, const QString& name) {
+     if (!source || name.isEmpty()) return;
+
+    // Use BFS to propagate name to all connected nodes
+    QSet<Node*> visited;
+    QQueue<Node*> queue;
+    queue.enqueue(source);
+    visited.insert(source);
+
+    while (!queue.isEmpty()) {
+        Node* current = queue.dequeue();
+
+        // Skip GND nodes
+        if (current->name() == "0") continue;
+
+        // Propagate to all connected nodes
+        for (Node* connectedNode : current->m_connectedNodes) {
+            if (!visited.contains(connectedNode) && !connectedNode->hasCustomName() && connectedNode->name() != "0") {
+                connectedNode->setName(name);
+                connectedNode->setHasCustomName(false);
+                visited.insert(connectedNode);
+                queue.enqueue(connectedNode);
+            }
+        }
+    }
+}
+
+bool MainWindow::saveCircuit(const QString& filename) {
+    try {
+        std::ofstream ofs(filename.toStdString(), std::ios::binary);
+        cereal::BinaryOutputArchive archive(ofs);
+
+        CircuitData data;
+
+        // Convert elements to shared_ptr
+        for (Element* element : elements) {
+            data.elements.push_back(std::shared_ptr<Element>(element));
+        }
+
+        // Convert nodes to shared_ptr (both element nodes and junction nodes)
+        // This needs careful implementation based on your node management
+
+        // Convert wires to shared_ptr
+        for (Wire* wire : wires) {
+            data.wires.push_back(std::shared_ptr<Wire>(wire));
+        }
+
+        archive(data);
+        return true;
+    } catch (const std::exception& e) {
+        QMessageBox::critical(this, "Save Error", QString("Failed to save circuit: ") + e.what());
+        return false;
+    }
+}
+
+bool MainWindow::loadCircuit(const QString& filename) {
+    try {
+        // Clear current circuit first
+        clearCircuit();
+
+        std::ifstream ifs(filename.toStdString(), std::ios::binary);
+        cereal::BinaryInputArchive archive(ifs);
+
+        CircuitData data;
+        archive(data);
+
+        // Reconstruct the circuit from loaded data
+        for (auto& element : data.elements) {
+            schematic->schematicScene->addItem(element.get());
+            element->addNodes();
+            elements.push_back(element.get());
+        }
+
+        // Recreate wires and connections
+        for (auto& wire : data.wires) {
+            schematic->schematicScene->addItem(wire.get());
+            wires.push_back(wire.get());
+        }
+
+        return true;
+    } catch (const std::exception& e) {
+        QMessageBox::critical(this, "Load Error", QString("Failed to load circuit: ") + e.what());
+        return false;
+    }
+}
+
+void MainWindow::clearCircuit() {
+    // Implementation to clear the current circuit
+    // Remove all elements, nodes, and wires from the scene and vectors
 }

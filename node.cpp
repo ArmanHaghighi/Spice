@@ -1,6 +1,18 @@
 #include "node.h"
+
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <qgraphicssceneevent.h>
+#include <QLabel>
+#include <qlayout.h>
+#include <QLineEdit>
+#include <QInputDialog>
 #include "elements.h"
 #include <QPainter>
+#include <QSet>
+#include <QQueue>
+
+
 
 Node::Node(Element* parent,NodeType type)
     :QGraphicsObject(parent)
@@ -28,7 +40,9 @@ QString Node::name() const {
 }
 
 void Node::connectElement(Element* element) {
-    if (element) m_connections.insert(element);
+    if (element) {
+        m_connections.insert(element);
+    }
 }
 
 double Node::voltage() const {
@@ -86,4 +100,42 @@ void Node::setScenePosition(const QPointF& pos) {
     }
     emit scenePositionChanged();
     emit positionChanged();
+}
+void Node::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
+    if (event->button() == Qt::LeftButton) {
+        bool ok;
+        QString newName = QInputDialog::getText(nullptr, "Set Name", "Name:",
+                                               QLineEdit::Normal, name(), &ok);
+        if (ok && !newName.isEmpty()) {
+            setName(newName);
+            setHasCustomName(true);
+            emit namePropagationRequested(this, newName);
+        }
+        event->accept();
+    } else {
+        QGraphicsObject::mouseDoubleClickEvent(event);
+    }
+}
+
+bool Node::hasCustomName() const {
+    return m_hasCustomName;
+}
+
+void Node::setHasCustomName(bool custom) {
+    m_hasCustomName = custom;
+}
+
+void Node::propagateNameToConnectedNodes(const QString& name) {
+    if (this->name() == name || this->name() == "Gnd") return;
+
+    setName(name);
+    setHasCustomName(false);
+
+    // Propagate to all connected nodes
+    for (Node* connectedNode : m_connectedNodes) {
+        if (!connectedNode->hasCustomName() && connectedNode->name() != name && connectedNode->name() != "Gnd") {
+            connectedNode->setName(name);
+            connectedNode->setHasCustomName(false);
+        }
+    }
 }

@@ -138,6 +138,10 @@ void Resistor::setName(QString name) {
     this->name = name;
 }
 
+QString Resistor::getTypeName() const {
+    return "Resistor";
+}
+
 void Resistor::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
     Element::paint(painter, option, widget);
         static const QPointF points[] = {
@@ -243,6 +247,7 @@ void Gnd::addNodes() {
     Node* node1 = new Node(this);
     node1->setPos(firstLead);  // Position relative to element
     node1->setName("Gnd");
+    node1->setHasCustomName(true); // GND name should not change
 
     nodes.append(node1);
 
@@ -404,7 +409,7 @@ void ACVoltageSource::setName(QString name) {
 
 void ACVoltageSource::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
     if (event->button() == Qt::LeftButton) {
-        auto *properties = new Properties(dynamic_cast<QWidget *>(this));
+        auto *properties = new Properties(reinterpret_cast<QWidget *>(this));
         properties->getUi()->NameTxt->setText(name);
         properties->getUi()->ValTxt->setText(value);
         const auto phase = new QLabel("Phase",properties);

@@ -10,7 +10,9 @@
 #include "elements.h"
 #include "addelementdialog.h"
 #include "node.h"
-
+#include <cereal/archives/binary.hpp>
+#include <cereal/types/vector.hpp>
+#include <cereal/types/memory.hpp>
 class Wire;
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -19,6 +21,17 @@ class MainWindow;
 QT_END_NAMESPACE
 class SchematicView;
 class QShortcut;
+
+struct CircuitData {
+    std::vector<std::shared_ptr<Element>> elements;
+    std::vector<std::shared_ptr<Node>> nodes;
+    std::vector<std::shared_ptr<Wire>> wires;
+
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar(elements, nodes, wires);
+    }
+};
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -31,6 +44,7 @@ public:
 
     void tileSubWindowsVertically() const ;
 
+    void tidyNodes();
 private slots:
 
     void on_actionNew_triggered();
@@ -72,7 +86,16 @@ private slots:
 
     void createWire(Node *start, Node *end, Node* wireStartNode = nullptr);
 
+    void handleNodeNamePropagation(Node *source, const QString &name);
+
+signals:
+        void nodeNamePropagationRequested(Node* source, const QString& name);
 private:
+    bool saveCircuit(const QString& filename);
+    bool loadCircuit(const QString& filename);
+
+    void clearCircuit();
+
     SchematicView* schematic=nullptr;
     QShortcut *escapeShortcut;
     std::vector<Element*> elements;
@@ -99,7 +122,7 @@ private:
         CCCS
     };
     ToolType currentTool = ToolType::None;
-
+     int nodeCount=0;
     void placeElementOnClick(QMouseEvent *event);
 };
 
@@ -116,6 +139,7 @@ public:
 signals:
     void mousePressed(QMouseEvent* event);
     void mouseReleased(QMouseEvent* event);
+
 protected:
     void resizeEvent(QResizeEvent *event) override;
     void mousePressEvent(QMouseEvent* event) override ;
