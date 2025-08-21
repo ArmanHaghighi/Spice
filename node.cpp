@@ -12,10 +12,11 @@
 #include <QSet>
 #include <QQueue>
 
+ using namespace Spice;
 
- int Node::nextId=0;
+ int Spice::Node::nextId=0;
 
-Node::Node(Element* parent,NodeType type)
+Spice::Node::Node(Element* parent,NodeType type)
     :QGraphicsObject(parent),id(nextId++),type(type)
 ,ellipse(new QGraphicsEllipseItem()) {
     setFlag(QGraphicsItem::ItemIsSelectable);
@@ -27,35 +28,35 @@ Node::Node(Element* parent,NodeType type)
     }
 }
 
-QRectF Node::boundingRect() const {
+QRectF Spice::Node::boundingRect() const {
     return ellipse->boundingRect();
 }
 
-void Node::setName(const QString& name) {
+void Spice::Node::setName(const QString& name) {
     m_name = name;
     setToolTip(name);  // Show name on hover
 }
 
-QString Node::name() const {
+QString Spice::Node::name() const {
     return m_name;
 }
 
-void Node::connectElement(Element* element) {
+void Spice::Node::connectElement(Element* element) {
     if (element) {
         m_connections.insert(element);
     }
 }
 
-double Node::voltage() const {
+double Spice::Node::voltage() const {
     return m_voltage;
 }
 
-void Node::setVoltage(double voltage) {
+void Spice::Node::setVoltage(double voltage) {
     m_voltage = voltage;
     update();  // Redraw to show voltage
 }
 
-void Node::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void Spice::Node::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
 
     if (!m_connections.isEmpty()||isSelected()) {
         ellipse->setPen(QPen(Qt::NoPen));
@@ -78,7 +79,7 @@ void Node::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWid
 }
 
 
-QVariant Node::itemChange(GraphicsItemChange change, const QVariant& value) {
+QVariant Spice::Node::itemChange(GraphicsItemChange change, const QVariant& value) {
      if (change == ItemPositionChange && scene()) {
          // Snap to grid
          QPointF newPos = value.toPointF();
@@ -92,7 +93,7 @@ QVariant Node::itemChange(GraphicsItemChange change, const QVariant& value) {
     return QGraphicsObject::itemChange(change, value);
 }
 
-void Node::setScenePosition(const QPointF& pos) {
+void Spice::Node::setScenePosition(const QPointF& pos) {
     // Convert to parent coordinates if needed
     if (parentItem()) {
         setPos(parentItem()->mapFromScene(pos));
@@ -102,7 +103,7 @@ void Node::setScenePosition(const QPointF& pos) {
     emit scenePositionChanged();
     emit positionChanged();
 }
-void Node::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
+void Spice::Node::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
     if (event->button() == Qt::LeftButton) {
         bool ok;
         QString newName = QInputDialog::getText(nullptr, "Set Name", "Name:",
@@ -118,22 +119,22 @@ void Node::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
     }
 }
 
-bool Node::hasCustomName() const {
+bool Spice::Node::hasCustomName() const {
     return m_hasCustomName;
 }
 
-void Node::setHasCustomName(bool custom) {
+void Spice::Node::setHasCustomName(bool custom) {
     m_hasCustomName = custom;
 }
 
-void Node::propagateNameToConnectedNodes(const QString& name) {
+void Spice::Node::propagateNameToConnectedNodes(const QString& name) {
     if (this->name() == name || this->name() == "Gnd") return;
 
     setName(name);
     setHasCustomName(false);
 
     // Propagate to all connected nodes
-    for (Node* connectedNode : m_connectedNodes) {
+    for (Spice::Node* connectedNode : m_connectedNodes) {
         if (!connectedNode->hasCustomName() && connectedNode->name() != name && connectedNode->name() != "Gnd") {
             connectedNode->setName(name);
             connectedNode->setHasCustomName(false);

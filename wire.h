@@ -6,7 +6,7 @@
 #include <cereal/access.hpp>
 
 #include "node.h"
-
+using namespace Spice;
 class Wire :  public QGraphicsObject{
     Q_OBJECT
 public:
@@ -34,7 +34,7 @@ public:
     Wire()=default;
     signals:
         void connectionChanged();
-friend class cereal::access;
+// friend class cereal::access;
 private:
     QGraphicsPathItem* pathItem;
    Node* m_startNode;

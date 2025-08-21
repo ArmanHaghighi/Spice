@@ -28,6 +28,7 @@ set(PROJECT_SOURCES
         phasedialog.h phasedialog.cpp phasedialog.ui
         node.h node.cpp
         wire.h wire.cpp
+
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

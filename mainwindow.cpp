@@ -19,7 +19,7 @@
 #include <QFileDialog>
 
 using namespace std;
-
+using namespace Spice;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)

@@ -9,6 +9,8 @@
 #include "properties.h"
 #include "ui_properties.h"
 
+using namespace std;
+using namespace Spice;
 Element::Element(QGraphicsScene* parent) {
     setFlag(QGraphicsItem::ItemIsSelectable);
     setFlag(QGraphicsItem::ItemIsMovable);
