@@ -1,3 +1,4 @@
+
 #include "mainwindow.h"
 #include <qlistwidget.h>
 #include "./ui_mainwindow.h"
@@ -17,7 +18,9 @@
 #include "phasedialog.h"
 #include "wire.h"
 #include <QFileDialog>
+#include <QTimer>
 
+#include "Scope.h"
 using namespace std;
 using namespace Spice;
 MainWindow::MainWindow(QWidget *parent)
@@ -37,6 +40,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, &MainWindow::nodeNamePropagationRequested,
         this, &MainWindow::handleNodeNamePropagation);
     schematic = new SchematicView(this);
+    scope=new Scope(this);
+    tileSubWindowsVertically(ui->mdiArea);
+
 
 }
 
@@ -47,7 +53,6 @@ MainWindow::~MainWindow()
 }
 
 SchematicView::SchematicView(MainWindow *mainWindow) {
-    mainWindow->tileSubWindowsVertically();
     schematicScene=new QGraphicsScene(mainWindow);
     schematicScene->setSceneRect(-10000,-10000,20000,20000);
 
@@ -311,9 +316,44 @@ void MainWindow::on_actionTransient_triggered()
     }
 
 
-void MainWindow::tileSubWindowsVertically() const {
-    ui->mdiArea->tileSubWindows();
-}
+void MainWindow::tileSubWindowsVertically(QMdiArea* mdiArea) const {
+    if (!mdiArea)
+        return;
+
+    // Get only visible, non-minimized subwindows
+    QList<QMdiSubWindow*> visibleWindows;
+    for (QMdiSubWindow *window : mdiArea->subWindowList()) {
+        if (!window->isHidden() && !window->isMinimized())
+            visibleWindows.append(window);
+    }
+
+    if (visibleWindows.isEmpty())
+        return;
+
+    // Critical: Force layout update to ensure valid viewport dimensions
+    mdiArea->updateGeometry();
+    qApp->processEvents(); // Ensure pending layout events are processed
+
+    QWidget *viewport = mdiArea->viewport();
+    if (!viewport || viewport->width() <= 0 || viewport->height() <= 0)
+        return; // Still invalid - might need to delay further
+
+    const int windowCount = visibleWindows.size();
+    const int windowHeight = viewport->height() / windowCount;
+    const int windowWidth = viewport->width();
+
+    int y = 0;
+    for (QMdiSubWindow *window : visibleWindows) {
+        // Reset to normal state first (critical for geometry changes)
+        if (window->isMaximized())
+            window->showNormal();
+
+        // Set geometry RELATIVE TO VIEWPORT (0,0 is top-left of viewport)
+        window->setGeometry(0, y, windowWidth, windowHeight);
+        y += windowHeight;
+    }
+    }
+
 
 void MainWindow::tidyNodes() {
 
@@ -968,4 +1008,23 @@ void MainWindow::clearCircuit() {
 
     // Reset node ID counter
     Node::setNextId(0);
+}
+
+// Best practice: Call from resizeEvent or after show()
+void MainWindow::resizeEvent(QResizeEvent *event)
+{
+    QMdiArea *mdi = ui->mdiArea;
+    if (mdi->subWindowList().size() > 1) {
+        tileSubWindowsVertically(mdi);
+    }
+    QMainWindow::resizeEvent(event);
+}
+
+// Or after initial show (using single-shot timer)
+void MainWindow::showEvent(QShowEvent *event)
+{
+    QTimer::singleShot(0, this, [this] {
+        tileSubWindowsVertically(ui->mdiArea);
+    });
+    QMainWindow::showEvent(event);
 }

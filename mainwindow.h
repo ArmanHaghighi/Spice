@@ -13,6 +13,7 @@
 #include <cereal/archives/binary.hpp>
 #include <cereal/types/vector.hpp>
 #include <cereal/types/memory.hpp>
+class Scope;
 class Wire;
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -82,7 +83,7 @@ namespace Spice {
         Ui::MainWindow *ui;
         void deleteSelectedItems();
 
-        void tileSubWindowsVertically() const ;
+        void tileSubWindowsVertically(QMdiArea* mdiArea) const ;
 
         void tidyNodes();
     private slots:
@@ -136,7 +137,12 @@ namespace Spice {
 
         void clearCircuit();
 
+        void resizeEvent(QResizeEvent *event);
+
+        void showEvent(QShowEvent *event);
+
         SchematicView* schematic=nullptr;
+        Scope* scope=nullptr;
         QShortcut *escapeShortcut;
         std::vector<Element*> elements;
         Node* wireStartNode = nullptr;
