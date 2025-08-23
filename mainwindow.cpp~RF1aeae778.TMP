@@ -41,22 +41,9 @@ MainWindow::MainWindow(QWidget *parent)
         this, &MainWindow::handleNodeNamePropagation);
     schematic = new SchematicView(this);
     scope=new Scope(this,ui->customePlot);
+    connect(this,,scope,&Scope::onAddCursorToggled);
     tileSubWindowsVertically(ui->mdiArea);
-//______________________________________________________________________Just for testing TODO:Implement probing system and pass output of simulation to scope
-    //TODO: ADD and remove traces
-    QVector<double> x(1000), y1(1000), y2(1000);
-    for (int i = 0; i < 1000; ++i) {
-        x[i] = i / 100.0; // Time from 0 to 10 seconds
-        y1[i] = 5 * sin(2 * M_PI * 0.5 * x[i]); // 0.5 Hz sine wave
-        y2[i] = 3 * cos(2 * M_PI * 1.0 * x[i]) + QRandomGenerator::global()->bounded(1.0); // 1.0 Hz cosine with noise
-    }
 
-    // Add signals to scope
-    scope->addSignal(x, y1, "Sine Wave", Qt::blue);
-    scope->addSignal(x, y2, "Noisy Cosine", Qt::red);
-//_______________________________________________________________________________________
-    scope->enableCursors(true);
-    on_actionCursor_toggled(true);
 
 }
 
@@ -1045,25 +1032,18 @@ void MainWindow::showEvent(QShowEvent *event)
 
 void MainWindow::on_actionAdd_Cursor_triggered()
 {
-    scope->onAddCursorToggled();
+
 }
 
 
 void MainWindow::on_actionRemove_Cursor_triggered()
 {
-    scope->onRemoveCursor();
+
 }
 
 
 void MainWindow::on_actionSnap_toggled(bool arg1)
 {
-    scope->setSnapToData(arg1);
-}
 
-
-
-void MainWindow::on_actionCursor_toggled(bool arg1)
-{
-    scope->enableCursors(arg1);
 }
 

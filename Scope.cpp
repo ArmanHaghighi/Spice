@@ -8,36 +8,15 @@
 #include <limits>
 #include <cmath>
 
-Scope::Scope(QWidget *parent) :
+Scope::Scope(QWidget *parent,QCustomPlot* plot) :
     QWidget(parent),
     m_cursorVisible(false),
     m_snapToData(true),
     m_addCursorMode(false)
 {
-    // Setup UI
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-
-    // Control buttons
-    QHBoxLayout *buttonLayout = new QHBoxLayout();
-    QPushButton *addCursorBtn = new QPushButton("Add Cursor", this);
-    QPushButton *removeCursorBtn = new QPushButton("Remove Cursor", this);
-    QPushButton *snapToggleBtn = new QPushButton("Snap: ON", this);
-    QLabel *cursorInfo = new QLabel("Cursors: 0", this);
-
-    addCursorBtn->setCheckable(true);
-    snapToggleBtn->setCheckable(true);
-    snapToggleBtn->setChecked(true);
-
-    buttonLayout->addWidget(addCursorBtn);
-    buttonLayout->addWidget(removeCursorBtn);
-    buttonLayout->addWidget(snapToggleBtn);
-    buttonLayout->addWidget(cursorInfo);
-    buttonLayout->addStretch();
 
     // Setup plot
-    m_customPlot = new QCustomPlot(this);
-    mainLayout->addLayout(buttonLayout);
-    mainLayout->addWidget(m_customPlot);
+    m_customPlot = plot;
 
     // Configure plot
     m_customPlot->xAxis->setLabel("Time (s)");
@@ -61,11 +40,7 @@ Scope::Scope(QWidget *parent) :
     connect(m_customPlot, &QCustomPlot::mouseMove, this, &Scope::onMouseMove);
     connect(m_customPlot, &QCustomPlot::mousePress, this, &Scope::onMousePress);
     connect(m_customPlot, &QCustomPlot::plottableClick, this, &Scope::onPlottableClick);
-    connect(addCursorBtn, &QPushButton::toggled, this, &Scope::onAddCursorToggled);
-    connect(removeCursorBtn, &QPushButton::clicked, this, &Scope::onRemoveCursor);
-    connect(snapToggleBtn, &QPushButton::toggled, [snapToggleBtn](bool checked) {
-        snapToggleBtn->setText(checked ? "Snap: ON" : "Snap: OFF");
-    });
+    connect(m_customPlot, &QCustomPlot::plottableDoubleClick, this, &Scope::onPlottableDoubleClick);
 
     // Add initial cursor
     setupCursors();
@@ -195,6 +170,7 @@ void Scope::onMousePress(QMouseEvent *event) {
 
             m_cursors.append(newCursor);
             updateCursorVisuals();
+            m_addCursorMode = false;
         } else {
             // Select existing cursor
             for (int i = 0; i < m_cursors.size(); ++i) {
@@ -229,8 +205,8 @@ void Scope::onPlottableClick(QCPAbstractPlottable *plottable, int dataIndex, QMo
     plottable->selectionChanged(true);
 }
 
-void Scope::onAddCursorToggled(bool checked) {
-    m_addCursorMode = checked;
+void Scope::onAddCursorToggled() {
+    m_addCursorMode = true;
 }
 
 void Scope::onRemoveCursor() {
@@ -256,6 +232,18 @@ void Scope::onRemoveCursor() {
 
             updateCursorVisuals();
             break;
+        }
+    }
+}
+
+void Scope::onPlottableDoubleClick(QCPAbstractPlottable *plottable, int dataIndex, QMouseEvent *event) {
+    if (event->button() == Qt::LeftButton) {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this, "Delete Elements",
+                                     "Are you sure you want to delete this trace?",
+                                     QMessageBox::Yes | QMessageBox::No);
+        if (reply == QMessageBox::Yes) {
+            m_customPlot->removePlottable(plottable);
         }
     }
 }
@@ -353,7 +341,7 @@ void Scope::updateDeltaDisplay() {
     m_deltaXLabel->position->setCoords(0.05, 0.05);
 
     m_deltaYLabel->position->setType(QCPItemPosition::ptAxisRectRatio);
-    m_deltaYLabel->position->setCoords(0.05, 0.12);
+    m_deltaYLabel->position->setCoords(0.05, 0.15);
 
     m_deltaXLabel->setVisible(true);
     m_deltaYLabel->setVisible(true);

@@ -9,7 +9,6 @@
 #include <bits/stdc++.h>
 #include "elements.h"
 #include "addelementdialog.h"
-#include "node.h"
 #include <cereal/archives/binary.hpp>
 #include <cereal/types/vector.hpp>
 #include <cereal/types/memory.hpp>
@@ -129,8 +128,16 @@ namespace Spice {
 
         void handleNodeNamePropagation(Node *source, const QString &name);
 
-        signals:
-                void nodeNamePropagationRequested(Node* source, const QString& name);
+        void on_actionAdd_Cursor_triggered();
+
+        void on_actionRemove_Cursor_triggered();
+
+        void on_actionSnap_toggled(bool arg1);
+
+        void on_actionCursor_toggled(bool arg1);
+
+    signals:
+        void nodeNamePropagationRequested(Node* source, const QString& name);
     private:
         bool saveCircuit(const QString& filename);
         bool loadCircuit(const QString& filename);

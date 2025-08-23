@@ -5,6 +5,7 @@
 #include <QVector>
 #include <QPointF>
 #include "qcustomplot.h"
+#include "mainwindow.h"
 
 // Cursor structure to hold all cursor elements
 struct Cursor {
@@ -21,7 +22,9 @@ class Scope : public QWidget
     Q_OBJECT
 
 public:
-    explicit Scope(QWidget *parent = nullptr);
+    friend class MainWindow;
+
+    explicit Scope(QWidget *parent = nullptr,QCustomPlot* plot=nullptr);
     ~Scope();
 
     void addSignal(const QVector<double> &xData, const QVector<double> &yData,
@@ -54,12 +57,13 @@ private:
     QPointF findNearestDataPoint(double x, double y, QCPGraph *graph = nullptr);
     QCPGraph* getSelectedGraph();
 
-private slots:
+public slots:
     void onMouseMove(QMouseEvent *event);
     void onMousePress(QMouseEvent *event);
     void onPlottableClick(QCPAbstractPlottable *plottable, int dataIndex, QMouseEvent *event);
-    void onAddCursorToggled(bool checked);
+    void onAddCursorToggled();
     void onRemoveCursor();
+    void onPlottableDoubleClick(QCPAbstractPlottable *plottable, int dataIndex, QMouseEvent *event);
 };
 
 #endif // SCOPE_H

@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QMdiArea" name="mdiArea">
       <property name="viewMode">
-       <enum>QMdiArea::SubWindowView</enum>
+       <enum>QMdiArea::ViewMode::SubWindowView</enum>
       </property>
       <widget class="QWidget" name="Schematic">
        <property name="windowTitle">
@@ -28,7 +28,7 @@
         <item row="0" column="0">
          <widget class="SchematicView" name="schematicView">
           <property name="transformationAnchor">
-           <enum>QGraphicsView::AnchorViewCenter</enum>
+           <enum>QGraphicsView::ViewportAnchor::AnchorViewCenter</enum>
           </property>
          </widget>
         </item>
@@ -40,7 +40,7 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QWidget" name="widget" native="true"/>
+         <widget class="QCustomPlot" name="customePlot" native="true"/>
         </item>
        </layout>
       </widget>
@@ -54,7 +54,7 @@
      <x>0</x>
      <y>0</y>
      <width>1022</width>
-     <height>17</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -87,9 +87,19 @@
     <addaction name="separator"/>
     <addaction name="actionDelete"/>
    </widget>
+   <widget class="QMenu" name="menuScope">
+    <property name="title">
+     <string>Scope</string>
+    </property>
+    <addaction name="actionCursor"/>
+    <addaction name="actionAdd_Cursor"/>
+    <addaction name="actionRemove_Cursor"/>
+    <addaction name="actionSnap"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSchematic"/>
    <addaction name="menuSimulation"/>
+   <addaction name="menuScope"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
@@ -275,12 +285,50 @@
     <string>G</string>
    </property>
   </action>
+  <action name="actionAdd_Cursor">
+   <property name="text">
+    <string>Add Cursor</string>
+   </property>
+  </action>
+  <action name="actionRemove_Cursor">
+   <property name="text">
+    <string>Remove Cursor</string>
+   </property>
+  </action>
+  <action name="actionSnap">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Snap</string>
+   </property>
+  </action>
+  <action name="actionCursor">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Cursor</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
    <class>SchematicView</class>
    <extends>QGraphicsView</extends>
    <header location="global">mainwindow.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <tabstops>
