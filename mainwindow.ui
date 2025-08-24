@@ -129,6 +129,10 @@
    <addaction name="actionWire"/>
    <addaction name="separator"/>
    <addaction name="actionDelete"/>
+   <addaction name="separator"/>
+   <addaction name="actionVoltageProbe"/>
+   <addaction name="actionCurrentProbe"/>
+   <addaction name="actionPowerProbe"/>
   </widget>
   <action name="actionNew">
    <property name="icon">
@@ -261,7 +265,7 @@
      <normaloff>:/icons/assets/wire.png</normaloff>:/icons/assets/wire.png</iconset>
    </property>
    <property name="text">
-    <string>Resistor</string>
+    <string>Wire</string>
    </property>
    <property name="shortcut">
     <string>W</string>
@@ -315,6 +319,42 @@
    </property>
    <property name="text">
     <string>Cursor</string>
+   </property>
+  </action>
+  <action name="actionVoltageProbe">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/assets/voltage-meter.png</normaloff>:/icons/assets/voltage-meter.png</iconset>
+   </property>
+   <property name="text">
+    <string>Voltage probe</string>
+   </property>
+  </action>
+  <action name="actionCurrentProbe">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/assets/ammeter (1).png</normaloff>:/icons/assets/ammeter (1).png</iconset>
+   </property>
+   <property name="text">
+    <string>Current Probe</string>
+   </property>
+  </action>
+  <action name="actionPowerProbe">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/assets/electrical (4).png</normaloff>:/icons/assets/electrical (4).png</iconset>
+   </property>
+   <property name="text">
+    <string>Power Probe</string>
    </property>
   </action>
  </widget>

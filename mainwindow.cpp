@@ -1067,3 +1067,39 @@ void MainWindow::on_actionCursor_toggled(bool arg1)
     scope->enableCursors(arg1);
 }
 
+//==============================    //TODO: Add backednd for probing elements and nodes
+void MainWindow::on_actionVoltageProbe_triggered(bool checked)
+{
+    if (checked) {
+        for(QAction *a:ui->toolBar->actions()) {
+            if (a != ui->actionVoltageProbe) a->setChecked(false);
+        }
+        ui->schematicView->setCursor(Qt::PointingHandCursor);
+
+    }
+}
+
+
+void MainWindow::on_actionCurrentProbe_triggered(bool checked)
+{
+    if (checked) {
+        for(QAction *a:ui->toolBar->actions()) {
+            if (a != ui->actionCurrentProbe) a->setChecked(false);
+        }
+        ui->schematicView->setCursor(Qt::SizeHorCursor);
+    }
+}
+
+
+void MainWindow::on_actionPowerProbe_triggered(bool checked)
+{
+    if (checked) {
+        for(QAction *a:ui->toolBar->actions()) {
+            if (a != ui->actionPowerProbe) a->setChecked(false);
+        }
+        ui->schematicView->setCursor(QCursor(QPixmap(":/icons/assets/probe.png")));
+    }
+
+
+}
+//===========================================================================

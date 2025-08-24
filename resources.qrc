@@ -25,5 +25,10 @@
         <file>assets/diagram (1).png</file>
         <file>assets/diagram (2).png</file>
         <file>assets/diagram.png</file>
+        <file>assets/ammeter (1).png</file>
+        <file>assets/electrical (4).png</file>
+        <file>assets/voltage-meter.png</file>
+        <file>assets/ela.png</file>
+        <file>assets/probe.png</file>
     </qresource>
 </RCC>

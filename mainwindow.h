@@ -136,6 +136,12 @@ namespace Spice {
 
         void on_actionCursor_toggled(bool arg1);
 
+        void on_actionVoltageProbe_triggered(bool checked);
+
+        void on_actionCurrentProbe_triggered(bool checked);
+
+        void on_actionPowerProbe_triggered(bool checked);
+
     signals:
         void nodeNamePropagationRequested(Node* source, const QString& name);
     private:
