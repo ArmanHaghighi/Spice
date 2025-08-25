@@ -238,12 +238,66 @@ void Scope::onRemoveCursor() {
 
 void Scope::onPlottableDoubleClick(QCPAbstractPlottable *plottable, int dataIndex, QMouseEvent *event) {
     if (event->button() == Qt::LeftButton) {
-        QMessageBox::StandardButton reply;
-        reply = QMessageBox::question(this, "Delete Elements",
+        // Create a custom dialog
+        QDialog dialog(this);
+        dialog.setWindowTitle("Trace Properties");
+
+        // Create widgets
+        QLabel *nameLabel = new QLabel("Name:", &dialog);
+        QLineEdit *nameEdit = new QLineEdit(plottable->name(), &dialog);
+        QPushButton *colorButton = new QPushButton("Change Color", &dialog);
+
+        QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dialog);
+        QPushButton *deleteButton = new QPushButton("Delete", &dialog);
+        buttonBox->addButton(deleteButton, QDialogButtonBox::DestructiveRole);
+        // Set up layout
+        QVBoxLayout *layout = new QVBoxLayout(&dialog);
+        QHBoxLayout *nameLayout = new QHBoxLayout();
+        nameLayout->addWidget(nameLabel);
+        nameLayout->addWidget(nameEdit);
+        layout->addLayout(nameLayout);
+        layout->addWidget(colorButton);
+        layout->addWidget(buttonBox);
+
+        // Store the original color
+        QColor originalColor = plottable->pen().color();
+        QColor currentColor = originalColor;
+
+        // Connect signals
+        connect(colorButton, &QPushButton::clicked, [&]() {
+            // Generate a random color
+            currentColor = QColor::fromRgb(QRandomGenerator::global()->generate());
+            // Update the button text to show the color
+            colorButton->setStyleSheet(QString("background-color: %1; color: %2")
+                                      .arg(currentColor.name())
+                                      .arg(currentColor.lightness() > 128 ? "black" : "white"));
+        });
+
+        connect(buttonBox, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+        connect(buttonBox, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+        connect(deleteButton, &QPushButton::clicked, [&]() {
+            if (QMessageBox::question(this, "Confirm Delete",
                                      "Are you sure you want to delete this trace?",
-                                     QMessageBox::Yes | QMessageBox::No);
-        if (reply == QMessageBox::Yes) {
+                                     QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes) {
+                dialog.done(2); // Use a custom return code for delete
+            }
+        });
+
+        // Show the dialog
+        int result = dialog.exec();
+
+        // Handle the result
+        if (result == QDialog::Accepted) {
+            // Update the plottable with new name and color
+            plottable->setName(nameEdit->text());
+            QPen pen = plottable->pen();
+            pen.setColor(currentColor);
+            plottable->setPen(pen);
+            m_customPlot->replot();
+        } else if (result == 2) {
+            // Delete the plottable
             m_customPlot->removePlottable(plottable);
+            m_customPlot->replot();
         }
     }
 }
