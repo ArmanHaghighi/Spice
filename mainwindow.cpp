@@ -192,6 +192,7 @@ void MainWindow::on_actionCapacitor_toggled(bool checked)
 
     void MainWindow::on_actionNew_triggered()
     {
+        QProcess::startDetached(QApplication::applicationFilePath(), QStringList());
 
     }
 
